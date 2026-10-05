@@ -1,0 +1,44 @@
+<%
+/**
+ * FAQ page.
+ * @param page   the FAQ page object
+ * @param groups [{ title, items: [{ q, a }] }]
+ */
+%>
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <%- heroImage('main', '', { width: 1280, height: 500 }) %>
+  </div>
+  <div class="container">
+    <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
+    <span class="eyebrow eyebrow-plain" style="color:var(--lime-400)">Answers</span>
+    <h1><%= page.title %></h1>
+    <p><%= page.intro %></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-narrow">
+    <% groups.forEach(function (group) { %>
+      <div class="faq-section">
+        <h2><%= group.title %></h2>
+        <div class="faq-list" style="max-width:none">
+          <% group.items.forEach(function (f, i) { %>
+            <details class="faq-item" <%= (group === groups[0] && i === 0) ? 'open' : '' %>>
+              <summary><%= f.q %></summary>
+              <div class="faq-answer"><p><%= f.a %></p></div>
+            </details>
+          <% }); %>
+        </div>
+      </div>
+    <% }); %>
+
+    <div class="newsletter-band mt-5" style="grid-template-columns:1fr">
+      <div style="text-align:center">
+        <h3>Still not answered?</h3>
+        <p style="margin-bottom:22px">Send us the question directly — we answer every message ourselves.</p>
+        <a href="<%= relUrl('contact') %>" class="btn btn-lime"><%- icon('mail', '', 16) %> Contact the workshop</a>
+      </div>
+    </div>
+  </div>
+</section>

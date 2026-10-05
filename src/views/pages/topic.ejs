@@ -1,0 +1,78 @@
+<%
+/**
+ * Topic (blog category) archive.
+ * @param topic      the category object
+ * @param posts      posts in this topic for this page
+ * @param pagination pagination descriptor
+ * @param popular    most read posts
+ */
+%>
+<section class="topic-hero">
+  <div class="container">
+    <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
+    <span class="th-icon"><%- icon(topic.icon || 'leaf', '', 26) %></span>
+    <h1><%= topic.name %></h1>
+    <p><%= topic.description %></p>
+    <div class="th-meta">
+      <span><%- icon('book', '', 15) %> <%= pagination.total %> guides</span>
+      <span><%- icon('clock', '', 15) %> Updated regularly</span>
+      <span><%- icon('award', '', 15) %> All levels</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="layout-sidebar">
+      <div>
+        <div class="shop-toolbar">
+          <span class="result-count">
+            Showing <strong><%= pagination.from %>–<%= pagination.to %></strong> of <strong><%= pagination.total %></strong> guides
+          </span>
+          <form method="get" action="<%= relUrl('topic/' + topic.slug) %>">
+            <label class="sr-only" for="sort">Sort guides</label>
+            <select name="sort" id="sort" onchange="this.form.submit()">
+              <option value="latest" <%= sort === 'latest' ? 'selected' : '' %>>Newest first</option>
+              <option value="oldest" <%= sort === 'oldest' ? 'selected' : '' %>>Oldest first</option>
+              <option value="title" <%= sort === 'title' ? 'selected' : '' %>>Title A–Z</option>
+              <option value="readtime" <%= sort === 'readtime' ? 'selected' : '' %>>Quickest first</option>
+            </select>
+          </form>
+        </div>
+
+        <% if (!posts.length) { %>
+          <div class="empty-state">
+            <div class="es-icon"><%- icon('book', '', 40) %></div>
+            <h2>Nothing here yet</h2>
+            <p>We have not published in this topic yet. Try another one — or start with the beginner guide.</p>
+            <a href="<%= relUrl('palm-leaf-weaving-for-beginners') %>" class="btn btn-primary">Start with the basics</a>
+          </div>
+        <% } else { %>
+          <div class="grid grid-2">
+            <% posts.forEach(function (p, i) { %>
+              <%- include('../partials/post-card.ejs', { post: p, eager: i < 2 }) %>
+            <% }); %>
+          </div>
+          <%- include('../partials/pagination.ejs', { pagination: pagination }) %>
+        <% } %>
+
+        <% if (others && others.length) { %>
+          <div class="mt-5">
+            <div class="section-head">
+              <div class="sh-text"><h2>Other topics</h2></div>
+            </div>
+            <div class="tag-cloud">
+              <% others.forEach(function (c) { %>
+                <a class="tag-pill" href="<%= relUrl('topic/' + c.slug) %>">
+                  <%- icon(c.icon, '', 14) %> <%= c.name %> <span class="count"><%= c.count %></span>
+                </a>
+              <% }); %>
+            </div>
+          </div>
+        <% } %>
+      </div>
+
+      <%- include('../partials/sidebar-blog.ejs', { popular: popular, activeCat: topic.slug }) %>
+    </div>
+  </div>
+</section>

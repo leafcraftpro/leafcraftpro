@@ -1,0 +1,52 @@
+<%
+/**
+ * Product card.
+ * @param product a product object
+ * @param eager   boolean
+ */
+const p = product;
+const eager = !!locals.eager;
+const entry = (manifest.products && manifest.products[p.slug]) || {};
+const off = discountPercent(p.price, p.salePrice);
+const price = p.salePrice || p.price;
+const soldOut = p.stockStatus === 'out_of_stock';
+const sizes = '(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 300px';
+%>
+<article class="product-card reveal">
+  <a class="card-media" href="<%= relUrl('product/' + p.slug) %>" aria-label="<%= p.name %>">
+    <%- productImage(p.slug, p.name, {
+      sizes: sizes,
+      width: 480,
+      height: 480,
+      lazy: !eager,
+      fetchpriority: eager ? 'high' : '',
+      lqip: entry.lqip || '',
+      widths: entry.widths || null
+    }) %>
+    <% if (off > 0) { %>
+      <span class="card-badge sale"><%= off %>% OFF</span>
+    <% } else if (p.badge) { %>
+      <span class="card-badge lime"><%= p.badge %></span>
+    <% } %>
+  </a>
+
+  <div class="card-body">
+    <h3><a href="<%= relUrl('product/' + p.slug) %>"><%= p.name %></a></h3>
+
+    <div class="p-rating">
+      <%- starsHtml(p.rating, 14) %>
+      <small>(<%= p.reviewCount %>)</small>
+    </div>
+
+    <div class="p-price">
+      <%= money(price) %>
+      <% if (off > 0) { %><del><%= money(p.price) %></del><% } %>
+    </div>
+
+    <% if (soldOut) { %>
+      <span class="btn btn-ghost is-disabled" aria-disabled="true">Sold out</span>
+    <% } else { %>
+      <a class="btn btn-outline" href="<%= relUrl('product/' + p.slug) %>"><%- icon('bag', '', 16) %> View details</a>
+    <% } %>
+  </div>
+</article>

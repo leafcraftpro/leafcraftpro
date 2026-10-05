@@ -1,0 +1,121 @@
+<%
+/**
+ * HTML sitemap page.
+ * @param topics      blog categories with counts
+ * @param collections product categories with counts
+ * @param allPosts    every post
+ * @param allProducts every product
+ * @param allPages    every static page
+ */
+%>
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <%- heroImage('main', '', { width: 1280, height: 400 }) %>
+  </div>
+  <div class="container">
+    <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
+    <span class="eyebrow eyebrow-plain" style="color:var(--lime-400)">Everything in one place</span>
+    <h1>Site map</h1>
+    <p>Every page on LeafCraftPRO, grouped so you can find things quickly.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="sitemap-grid">
+      <div class="sitemap-col">
+        <h2>Main pages</h2>
+        <ul>
+          <li><a href="<%= relUrl('') %>">Home</a></li>
+          <li><a href="<%= relUrl('blog') %>">All craft guides</a></li>
+          <li><a href="<%= relUrl('shop') %>">Shop the collection</a></li>
+          <li><a href="<%= relUrl('topics') %>">Browse by topic</a></li>
+          <li><a href="<%= relUrl('search') %>">Search</a></li>
+          <li><a href="<%= relUrl('about') %>">About us</a></li>
+          <li><a href="<%= relUrl('contact') %>">Contact</a></li>
+          <li><a href="<%= relUrl('faq') %>">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="sitemap-col">
+        <h2>Topics</h2>
+        <ul>
+          <% topics.forEach(function (c) { %>
+            <li><a href="<%= relUrl('topic/' + c.slug) %>"><%= c.name %> (<%= c.count %>)</a></li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div class="sitemap-col">
+        <h2>Collections</h2>
+        <ul>
+          <% collections.forEach(function (c) { %>
+            <li><a href="<%= relUrl('collection/' + c.slug) %>"><%= c.name %> (<%= c.count %>)</a></li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div class="sitemap-col">
+        <h2>Information</h2>
+        <ul>
+          <% allPages.forEach(function (p) { %>
+            <li><a href="<%= relUrl(p.slug) %>"><%= p.title %></a></li>
+          <% }); %>
+          <li><a href="<%= relUrl('shipping-returns') %>">Shipping &amp; returns</a></li>
+          <li><a href="<%= relUrl('privacy-policy') %>">Privacy policy</a></li>
+          <li><a href="<%= relUrl('cookie-policy') %>">Cookie policy</a></li>
+          <li><a href="<%= relUrl('terms') %>">Terms &amp; conditions</a></li>
+          <li><a href="<%= relUrl('accessibility') %>">Accessibility</a></li>
+          <li><a href="<%= relUrl('craft-glossary') %>">Craft glossary</a></li>
+        </ul>
+      </div>
+
+      <div class="sitemap-col">
+        <h2>Feed &amp; files</h2>
+        <ul>
+          <li><a href="<%= relUrl('sitemap.xml') %>">XML sitemap</a></li>
+          <li><a href="<%= relUrl('feed.xml') %>">RSS feed</a></li>
+          <li><a href="<%= relUrl('robots.txt') %>">robots.txt</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <div class="section-head">
+        <div class="sh-text"><h2>All <%= allPosts.length %> craft guides</h2></div>
+      </div>
+      <div class="sitemap-grid">
+        <% topics.forEach(function (c) { %>
+          <div class="sitemap-col">
+            <h2><%= c.name %></h2>
+            <ul>
+              <% allPosts.filter(function (p) { return p.categorySlug === c.slug; }).forEach(function (p) { %>
+                <li><a href="<%= relUrl(p.slug) %>"><%= p.title %></a></li>
+              <% }); %>
+            </ul>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <div class="section-head">
+        <div class="sh-text"><h2>All <%= allProducts.length %> products</h2></div>
+      </div>
+      <div class="sitemap-grid">
+        <% collections.forEach(function (c) { %>
+          <div class="sitemap-col">
+            <h2><%= c.name %></h2>
+            <ul>
+              <% allProducts.filter(function (p) { return p.category === c.slug; }).forEach(function (p) { %>
+                <li><a href="<%= relUrl('product/' + p.slug) %>"><%= p.name %></a></li>
+              <% }); %>
+            </ul>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+
+  </div>
+</section>

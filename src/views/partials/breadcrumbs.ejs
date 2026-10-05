@@ -1,0 +1,19 @@
+<%
+/**
+ * Breadcrumbs.
+ * @param trail array of { name, path }
+ * @param onDark boolean — use the light-on-dark variant
+ */
+const items = trail || [];
+const dark = !!locals.onDark;
+%>
+<nav class="breadcrumbs <%= dark ? 'on-dark' : 'on-light' %>" aria-label="Breadcrumb">
+  <% items.forEach(function (item, i) { %>
+    <% if (i > 0) { %><span class="sep" aria-hidden="true">/</span><% } %>
+    <% if (i === items.length - 1) { %>
+      <span class="current" aria-current="page"><%= item.name %></span>
+    <% } else { %>
+      <a href="<%= relUrl(item.path) %>"><%= item.name %></a>
+    <% } %>
+  <% }); %>
+</nav>

@@ -1,0 +1,68 @@
+<%
+/**
+ * Product collection (category) archive.
+ * @param collection  the product category object
+ * @param products    products in this collection for this page
+ * @param pagination  pagination descriptor
+ * @param collections all collections with counts
+ */
+%>
+<section class="topic-hero">
+  <div class="container">
+    <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
+    <span class="th-icon"><%- icon(collection.icon || 'box', '', 26) %></span>
+    <h1><%= collection.name %></h1>
+    <p><%= collection.description %></p>
+    <div class="th-meta">
+      <span><%- icon('bag', '', 15) %> <%= pagination.total %> products</span>
+      <span><%- icon('truck', '', 15) %> Free shipping over <%= money(site.freeShippingThreshold) %></span>
+      <span><%- icon('refresh', '', 15) %> <%= site.returnsNote %></span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="shop-layout">
+      <aside class="filter-panel" aria-label="Shop filters">
+        <div class="filter-card">
+          <h4>Collections</h4>
+          <ul class="filter-list">
+            <li><a href="<%= relUrl('shop') %>">All products</a></li>
+            <% collections.forEach(function (c) { %>
+              <li>
+                <a href="<%= relUrl('collection/' + c.slug) %>" class="<%= c.slug === collection.slug ? 'is-active' : '' %>">
+                  <%= c.name %> <span class="count"><%= c.count %></span>
+                </a>
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+      </aside>
+
+      <div>
+        <div class="shop-toolbar">
+          <span class="result-count">
+            Showing <strong><%= pagination.from %>–<%= pagination.to %></strong> of <strong><%= pagination.total %></strong> products
+          </span>
+        </div>
+
+        <% if (!products.length) { %>
+          <div class="empty-state">
+            <div class="es-icon"><%- icon('box', '', 40) %></div>
+            <h2>Nothing here yet</h2>
+            <p>We are weaving new pieces for this collection. Have a look at the rest of the shop.</p>
+            <a href="<%= relUrl('shop') %>" class="btn btn-primary">Shop everything</a>
+          </div>
+        <% } else { %>
+          <div class="grid grid-3">
+            <% products.forEach(function (p, i) { %>
+              <%- include('../partials/product-card.ejs', { product: p, eager: i < 3 }) %>
+            <% }); %>
+          </div>
+          <%- include('../partials/pagination.ejs', { pagination: pagination }) %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>

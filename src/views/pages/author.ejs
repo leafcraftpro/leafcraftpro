@@ -1,0 +1,52 @@
+<%
+/**
+ * Author archive.
+ * @param author the author object
+ * @param posts  posts by this author
+ */
+const initials = author.name.split(' ').map(function (n) { return n[0]; }).join('').slice(0, 2).toUpperCase();
+%>
+<section class="topic-hero">
+  <div class="container">
+    <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
+    <div style="display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-bottom:18px">
+      <span style="width:82px;height:82px;border-radius:50%;overflow:hidden;flex:none;border:3px solid rgba(255,255,255,.25)">
+        <span class="author-initials" style="font-size:1.7rem"><%= initials %></span>
+      </span>
+      <div>
+        <span class="eyebrow eyebrow-plain" style="color:var(--lime-400)"><%= author.role %></span>
+        <h1 style="margin:2px 0 0"><%= author.name %></h1>
+      </div>
+    </div>
+    <p><%= author.bio %></p>
+    <div class="th-meta">
+      <span><%- icon('book', '', 15) %> <%= posts.length %> guides published</span>
+      <span><%- icon('map-pin', '', 15) %> <%= author.location %></span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <% if (!posts.length) { %>
+      <div class="empty-state">
+        <div class="es-icon"><%- icon('book', '', 40) %></div>
+        <h2>No guides yet</h2>
+        <p>This author has not published anything yet.</p>
+        <a href="<%= relUrl('blog') %>" class="btn btn-primary">Browse all guides</a>
+      </div>
+    <% } else { %>
+      <div class="section-head">
+        <div class="sh-text">
+          <h2>Guides by <%= author.name.split(' ')[0] %></h2>
+          <p>Every tutorial <%= author.name.split(' ')[0] %> has written for the site.</p>
+        </div>
+      </div>
+      <div class="grid grid-3">
+        <% posts.forEach(function (p, i) { %>
+          <%- include('../partials/post-card.ejs', { post: p, eager: i < 3 }) %>
+        <% }); %>
+      </div>
+    <% } %>
+  </div>
+</section>

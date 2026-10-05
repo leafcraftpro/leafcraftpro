@@ -1,0 +1,274 @@
+<%
+/**
+ * Product detail page.
+ * @param product    the product object
+ * @param related    related products
+ * @param collection the product category object
+ * @param distribution { 5: n, 4: n, ... } rating distribution
+ */
+const off = discountPercent(product.price, product.salePrice);
+const price = product.salePrice || product.price;
+const soldOut = product.stockStatus === 'out_of_stock';
+const images = (product.images && product.images.length) ? product.images : [product.slug];
+const totalReviews = Math.max(1, Object.values(distribution).reduce(function (a, b) { return a + b; }, 0));
+const widthsFor = function (slug) { return (manifest.products[slug] || {}).widths || null; };
+const lqipFor = function (slug) { return (manifest.products[slug] || {}).lqip || ''; };
+%>
+
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <%- productImage(images[0], '', { sizes: '100vw', width: 1000, height: 500, lazy: false, widths: widthsFor(images[0]) }) %>
+  </div>
+  <div class="container">
+    <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
+    <% if (collection) { %>
+      <span class="eyebrow eyebrow-plain" style="color:var(--lime-400)"><%= collection.name %></span>
+    <% } %>
+    <h1><%= product.name %></h1>
+    <p><%= collection ? collection.tagline : site.productTagline %></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="product-top">
+      <!-- ---------- Gallery ---------- -->
+      <div class="product-gallery">
+        <div class="pg-main">
+          <%- productImage(images[0], product.name, {
+            sizes: '(max-width: 980px) 100vw, 560px', width: 720, height: 720, lazy: false,
+            fetchpriority: 'high', widths: widthsFor(images[0]), lqip: lqipFor(images[0])
+          }) %>
+          <% if (off > 0) { %>
+            <span class="card-badge sale" style="top:16px;left:16px;font-size:.72rem;padding:7px 14px"><%= off %>% OFF</span>
+          <% } else if (product.badge) { %>
+            <span class="card-badge lime" style="top:16px;left:16px;font-size:.72rem;padding:7px 14px"><%= product.badge %></span>
+          <% } %>
+          <a class="pg-zoom" href="<%= relUrl('images/products/' + images[0] + '-1000.webp') %>"
+             target="_blank" rel="noopener" aria-label="View full size image">
+            <%- icon('zoom', '', 18) %>
+          </a>
+        </div>
+
+        <% if (images.length > 1) { %>
+        <div class="pg-thumbs" role="group" aria-label="Product images">
+          <% images.forEach(function (img, i) { %>
+            <button type="button" class="pg-thumb <%= i === 0 ? 'is-active' : '' %>"
+                    data-full="<%= relUrl('images/products/' + img + '-720.webp') %>"
+                    data-srcset="<%= [320, 480, 720, 1000].map(function (w) { return relUrl('images/products/' + img + '-' + w + '.webp') + ' ' + w + 'w'; }).join(', ') %>"
+                    aria-pressed="<%= i === 0 ? 'true' : 'false' %>"
+                    aria-label="View image <%= i + 1 %> of <%= images.length %>">
+              <%- productImage(img, product.name + ' — view ' + (i + 1), {
+                sizes: '84px', width: 320, height: 320, lazy: true, widths: widthsFor(img)
+              }) %>
+            </button>
+          <% }); %>
+        </div>
+        <% } %>
+      </div>
+
+      <!-- ---------- Info ---------- -->
+      <div class="product-info">
+        <span class="p-badge"><%= product.badge || 'Handmade Craft' %></span>
+
+        <div class="p-rating-row">
+          <%- starsHtml(product.rating, 17) %>
+          <span><strong><%= Number(product.rating).toFixed(1) %></strong> (<%= product.reviewCount %> reviews)</span>
+          <% if (soldOut) { %>
+            <span style="color:var(--red);font-weight:600">· Sold out</span>
+          <% } else { %>
+            <span class="text-green" style="font-weight:600">· In stock</span>
+          <% } %>
+        </div>
+
+        <div class="p-price-row">
+          <span class="now"><%= money(price) %></span>
+          <% if (off > 0) { %>
+            <del><%= money(product.price) %></del>
+            <span class="off"><%= off %>% OFF</span>
+          <% } %>
+        </div>
+
+        <div class="p-short"><p><%= product.shortDescription %></p></div>
+
+        <div class="p-points">
+          <span class="p-point"><%- icon('leaf', '', 18) %> 100% natural</span>
+          <span class="p-point"><%- icon('hand', '', 18) %> Woven by hand</span>
+          <span class="p-point"><%- icon('recycle', '', 18) %> Compostable</span>
+        </div>
+
+        <div class="p-purchase">
+          <div class="qty-input">
+            <button type="button" data-action="minus" aria-label="Decrease quantity"><%- icon('minus', '', 16) %></button>
+            <label class="sr-only" for="qty">Quantity</label>
+            <input type="number" id="qty" value="1" min="1" max="99">
+            <button type="button" data-action="plus" aria-label="Increase quantity"><%- icon('plus', '', 16) %></button>
+          </div>
+          <% if (soldOut) { %>
+            <span class="btn btn-ghost is-disabled" style="flex:1;min-width:190px;height:52px" aria-disabled="true">Sold out</span>
+          <% } else { %>
+            <a class="btn btn-primary" style="flex:1;min-width:190px;height:52px"
+               href="mailto:<%= site.email %>?subject=<%= encodeURIComponent('Order enquiry: ' + product.name) %>&body=<%= encodeURIComponent('Hello,\n\nI would like to order:\n\n' + product.name + ' (' + product.sku + ') — ' + money(price) + '\n\nQuantity: \nDelivery name: \nDelivery address: \n\nThank you.') %>">
+              <%- icon('bag', '', 17) %> Order by email
+            </a>
+          <% } %>
+        </div>
+
+        <p style="font-size:.82rem;color:var(--muted);margin:0 0 4px">
+          <%- icon('info', '', 14) %> This is a static catalogue — orders are confirmed by email so we can quote shipping to your country accurately.
+        </p>
+
+        <div class="p-meta-list">
+          <div class="pm-row"><%- icon('truck', '', 16) %><span><%= site.shippingNote %></span></div>
+          <div class="pm-row"><%- icon('refresh', '', 16) %><span><%= site.returnsNote %></span></div>
+          <div class="pm-row"><%- icon('shield', '', 16) %><span>Plastic-free, biodegradable packaging</span></div>
+          <div class="pm-row"><strong>SKU:</strong><span><%= product.sku %></span></div>
+          <% if (collection) { %>
+            <div class="pm-row"><strong>Collection:</strong>
+              <a href="<%= relUrl('collection/' + collection.slug) %>"><%= collection.name %></a>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------- Trust strip ---------- -->
+    <div class="trust-strip">
+      <div class="trust-item">
+        <span class="ti-icon"><%- icon('leaf', '', 22) %></span>
+        <h4>Natural material</h4>
+        <p>Palm and coconut leaves</p>
+      </div>
+      <div class="trust-item">
+        <span class="ti-icon"><%- icon('hand', '', 22) %></span>
+        <h4>Handmade</h4>
+        <p>By our own workshop</p>
+      </div>
+      <div class="trust-item">
+        <span class="ti-icon"><%- icon('recycle', '', 22) %></span>
+        <h4>Compostable</h4>
+        <p>No plastic, ever</p>
+      </div>
+      <div class="trust-item">
+        <span class="ti-icon"><%- icon('gift', '', 22) %></span>
+        <h4>Gift ready</h4>
+        <p>Wrapped in recycled linen</p>
+      </div>
+    </div>
+
+    <!-- ---------- Tabs ---------- -->
+    <div class="tabs">
+      <div class="tab-nav" role="tablist" aria-label="Product information">
+        <button class="tab-btn is-active" data-tab="description" role="tab" aria-selected="true"><%- icon('file', '', 16) %> Description</button>
+        <button class="tab-btn" data-tab="info" role="tab" aria-selected="false"><%- icon('info', '', 16) %> Details</button>
+        <button class="tab-btn" data-tab="reviews" role="tab" aria-selected="false"><%- icon('comment', '', 16) %> Reviews (<%= product.reviewCount %>)</button>
+        <button class="tab-btn" data-tab="shipping" role="tab" aria-selected="false"><%- icon('truck', '', 16) %> Shipping &amp; returns</button>
+      </div>
+
+      <div class="tab-panel is-active" data-panel="description" id="description" role="tabpanel">
+        <div class="article-body" style="font-size:1rem">
+          <%- renderBlocks(product.description) %>
+        </div>
+
+        <h3 class="mt-4">Key features</h3>
+        <ul class="feature-checks">
+          <% (product.features || []).forEach(function (f) { %>
+            <li><%- icon('check-circle', '', 18) %> <span><%= f %></span></li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div class="tab-panel" data-panel="info" id="info" role="tabpanel" hidden>
+        <h3>Additional information</h3>
+        <table class="spec-table">
+          <tbody>
+            <tr><th>Material</th><td><%= product.material %></td></tr>
+            <tr><th>Dimensions</th><td><%= product.dimensions %></td></tr>
+            <tr><th>Weight</th><td><%= product.weight %></td></tr>
+            <tr><th>Colour</th><td><%= product.colour %></td></tr>
+            <tr><th>SKU</th><td><%= product.sku %></td></tr>
+            <tr><th>Availability</th><td><%= soldOut ? 'Sold out' : 'In stock' + (product.stock > 0 ? ' (' + product.stock + ' available)' : '') %></td></tr>
+            <tr><th>Handmade</th><td>Yes — individually crafted by hand, so slight variations in colour and shape are natural.</td></tr>
+            <tr><th>Care</th><td><%= product.care %></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-panel" data-panel="reviews" id="reviews" role="tabpanel" hidden>
+        <h3>Customer reviews</h3>
+
+        <div class="review-summary">
+          <div class="review-score">
+            <div class="rs-num"><%= Number(product.rating).toFixed(1) %></div>
+            <%- starsHtml(product.rating, 19) %>
+            <small>Based on <%= product.reviewCount %> reviews</small>
+          </div>
+          <div class="rating-bars">
+            <% [5, 4, 3, 2, 1].forEach(function (star) { %>
+              <div class="rating-bar">
+                <span><%= star %> star</span>
+                <span class="rb-track">
+                  <span class="rb-fill" style="width:<%= Math.round(((distribution[star] || 0) / totalReviews) * 100) %>%"></span>
+                </span>
+                <span><%= distribution[star] || 0 %></span>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+
+        <% if (product.reviews && product.reviews.length) { %>
+          <div class="review-list">
+            <% product.reviews.forEach(function (r) { %>
+              <div class="review-item">
+                <div class="ri-avatar"><%= r.name.charAt(0).toUpperCase() %></div>
+                <div style="flex:1">
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+                    <h4><%= r.name %></h4>
+                    <span class="ri-date"><%= formatDate(r.date, 'short') %></span>
+                  </div>
+                  <%- starsHtml(r.rating, 15) %>
+                  <p><%= r.text %></p>
+                </div>
+              </div>
+            <% }); %>
+          </div>
+        <% } else { %>
+          <p class="text-muted">No reviews yet.</p>
+        <% } %>
+      </div>
+
+      <div class="tab-panel" data-panel="shipping" id="shipping" role="tabpanel" hidden>
+        <h3>Shipping &amp; returns</h3>
+        <div class="article-body" style="font-size:1rem">
+          <p><strong>Processing time:</strong> orders are confirmed by email and dispatched within one to two business days.</p>
+          <p><strong>Delivery estimates:</strong> three to five business days domestically, seven to fourteen business days internationally.</p>
+          <p><strong>Free shipping:</strong> available on orders over <%= money(site.freeShippingThreshold) %>.</p>
+          <p><strong>Returns:</strong> thirty days from delivery to return any unused item in its original condition for a full refund. Return shipping is your responsibility unless the item arrived damaged.</p>
+          <p><strong>Packaging:</strong> plastic-free and biodegradable wherever it is practical.</p>
+        </div>
+        <a class="btn btn-ghost btn-sm mt-3" href="<%= relUrl('shipping-returns') %>">Full shipping &amp; returns policy <%- icon('arrow-right', '', 15) %></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- Related ---------- -->
+<% if (related.length) { %>
+<section class="section bg-cream-2">
+  <div class="container">
+    <div class="section-head">
+      <div class="sh-text">
+        <h2>You may also like</h2>
+        <p>Pieces that sit well alongside this one.</p>
+      </div>
+      <a class="view-all" href="<%= relUrl('shop') %>">Shop everything <%- icon('arrow-right', '', 15) %></a>
+    </div>
+    <div class="grid grid-4">
+      <% related.slice(0, 4).forEach(function (p) { %>
+        <%- include('../partials/product-card.ejs', { product: p }) %>
+      <% }); %>
+    </div>
+  </div>
+</section>
+<% } %>

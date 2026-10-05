@@ -1,0 +1,50 @@
+<%
+/**
+ * Generic inner page (about, policies, glossary, accessibility…).
+ * @param page  the page object
+ */
+%>
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <%- heroImage('main', '', { width: 1280, height: 500 }) %>
+  </div>
+  <div class="container">
+    <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
+    <% if (page.eyebrow) { %>
+      <span class="eyebrow eyebrow-plain" style="color:var(--lime-400)"><%= page.eyebrow %></span>
+    <% } %>
+    <h1><%= page.title %></h1>
+    <% if (page.intro) { %><p><%= page.intro %></p><% } %>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-narrow">
+    <div class="article-body">
+      <%- renderBlocks(page.blocks) %>
+    </div>
+
+    <% if (page.faq && page.faq.length) { %>
+      <section class="mt-5" aria-labelledby="page-faq">
+        <div class="section-head">
+          <div class="sh-text"><h2 id="page-faq">Frequently asked questions</h2></div>
+        </div>
+        <div class="faq-list" style="max-width:none">
+          <% page.faq.forEach(function (f, i) { %>
+            <details class="faq-item" <%= i === 0 ? 'open' : '' %>>
+              <summary><%= f.q %></summary>
+              <div class="faq-answer"><p><%= f.a %></p></div>
+            </details>
+          <% }); %>
+        </div>
+      </section>
+    <% } %>
+
+    <p class="text-muted mt-5" style="font-size:.84rem">
+      Last updated <%= formatDate(page.updatedAt) %>.
+      <% if (['privacy-policy','terms','cookie-policy','accessibility'].indexOf(page.slug) !== -1) { %>
+        Questions about this page? <a href="<%= relUrl('contact') %>">Contact us</a>.
+      <% } %>
+    </p>
+  </div>
+</section>

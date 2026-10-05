@@ -1,0 +1,176 @@
+<%
+/**
+ * Single blog post.
+ * @param post       decorated post
+ * @param related    related posts
+ * @param neighbours { prev, next }
+ * @param popular    most read posts
+ * @param headings   extracted heading list for the table of contents
+ */
+const shareUrl = absoluteUrl(post.slug);
+const shareText = encodeURIComponent(post.title);
+const author = post.author;
+const initials = author.name.split(' ').map(function (n) { return n[0]; }).join('').slice(0, 2).toUpperCase();
+%>
+
+<section class="page-hero" style="padding-bottom:104px">
+  <div class="page-hero-bg">
+    <%- blogImage(post.slug, '', { sizes: '100vw', width: 1280, height: 640, lazy: false,
+        widths: (manifest.blog[post.slug] || {}).widths || null }) %>
+  </div>
+  <div class="container">
+    <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
+    <% if (post.category) { %>
+      <a class="eyebrow eyebrow-plain" style="color:var(--lime-400)"
+         href="<%= relUrl('topic/' + post.category.slug) %>"><%= post.category.name %></a>
+    <% } %>
+    <h1 style="max-width:920px"><%= post.title %></h1>
+    <% if (post.excerpt) { %>
+      <p style="max-width:760px"><%= truncate(post.excerpt, 220) %></p>
+    <% } %>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="layout-sidebar">
+      <div>
+        <article>
+
+          <div class="article-header"
+               style="margin-top:-72px;position:relative;z-index:3;background:var(--cream);border-radius:var(--radius-lg);padding:28px 32px 0;box-shadow:var(--shadow-sm)">
+            <div class="article-meta" style="border-top:0;padding-top:0">
+              <span class="am-item"><%- icon('calendar', '', 15) %> <time datetime="<%= formatDate(post.publishedAt, 'iso') %>"><%= formatDate(post.publishedAt) %></time></span>
+              <a class="am-author" href="<%= relUrl('author/' + author.slug) %>">
+                <span class="am-avatar"><span class="author-initials"><%= initials %></span></span>
+                By <%= author.name %>
+              </a>
+              <span class="am-item"><%- icon('clock', '', 15) %> <%= post.readTime %> min read</span>
+              <span class="am-item"><%- icon('file', '', 15) %> <%= post.wordCount.toLocaleString() %> words</span>
+            </div>
+          </div>
+
+          <div class="share-row">
+            <span class="sr-label">Share</span>
+            <a class="share-btn fb" target="_blank" rel="noopener"
+               href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURIComponent(shareUrl) %>" aria-label="Share on Facebook"><%- icon('facebook', '', 16) %></a>
+            <a class="share-btn tw" target="_blank" rel="noopener"
+               href="https://twitter.com/intent/tweet?url=<%= encodeURIComponent(shareUrl) %>&text=<%= shareText %>" aria-label="Share on X"><%- icon('twitter', '', 16) %></a>
+            <a class="share-btn pin" target="_blank" rel="noopener"
+               href="https://pinterest.com/pin/create/button/?url=<%= encodeURIComponent(shareUrl) %>&description=<%= shareText %>" aria-label="Save to Pinterest"><%- icon('pinterest', '', 16) %></a>
+            <a class="share-btn wa" target="_blank" rel="noopener"
+               href="https://wa.me/?text=<%= shareText %>%20<%= encodeURIComponent(shareUrl) %>" aria-label="Share on WhatsApp"><%- icon('whatsapp', '', 16) %></a>
+            <a class="share-btn mail"
+               href="mailto:?subject=<%= shareText %>&body=<%= encodeURIComponent(shareUrl) %>" aria-label="Share by email"><%- icon('mail', '', 16) %></a>
+            <button type="button" class="share-btn link" data-copy="<%= shareUrl %>" aria-label="Copy link"><%- icon('link', '', 16) %></button>
+            <button type="button" class="btn btn-ghost btn-sm" style="margin-left:auto"
+                    onclick="window.print()"><%- icon('print', '', 15) %> Save</button>
+          </div>
+
+          <% if (headings.length >= 3) { %>
+          <nav class="toc" aria-label="On this page">
+            <h2><%- icon('list', '', 16) %> On this page</h2>
+            <ol>
+              <% headings.forEach(function (h) { %>
+                <li><a href="#<%= h.id %>"><%= h.text %></a></li>
+              <% }); %>
+            </ol>
+          </nav>
+          <% } %>
+
+          <div class="article-body">
+            <% if (quickAnswer) { %>
+            <div class="quick-answer">
+              <h2>In short</h2>
+              <p><%= quickAnswer %></p>
+            </div>
+            <% } %>
+
+            <div class="article-lead"><%- post.intro %></div>
+            <%- renderBlocks(post.blocks) %>
+          </div>
+
+          <% if (post.tags && post.tags.length) { %>
+            <div class="mt-4 tag-cloud">
+              <% post.tags.forEach(function (t) { %>
+                <span class="tag-pill"><%- icon('tag', '', 14) %> <%= t %></span>
+              <% }); %>
+            </div>
+          <% } %>
+
+          <% if (post.category) { %>
+            <div class="mt-4">
+              <a class="btn btn-ghost btn-sm" href="<%= relUrl('topic/' + post.category.slug) %>">
+                <%- icon('layers', '', 15) %> More in <%= post.category.name %>
+              </a>
+            </div>
+          <% } %>
+
+          <% if (post.faq && post.faq.length) { %>
+          <section class="mt-5" aria-labelledby="faq-heading">
+            <div class="section-head">
+              <div class="sh-text"><h2 id="faq-heading">Frequently asked questions</h2></div>
+            </div>
+            <div class="faq-list" style="max-width:none">
+              <% post.faq.forEach(function (f, i) { %>
+                <details class="faq-item" <%= i === 0 ? 'open' : '' %>>
+                  <summary><%= f.q %></summary>
+                  <div class="faq-answer"><p><%= f.a %></p></div>
+                </details>
+              <% }); %>
+            </div>
+          </section>
+          <% } %>
+
+          <% if (neighbours.prev || neighbours.next) { %>
+          <nav class="post-nav" aria-label="Post navigation">
+            <% if (neighbours.prev) { %>
+              <a href="<%= relUrl(neighbours.prev.slug) %>">
+                <span class="pn-label"><%- icon('arrow-left', '', 13) %> Previous guide</span>
+                <span class="pn-title"><%= truncate(neighbours.prev.title, 70) %></span>
+              </a>
+            <% } else { %><span></span><% } %>
+            <% if (neighbours.next) { %>
+              <a class="next" href="<%= relUrl(neighbours.next.slug) %>">
+                <span class="pn-label">Next guide <%- icon('arrow-right', '', 13) %></span>
+                <span class="pn-title"><%= truncate(neighbours.next.title, 70) %></span>
+              </a>
+            <% } %>
+          </nav>
+          <% } %>
+
+          <div class="author-box">
+            <div class="ab-avatar"><div class="author-initials"><%= initials %></div></div>
+            <div>
+              <span class="ab-role"><%= author.role %></span>
+              <h4><%= author.name %></h4>
+              <p><%= author.bio %></p>
+              <div class="social-row" style="margin-top:14px">
+                <% Object.entries(author.social || {}).forEach(function (s) { %>
+                  <a href="<%= s[1] %>" target="_blank" rel="noopener noreferrer" aria-label="<%= s[0] %>"
+                     style="background:var(--lime-100);color:var(--green-700)"><%- icon(s[0], '', 15) %></a>
+                <% }); %>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <% if (related.length) { %>
+        <div class="mt-5">
+          <div class="section-head">
+            <div class="sh-text"><h2>Related guides</h2></div>
+            <a class="view-all" href="<%= relUrl('blog') %>">All guides <%- icon('arrow-right', '', 15) %></a>
+          </div>
+          <div class="grid grid-2">
+            <% related.slice(0, 4).forEach(function (r) { %>
+              <%- include('../partials/post-card.ejs', { post: r }) %>
+            <% }); %>
+          </div>
+        </div>
+        <% } %>
+      </div>
+
+      <%- include('../partials/sidebar-blog.ejs', { popular: popular, activeCat: post.categorySlug }) %>
+    </div>
+  </div>
+</section>

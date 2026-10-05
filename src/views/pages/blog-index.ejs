@@ -1,0 +1,60 @@
+<%
+/**
+ * Blog index.
+ * @param posts      posts for this page
+ * @param pagination pagination descriptor
+ * @param popular    most read posts
+ */
+%>
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <%- heroImage('main', '', { width: 1280, height: 500 }) %>
+  </div>
+  <div class="container">
+    <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
+    <span class="eyebrow eyebrow-plain" style="color:var(--lime-400)">The full library</span>
+    <h1>Craft guides &amp; tutorials</h1>
+    <p>Every guide we have published — fifty in total — each one made by hand in our workshop before it went live.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="layout-sidebar">
+      <div>
+        <div class="shop-toolbar">
+          <span class="result-count">
+            Showing <strong><%= pagination.from %>–<%= pagination.to %></strong> of <strong><%= pagination.total %></strong> guides
+          </span>
+          <form method="get" action="<%= relUrl('blog') %>">
+            <label class="sr-only" for="sort">Sort guides</label>
+            <select name="sort" id="sort" onchange="this.form.submit()">
+              <option value="latest" <%= sort === 'latest' ? 'selected' : '' %>>Newest first</option>
+              <option value="oldest" <%= sort === 'oldest' ? 'selected' : '' %>>Oldest first</option>
+              <option value="title" <%= sort === 'title' ? 'selected' : '' %>>Title A–Z</option>
+              <option value="readtime" <%= sort === 'readtime' ? 'selected' : '' %>>Quickest first</option>
+            </select>
+          </form>
+        </div>
+
+        <% if (!posts.length) { %>
+          <div class="empty-state">
+            <div class="es-icon"><%- icon('book', '', 40) %></div>
+            <h2>No guides yet</h2>
+            <p>We are busy on the bench. Check back soon, or browse another topic.</p>
+            <a href="<%= relUrl('blog') %>" class="btn btn-primary"><%- icon('arrow-left', '', 16) %> All guides</a>
+          </div>
+        <% } else { %>
+          <div class="grid grid-2">
+            <% posts.forEach(function (p, i) { %>
+              <%- include('../partials/post-card.ejs', { post: p, eager: i < 2 }) %>
+            <% }); %>
+          </div>
+          <%- include('../partials/pagination.ejs', { pagination: pagination }) %>
+        <% } %>
+      </div>
+
+      <%- include('../partials/sidebar-blog.ejs', { popular: popular }) %>
+    </div>
+  </div>
+</section>

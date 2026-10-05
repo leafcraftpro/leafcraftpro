@@ -1,0 +1,159 @@
+<%
+/**
+ * Search page.
+ * The site is static, so search runs entirely in the browser against
+ * a pre-built index (search-index.json). No query leaves the page.
+ */
+%>
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <%- heroImage('main', '', { width: 1280, height: 400 }) %>
+  </div>
+  <div class="container">
+    <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
+    <span class="eyebrow eyebrow-plain" style="color:var(--lime-400)">Search</span>
+    <h1>Find a guide or a product</h1>
+    <p>Search across all <%= totalPosts %> craft guides and <%= totalProducts %> handmade products.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-narrow">
+
+    <form class="widget-search" id="search-form" role="search" style="margin-bottom:30px">
+      <label class="sr-only" for="search-q">Search</label>
+      <input type="search" id="search-q" name="q" placeholder="Try “palm leaf basket” or “coconut bird”…"
+             autocomplete="off" autofocus>
+      <button type="submit" aria-label="Search"><%- icon('search', '', 18) %></button>
+    </form>
+
+    <div class="tag-cloud" style="margin-bottom:34px">
+      <span class="text-muted" style="font-size:.84rem;align-self:center">Popular:</span>
+      <% ['palm leaf basket', 'coconut leaf bird', 'basket weaving', 'plant hanger', 'kids crafts', 'sun hat'].forEach(function (t) { %>
+        <button type="button" class="tag-pill" data-suggest="<%= t %>"><%= t %></button>
+      <% }); %>
+    </div>
+
+    <p class="result-count" id="search-status" role="status" aria-live="polite"></p>
+
+    <div id="search-results"></div>
+  </div>
+</section>
+
+<script type="application/json" id="search-config">
+{"index": "<%= relUrl('search-index.json') %>"}
+</script>
+
+<script>
+(function () {
+  var cfg = JSON.parse(document.getElementById('search-config').textContent);
+  var form = document.getElementById('search-form');
+  var input = document.getElementById('search-q');
+  var results = document.getElementById('search-results');
+  var status = document.getElementById('search-status');
+  var data = null;
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function highlight(text, terms) {
+    var out = escapeHtml(text);
+    terms.forEach(function (t) {
+      if (t.length < 3) return;
+      out = out.replace(new RegExp('(' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'), '<mark>$1</mark>');
+    });
+    return out;
+  }
+
+  function render(items, terms) {
+    if (!items.length) {
+      results.innerHTML = '<div class="empty-state"><div class="es-icon">' +
+        '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>' +
+        '</div><h2>No matches</h2><p>Try a shorter phrase, or browse the guides by topic instead.</p>' +
+        '<a class="btn btn-primary" href="<%= relUrl('topics') %>">Browse topics</a></div>';
+      return;
+    }
+    results.innerHTML = items.map(function (it) {
+      return '<article class="search-result">' +
+        '<a class="sr-thumb" href="' + it.url + '">' +
+          '<img src="' + it.thumb + '" alt="" width="190" height="127" loading="lazy" decoding="async">' +
+        '</a>' +
+        '<div>' +
+          '<span class="sr-kind">' + escapeHtml(it.kind) + '</span>' +
+          '<h3><a href="' + it.url + '">' + highlight(it.title, terms) + '</a></h3>' +
+          '<p>' + highlight(it.excerpt, terms) + '</p>' +
+          '<div class="card-meta" style="border:0;padding:0;margin:0">' +
+            '<span>' + escapeHtml(it.meta) + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+  }
+
+  function run(q) {
+    if (!data) return;
+    var query = (q || '').trim().toLowerCase();
+    if (query.length < 2) {
+      results.innerHTML = '';
+      status.textContent = 'Type at least two characters to search.';
+      return;
+    }
+    var terms = query.split(/\s+/).filter(function (t) { return t.length > 1; });
+    var scored = [];
+    data.forEach(function (it) {
+      var hay = (it.title + ' ' + it.excerpt + ' ' + it.tags + ' ' + it.kind).toLowerCase();
+      var score = 0;
+      terms.forEach(function (t) {
+        if (it.title.toLowerCase().indexOf(t) !== -1) score += 6;
+        if (hay.indexOf(t) !== -1) score += 2;
+        if (it.tags.toLowerCase().indexOf(t) !== -1) score += 3;
+      });
+      if (score > 0) scored.push({ it: it, score: score });
+    });
+    scored.sort(function (a, b) { return b.score - a.score; });
+    var top = scored.slice(0, 24).map(function (s) { return s.it; });
+    status.textContent = top.length
+      ? 'Showing ' + top.length + ' result' + (top.length === 1 ? '' : 's') + ' for “' + q + '”'
+      : 'No results for “' + q + '”';
+    render(top, terms);
+  }
+
+  fetch(cfg.index)
+    .then(function (r) { return r.json(); })
+    .then(function (json) {
+      data = json;
+      var params = new URLSearchParams(window.location.search);
+      var q = params.get('q') || '';
+      if (q) { input.value = q; run(q); }
+      else status.textContent = 'Type at least two characters to search.';
+    })
+    .catch(function () {
+      status.textContent = 'Search is unavailable right now.';
+    });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var q = input.value.trim();
+    if (history.replaceState) {
+      history.replaceState(null, '', q ? '?q=' + encodeURIComponent(q) : window.location.pathname);
+    }
+    run(q);
+  });
+
+  var timer;
+  input.addEventListener('input', function () {
+    clearTimeout(timer);
+    timer = setTimeout(function () { run(input.value); }, 180);
+  });
+
+  document.querySelectorAll('[data-suggest]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      input.value = b.dataset.suggest;
+      run(b.dataset.suggest);
+    });
+  });
+})();
+</script>

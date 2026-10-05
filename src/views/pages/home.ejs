@@ -1,0 +1,243 @@
+<%
+/**
+ * Homepage.
+ * @param featured   the hero/featured post
+ * @param latest     recent posts
+ * @param topics     blog categories with counts
+ * @param collections product categories with counts
+ * @param products   featured products
+ * @param popular    most read posts
+ */
+const steps = [
+  { icon: 'leaf',   title: 'Gather',  text: 'Collect fresh palm and coconut leaves. Soft, young leaves bend without cracking.' },
+  { icon: 'droplet', title: 'Prepare', text: 'Clean, soften and cut the leaves into strips of one consistent width.' },
+  { icon: 'grid',   title: 'Weave',    text: 'Follow the pattern, keeping tension even so the piece stays square.' },
+  { icon: 'check-circle', title: 'Finish', text: 'Lock the rim, tuck the ends and cure the piece in the shade.' },
+];
+
+const values = [
+  { icon: 'hand',    title: 'Genuinely handmade', text: 'Woven by hand in our own workshop — no factory, no mass production.' },
+  { icon: 'leaf',    title: 'Natural materials',  text: 'Palm and coconut leaves, harvested from local gardens with permission.' },
+  { icon: 'recycle', title: 'Plastic-free',       text: 'Compostable pieces, paper packaging and no plastic tape anywhere.' },
+  { icon: 'book',    title: 'Free tested guides', text: 'Fifty in-depth tutorials, each one made by hand before it is published.' },
+];
+
+const socials = [
+  { key: 'facebook',  label: 'Facebook',  note: 'Daily craft ideas' },
+  { key: 'instagram', label: 'Instagram', note: 'Behind the bench' },
+  { key: 'pinterest', label: 'Pinterest', note: 'Save the guides' },
+  { key: 'youtube',   label: 'YouTube',   note: 'Watch us weave' },
+  { key: 'twitter',   label: 'X',         note: 'Workshop notes' },
+].filter(function (s) { return site.social[s.key]; });
+%>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg">
+    <%- heroImage('main', 'A workbench with fresh palm leaves, a half-finished woven basket and craft tools', { width: 1280, height: 720 }) %>
+  </div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="eyebrow" style="color:var(--lime-400)">Natural craft, taught properly</span>
+        <h1>Handmade ideas <em>from nature</em></h1>
+        <p>
+          Fifty step-by-step guides for weaving palm and coconut leaves into baskets, ornaments
+          and home decor — plus a small shop of finished pieces, made by hand in our own workshop.
+        </p>
+        <div class="hero-actions">
+          <a href="<%= relUrl('blog') %>" class="btn btn-lime btn-lg">
+            Explore the guides <%- icon('arrow-right', '', 17) %>
+          </a>
+          <a href="<%= relUrl('shop') %>" class="btn btn-outline-light btn-lg">
+            Shop handmade
+          </a>
+        </div>
+
+        <div class="hero-trust">
+          <span><%- icon('check-circle', '', 17) %> Tested by hand</span>
+          <span><%- icon('truck', '', 17) %> Free shipping over <%= money(site.freeShippingThreshold) %></span>
+          <span><%- icon('refresh', '', 17) %> <%= site.returnsNote %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALUE STRIP ============ -->
+<section class="section-sm">
+  <div class="container">
+    <div class="value-strip">
+      <% values.forEach(function (v) { %>
+        <div class="value-item reveal">
+          <span class="vi-icon"><%- icon(v.icon, '', 21) %></span>
+          <div>
+            <h4><%= v.title %></h4>
+            <p><%= v.text %></p>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LATEST GUIDES ============ -->
+<% if (latest.length) { %>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="sh-text">
+        <h2>Latest craft guides</h2>
+        <p>New tutorials, published most weeks, each one tested on the bench before it goes live.</p>
+      </div>
+      <a class="view-all" href="<%= relUrl('blog') %>">View all guides <%- icon('arrow-right', '', 15) %></a>
+      <%- icon('leaf', 'leaf-ornament', 74) %>
+    </div>
+
+    <div class="grid grid-3">
+      <% latest.slice(0, 3).forEach(function (p, i) { %>
+        <%- include('../partials/post-card.ejs', { post: p, eager: i === 0 }) %>
+      <% }); %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<!-- ============ FEATURED TUTORIAL ============ -->
+<% if (featured) { %>
+<section class="section-tight">
+  <div class="container">
+    <div class="feature-split reveal">
+      <div class="fs-media">
+        <%- blogImage(featured.slug, featured.imageAlt || featured.title, {
+          sizes: '(max-width: 980px) 100vw, 50vw', width: 960, height: 960, lazy: true,
+          widths: (manifest.blog[featured.slug] || {}).widths || null
+        }) %>
+      </div>
+      <div class="fs-body">
+        <span class="eyebrow">Start here</span>
+        <h2><%= featured.title %></h2>
+        <p><%= excerpt(featured.excerpt || featured.intro, 190) %></p>
+        <div class="meta-chips">
+          <span class="meta-chip"><%- icon('clock', '', 14) %> <%= featured.readTime %> min</span>
+          <span class="meta-chip difficulty-<%= (featured.difficulty || 'beginner').toLowerCase() %>">
+            <%- icon('award', '', 14) %> <%= featured.difficulty %>
+          </span>
+          <span class="meta-chip"><%- icon('tag', '', 14) %> <%= featured.category ? featured.category.name : '' %></span>
+        </div>
+        <div>
+          <a href="<%= relUrl(featured.slug) %>" class="btn btn-primary">
+            Read the full guide <%- icon('arrow-right', '', 17) %>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<!-- ============ BROWSE BY TOPIC ============ -->
+<section class="section bg-cream-2">
+  <div class="container">
+    <div class="section-head center">
+      <div class="sh-text">
+        <h2>Browse by topic</h2>
+        <p>Six areas of leaf craft, from quick twenty-minute projects to full structural guides.</p>
+      </div>
+    </div>
+    <div class="cat-pills">
+      <% topics.forEach(function (c) { %>
+        <a class="cat-pill reveal" href="<%= relUrl('topic/' + c.slug) %>">
+          <span class="cp-icon"><%- icon(c.icon, '', 24) %></span>
+          <span class="cp-name"><%= c.name %></span>
+          <span class="cp-count"><%= c.count %> guides</span>
+        </a>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="sh-text">
+        <h2>How every piece is made</h2>
+        <p>Four stages, the same for a twenty-minute coaster and a full laundry basket.</p>
+      </div>
+      <%- icon('leaf', 'leaf-ornament', 74) %>
+    </div>
+    <div class="steps-row">
+      <% steps.forEach(function (s, i) { %>
+        <div class="step-card reveal">
+          <span class="sc-num"><%= i + 1 %></span>
+          <div class="sc-media" style="display:grid;place-items:center;color:var(--green-500)">
+            <%- icon(s.icon, '', 40) %>
+          </div>
+          <h4><%= s.title %></h4>
+          <p><%= s.text %></p>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOP ============ -->
+<% if (products.length) { %>
+<section class="section bg-cream-2">
+  <div class="container">
+    <div class="section-head">
+      <div class="sh-text">
+        <h2>From the workshop</h2>
+        <p>Finished pieces, ready to post — or use the guides above and weave your own.</p>
+      </div>
+      <a class="view-all" href="<%= relUrl('shop') %>">Shop everything <%- icon('arrow-right', '', 15) %></a>
+    </div>
+    <div class="grid grid-4">
+      <% products.slice(0, 8).forEach(function (p) { %>
+        <%- include('../partials/product-card.ejs', { product: p }) %>
+      <% }); %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<!-- ============ SOCIAL ============ -->
+<% if (socials.length) { %>
+<section class="section">
+  <div class="container">
+    <div class="section-head center">
+      <div class="sh-text">
+        <h2>Follow the workshop</h2>
+        <p>New projects, works in progress and the occasional honest failure — posted daily.</p>
+      </div>
+    </div>
+    <div class="social-grid">
+      <% socials.forEach(function (s) { %>
+        <a class="social-tile <%= s.key %>" href="<%= site.social[s.key] %>" target="_blank" rel="noopener noreferrer">
+          <%- icon(s.key, '', 24) %>
+          <span><%= s.label %></span>
+          <small><%= s.note %></small>
+        </a>
+      <% }); %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="section-tight">
+  <div class="container">
+    <div class="newsletter-band reveal">
+      <div>
+        <h3>One new guide a week</h3>
+        <p>No spam, no daily blasts. Just the next tutorial, and a note about what we learned making it.</p>
+      </div>
+      <form data-newsletter data-mailto="<%= site.email %>" novalidate>
+        <label class="sr-only" for="home-email">Email address</label>
+        <input type="email" id="home-email" name="email" placeholder="Your email address" required autocomplete="email">
+        <button type="submit" class="btn btn-lime">Subscribe <%- icon('arrow-right', '', 16) %></button>
+      </form>
+    </div>
+  </div>
+</section>

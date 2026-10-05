@@ -1,0 +1,47 @@
+<%
+/**
+ * Pagination.
+ * @param pagination { page, totalPages, basePath, hasPrev, hasNext }
+ */
+const pg = pagination;
+const base = pg.basePath || '';
+const href = function (n) {
+  return n <= 1 ? relUrl(base) : relUrl(base + '/page/' + n);
+};
+const window = 2;
+let from = Math.max(1, pg.page - window);
+let to = Math.min(pg.totalPages, pg.page + window);
+%>
+<% if (pg.totalPages > 1) { %>
+<nav class="pagination" aria-label="Pagination">
+  <% if (pg.hasPrev) { %>
+    <a href="<%= href(pg.page - 1) %>" rel="prev" aria-label="Previous page"><%- icon('arrow-left', '', 16) %></a>
+  <% } else { %>
+    <span class="disabled" aria-hidden="true"><%- icon('arrow-left', '', 16) %></span>
+  <% } %>
+
+  <% if (from > 1) { %>
+    <a href="<%= href(1) %>">1</a>
+    <% if (from > 2) { %><span class="disabled" aria-hidden="true">…</span><% } %>
+  <% } %>
+
+  <% for (let i = from; i <= to; i++) { %>
+    <% if (i === pg.page) { %>
+      <span class="is-active" aria-current="page"><%= i %></span>
+    <% } else { %>
+      <a href="<%= href(i) %>"><%= i %></a>
+    <% } %>
+  <% } %>
+
+  <% if (to < pg.totalPages) { %>
+    <% if (to < pg.totalPages - 1) { %><span class="disabled" aria-hidden="true">…</span><% } %>
+    <a href="<%= href(pg.totalPages) %>"><%= pg.totalPages %></a>
+  <% } %>
+
+  <% if (pg.hasNext) { %>
+    <a href="<%= href(pg.page + 1) %>" rel="next" aria-label="Next page"><%- icon('arrow-right', '', 16) %></a>
+  <% } else { %>
+    <span class="disabled" aria-hidden="true"><%- icon('arrow-right', '', 16) %></span>
+  <% } %>
+</nav>
+<% } %>

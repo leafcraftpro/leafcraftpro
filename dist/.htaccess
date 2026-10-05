@@ -1,0 +1,130 @@
+# ============================================================
+#  LeafCraftPRO — Apache configuration for the STATIC build.
+#  This file is copied into dist/ by `npm run build`.
+#  Upload it to public_html alongside the generated folders.
+# ============================================================
+
+AddDefaultCharset UTF-8
+DirectoryIndex index.html
+Options -Indexes -MultiViews
+
+# ---------- URL REWRITING ----------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # If you deploy into a sub-folder (e.g. /leafcraft), uncomment and edit:
+    # RewriteBase /leafcraft/
+
+    # --- Force HTTPS (enable once your SSL certificate is active) ---
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+    # --- Redirect /index.html to the clean root ---
+    RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+    RewriteRule ^ / [R=301,L]
+
+    # --- Strip trailing slashes on real files (keeps one canonical URL) ---
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+    # --- Let real files and folders through untouched ---
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # --- Otherwise try the pretty directory URL, then the .html file ---
+    RewriteCond %{REQUEST_FILENAME}/index.html -f
+    RewriteRule ^(.*)$ /$1/index.html [L]
+
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.*)$ /$1.html [L]
+</IfModule>
+
+# ---------- ERROR DOCUMENTS ----------
+ErrorDocument 404 /404.html
+
+# ---------- SECURITY ----------
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+    Header unset X-Powered-By
+    Header unset Server
+</IfModule>
+
+# --- Block access to anything that should never be public ---
+# The static build only contains generated HTML, images, CSS, JS and
+# the SEO files, so this list is deliberately short.
+<FilesMatch "\.(md|log|ini|lock|bak|sh|yml|yaml|map)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<Files ".htaccess">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</Files>
+
+# ---------- PERFORMANCE ----------
+
+# --- GZIP compression ---
+# AddOutputFilterByType lives in mod_filter, so both modules must be
+# present or the host returns 500 on every request.
+<IfModule mod_deflate.c>
+    <IfModule mod_filter.c>
+        AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css
+        AddOutputFilterByType DEFLATE application/xml application/xhtml+xml
+        AddOutputFilterByType DEFLATE application/rss+xml application/javascript
+        AddOutputFilterByType DEFLATE application/json application/ld+json
+        AddOutputFilterByType DEFLATE application/manifest+json image/svg+xml
+        AddOutputFilterByType DEFLATE font/woff font/woff2
+    </IfModule>
+</IfModule>
+
+# --- Browser caching ---
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault                              "access plus 1 month"
+    ExpiresByType text/html                     "access plus 0 seconds"
+    ExpiresByType text/css                      "access plus 1 year"
+    ExpiresByType application/javascript        "access plus 1 year"
+    ExpiresByType image/webp                    "access plus 1 year"
+    ExpiresByType image/svg+xml                 "access plus 1 year"
+    ExpiresByType image/x-icon                  "access plus 1 year"
+    ExpiresByType font/woff2                    "access plus 1 year"
+    ExpiresByType application/manifest+json     "access plus 1 week"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|webp|svg|ico|woff|woff2)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.html$">
+        Header set Cache-Control "public, max-age=0, must-revalidate"
+    </FilesMatch>
+    Header set Connection keep-alive
+</IfModule>
+
+# --- Keep the HTML small: no ETag churn on every deploy ---
+<IfModule mod_headers.c>
+    <FilesMatch "\.(webp|svg|css|js|woff2)$">
+        Header unset ETag
+    </FilesMatch>
+</IfModule>
+FileETag None
+
+# ---------- MIME TYPES ----------
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+    AddType application/manifest+json .webmanifest
+    AddType font/woff2 .woff2
+</IfModule>

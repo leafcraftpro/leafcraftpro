@@ -1,0 +1,51 @@
+<%
+/**
+ * Topics index — lists every blog category with its guides.
+ * @param topics categories with counts
+ * @param grouped { [slug]: posts[] }
+ */
+%>
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <%- heroImage('main', '', { width: 1280, height: 500 }) %>
+  </div>
+  <div class="container">
+    <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
+    <span class="eyebrow eyebrow-plain" style="color:var(--lime-400)">Six areas of craft</span>
+    <h1>Browse by topic</h1>
+    <p>Every guide on the site, organised into the six areas we actually work in.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <% topics.forEach(function (c) { %>
+      <div class="faq-section">
+        <div class="section-head">
+          <div class="sh-text">
+            <h2 style="display:flex;align-items:center;gap:12px">
+              <span class="cp-icon" style="width:42px;height:42px;border-radius:12px;background:var(--lime-100);color:var(--green-600);display:grid;place-items:center">
+                <%- icon(c.icon, '', 21) %>
+              </span>
+              <%= c.name %>
+            </h2>
+            <p><%= c.tagline %></p>
+          </div>
+          <a class="view-all" href="<%= relUrl('topic/' + c.slug) %>">
+            All <%= c.count %> guides <%- icon('arrow-right', '', 15) %>
+          </a>
+        </div>
+
+        <% if ((grouped[c.slug] || []).length) { %>
+          <div class="grid grid-3">
+            <% grouped[c.slug].slice(0, 3).forEach(function (p) { %>
+              <%- include('../partials/post-card.ejs', { post: p }) %>
+            <% }); %>
+          </div>
+        <% } else { %>
+          <p class="text-muted">No guides in this topic yet.</p>
+        <% } %>
+      </div>
+    <% }); %>
+  </div>
+</section>

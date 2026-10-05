@@ -1,0 +1,27 @@
+{
+  "name": "leafcraftpro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LeafCraftPRO - handmade natural craft tutorials and shop. Node.js web app with static export for Hostinger.",
+  "type": "module",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node build.js",
+    "images": "node scripts/optimize-images.js",
+    "serve:dist": "node scripts/serve-dist.js"
+  },
+  "dependencies": {
+    "compression": "^1.7.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

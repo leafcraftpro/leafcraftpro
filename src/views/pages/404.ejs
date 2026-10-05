@@ -1,0 +1,36 @@
+<%
+/**
+ * 404 page.
+ */
+%>
+<section class="section">
+  <div class="container">
+    <div class="error-page">
+      <div class="ep-code">404</div>
+      <h1>This page has been pruned</h1>
+      <p>
+        The page you were looking for is not here. It may have been renamed, or the link that
+        brought you here may be out of date.
+      </p>
+      <div class="ep-actions">
+        <a href="<%= relUrl('') %>" class="btn btn-primary"><%- icon('home', '', 17) %> Back to home</a>
+        <a href="<%= relUrl('blog') %>" class="btn btn-ghost"><%- icon('book', '', 17) %> Browse the guides</a>
+        <a href="<%= relUrl('search') %>" class="btn btn-ghost"><%- icon('search', '', 17) %> Search the site</a>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <div class="section-head">
+        <div class="sh-text">
+          <h2>Popular guides instead</h2>
+          <p>These are the pages people most often come here for.</p>
+        </div>
+      </div>
+      <div class="grid grid-3">
+        <% popular.slice(0, 3).forEach(function (p, i) { %>
+          <%- include('../partials/post-card.ejs', { post: p, eager: i === 0 }) %>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</section>

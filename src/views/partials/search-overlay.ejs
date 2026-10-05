@@ -1,0 +1,18 @@
+<div class="search-overlay" role="dialog" aria-modal="true" aria-label="Search" aria-hidden="true">
+  <div class="search-panel">
+    <form method="get" action="<%= relUrl('search') %>" role="search">
+      <label class="sr-only" for="site-search">Search guides and products</label>
+      <input type="search" id="site-search" name="q" placeholder="Search guides, projects and products…" autocomplete="off" required>
+      <button type="submit" class="btn btn-primary" aria-label="Search"><%- icon('search', '', 18) %></button>
+    </form>
+    <button type="button" class="search-close icon-btn" aria-label="Close search"
+            style="position:absolute;top:14px;right:14px"><%- icon('close', '', 18) %></button>
+    <p class="search-hint">
+      Popular:
+      <a href="<%= relUrl('topic/palm-leaf-crafts') %>">palm leaf crafts</a>,
+      <a href="<%= relUrl('topic/baskets-weaving') %>">basket weaving</a>,
+      <a href="<%= relUrl('topic/coconut-leaf-crafts') %>">coconut leaf crafts</a>,
+      <a href="<%= relUrl('topic/kids-crafts') %>">kids crafts</a>
+    </p>
+  </div>
+</div>

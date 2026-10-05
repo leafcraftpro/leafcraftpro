@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+  <g fill="none" stroke="#A8D45E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".7">
+    <path d="M60 100c-20 0-36-16-36-36 0-25 17-41 36-60 19 19 36 35 36 60 0 20-16 36-36 36Z"/>
+    <path d="M60 100V14"/>
+    <path d="M60 44 43 30M60 62l17-15M60 78l-18-15"/>
+  </g>
+</svg>

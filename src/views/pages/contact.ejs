@@ -1,0 +1,145 @@
+<%
+/**
+ * Contact page.
+ * @param page the contact page object
+ */
+const cards = [
+  { icon: 'mail',    title: 'Email us',      value: site.email,        href: 'mailto:' + site.email, note: 'Replies within one working day' },
+  { icon: 'phone',   title: 'Call the bench', value: site.phone,       href: 'tel:' + site.phoneHref, note: 'Mon–Fri, 9am–5pm' },
+  { icon: 'map-pin', title: 'Workshop',      value: site.address.street + ', ' + site.address.city, href: '', note: 'Visits by appointment' },
+];
+%>
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <%- heroImage('main', '', { width: 1280, height: 500 }) %>
+  </div>
+  <div class="container">
+    <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
+    <span class="eyebrow eyebrow-plain" style="color:var(--lime-400)">Get in touch</span>
+    <h1>Contact the workshop</h1>
+    <p><%= page.intro %></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <% cards.forEach(function (c) { %>
+        <div class="contact-card reveal">
+          <span class="cc-icon"><%- icon(c.icon, '', 24) %></span>
+          <h4><%= c.title %></h4>
+          <% if (c.href) { %>
+            <p><a href="<%= c.href %>"><%= c.value %></a></p>
+          <% } else { %>
+            <p><%= c.value %></p>
+          <% } %>
+          <p style="font-size:.8rem;color:var(--muted-2);margin-top:6px"><%= c.note %></p>
+        </div>
+      <% }); %>
+    </div>
+
+    <div class="layout-sidebar">
+      <div>
+        <div class="article-body">
+          <%- renderBlocks(page.blocks) %>
+        </div>
+
+        <div class="widget-box lime" style="margin-top:34px">
+          <h3>Send us a message</h3>
+          <p style="font-size:.92rem;color:var(--ink-soft)">
+            This site is a static catalogue, so the form below opens your own email app with the
+            details filled in — that way your message never sits in a database we have to look after.
+          </p>
+
+          <form id="contact-form" data-contact novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="c-name">Your name <span class="req">*</span></label>
+                <input type="text" id="c-name" name="name" required autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="c-email">Your email <span class="req">*</span></label>
+                <input type="email" id="c-email" name="email" required autocomplete="email">
+              </div>
+              <div class="field full">
+                <label for="c-subject">Subject</label>
+                <select id="c-subject" name="subject">
+                  <option>A question about a tutorial</option>
+                  <option>A question about an order</option>
+                  <option>Custom or wholesale enquiry</option>
+                  <option>Accessibility feedback</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="c-message">Your message <span class="req">*</span></label>
+                <textarea id="c-message" name="message" required minlength="10"
+                          placeholder="Tell us what you need — the more detail the better."></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary"><%- icon('send', '', 16) %> Send message</button>
+          </form>
+        </div>
+      </div>
+
+      <aside class="sidebar" aria-label="Contact information">
+        <div class="widget">
+          <h2 class="widget-title">Workshop details</h2>
+          <ul class="footer-contact" style="color:var(--ink-soft)">
+            <li style="display:flex;gap:10px;margin-bottom:12px">
+              <%- icon('map-pin', '', 16) %>
+              <span style="font-size:.88rem"><%= site.address.street %><br><%= site.address.city %>, <%= site.address.region %> <%= site.address.postalCode %><br><%= site.address.country %></span>
+            </li>
+            <li style="display:flex;gap:10px;margin-bottom:12px">
+              <%- icon('clock', '', 16) %>
+              <span style="font-size:.88rem">Mon–Fri, 9am–5pm</span>
+            </li>
+            <li style="display:flex;gap:10px">
+              <%- icon('mail', '', 16) %>
+              <a href="mailto:<%= site.email %>" style="font-size:.88rem"><%= site.email %></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="widget">
+          <h2 class="widget-title">Follow along</h2>
+          <div class="social-row" style="margin-top:0">
+            <% Object.entries(site.social).filter(function (s) { return s[1]; }).forEach(function (s) { %>
+              <a href="<%= s[1] %>" target="_blank" rel="noopener noreferrer" aria-label="<%= s[0] %>"
+                 style="background:var(--lime-100);color:var(--green-700)"><%- icon(s[0], '', 17) %></a>
+            <% }); %>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h2 class="widget-title">Before you write</h2>
+          <ul>
+            <li><a href="<%= relUrl('faq') %>">Read the FAQ</a></li>
+            <li><a href="<%= relUrl('shipping-returns') %>">Shipping &amp; returns</a></li>
+            <li><a href="<%= relUrl('how-to-care-for-woven-crafts') %>">Caring for woven crafts</a></li>
+            <li><a href="<%= relUrl('where-to-source-palm-leaves') %>">Sourcing leaves</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = new FormData(form);
+    var body = 'Name: ' + (d.get('name') || '') + '\n' +
+               'Email: ' + (d.get('email') || '') + '\n' +
+               'Subject: ' + (d.get('subject') || '') + '\n\n' +
+               (d.get('message') || '');
+    window.location.href = 'mailto:<%= site.email %>?subject=' +
+      encodeURIComponent('[Website] ' + (d.get('subject') || 'Message')) +
+      '&body=' + encodeURIComponent(body);
+    if (window.LeafCraft) window.LeafCraft.toast('Opening your email app…', 'success');
+  });
+})();
+</script>

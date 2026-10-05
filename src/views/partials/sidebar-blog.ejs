@@ -1,0 +1,76 @@
+<%
+/**
+ * Blog sidebar.
+ * @param popular   array of posts
+ * @param activeCat slug of the current topic (optional)
+ */
+const pops = popular || [];
+const topics = locals.topicNav || [];
+const act = locals.activeCat || '';
+%>
+<aside class="sidebar" aria-label="Sidebar">
+
+  <div class="widget widget-search">
+    <h2 class="widget-title">Search guides</h2>
+    <form method="get" action="<%= relUrl('search') %>" role="search">
+      <label class="sr-only" for="sidebar-q">Search</label>
+      <input type="search" id="sidebar-q" name="q" placeholder="Search…" required>
+      <button type="submit" aria-label="Search"><%- icon('search', '', 17) %></button>
+    </form>
+  </div>
+
+  <div class="widget">
+    <h2 class="widget-title">Browse topics</h2>
+    <ul>
+      <% topics.forEach(function (c) { %>
+        <li>
+          <a href="<%= relUrl('topic/' + c.slug) %>" class="<%= act === c.slug ? 'is-active' : '' %>">
+            <%= c.name %> <span class="count"><%= c.count %></span>
+          </a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <% if (pops.length) { %>
+  <div class="widget">
+    <h2 class="widget-title">Most popular</h2>
+    <ul>
+      <% pops.slice(0, 5).forEach(function (p) { %>
+        <li>
+          <div class="recent-post">
+            <div class="rp-thumb">
+              <%- blogImage(p.slug, p.imageAlt || p.title, {
+                sizes: '62px', width: 400, height: 400, lazy: true,
+                widths: (manifest.blog[p.slug] || {}).widths || null
+              }) %>
+            </div>
+            <div class="rp-body">
+              <h5><a href="<%= relUrl(p.slug) %>"><%= truncate(p.title, 52) %></a></h5>
+              <small><%= p.readTime %> min read</small>
+            </div>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+  <% } %>
+
+  <div class="widget widget-cta">
+    <h2 class="widget-title" style="border-color:rgba(255,255,255,.2);color:#fff">Shop the collection</h2>
+    <h4>Handmade, not mass produced</h4>
+    <p>Every basket, box and ornament is woven by hand in our own workshop.</p>
+    <a href="<%= relUrl('shop') %>" class="btn btn-lime btn-block">Visit the shop <%- icon('arrow-right', '', 16) %></a>
+  </div>
+
+  <div class="widget">
+    <h2 class="widget-title">About the author</h2>
+    <div class="author-widget">
+      <div class="aw-avatar"><div class="author-initials">ME</div></div>
+      <h4><%= site.author.name %></h4>
+      <p><%= site.author.bio %></p>
+      <a href="<%= relUrl('author/' + site.author.slug) %>" class="btn btn-ghost btn-sm">All guides by <%= site.author.name.split(' ')[0] %></a>
+    </div>
+  </div>
+
+</aside>

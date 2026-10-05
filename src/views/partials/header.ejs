@@ -1,0 +1,103 @@
+<%
+/**
+ * Site header.
+ * Receives an optional `current` string (route path) for active states.
+ */
+const path = current || '';
+const nav = [
+  { label: 'Home', href: '/', match: '/' },
+  { label: 'Guides', href: '/blog', match: '/blog' },
+  { label: 'Shop', href: '/shop', match: '/shop' },
+  { label: 'Topics', href: '/topics', match: '/topic' },
+  { label: 'About', href: '/about', match: '/about' },
+  { label: 'Contact', href: '/contact', match: '/contact' },
+];
+const isActive = (m) => (m === '/' ? path === '/' : path.startsWith(m));
+const socials = Object.entries(site.social).filter(([, v]) => v);
+%>
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+
+      <a class="brand" href="<%= relUrl('') %>" aria-label="<%= site.name %> home">
+        <span class="brand-mark"><%- icon('leaf', '', 22) %></span>
+        <span class="brand-text">
+          <span class="brand-name"><%= site.name %></span>
+          <span class="brand-tag"><%= site.tagline %></span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <% nav.forEach(function (item) { %>
+            <li>
+              <a href="<%= relUrl(item.href.replace(/^\//, '')) %>"
+                 class="<%= isActive(item.match) ? 'active' : '' %>"
+                 <%= isActive(item.match) ? 'aria-current="page"' : '' %>><%= item.label %></a>
+            </li>
+          <% }); %>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="icon-btn js-search-open" aria-label="Search the site">
+          <%- icon('search', '', 20) %>
+        </button>
+        <a href="<%= relUrl('shop') %>" class="icon-btn" aria-label="Shop the collection">
+          <%- icon('bag', '', 20) %>
+        </a>
+        <a href="<%= socials[0] ? socials[0][1] : relUrl('contact') %>"
+           class="icon-btn header-social" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
+          <%- icon('facebook', '', 20) %>
+        </a>
+        <button type="button" class="icon-btn nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <%- icon('menu', '', 22) %>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="nav-backdrop" aria-hidden="true"></div>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <div class="mobile-nav-head">
+    <span class="brand">
+      <span class="brand-mark"><%- icon('leaf', '', 20) %></span>
+      <span class="brand-text"><span class="brand-name"><%= site.name %></span></span>
+    </span>
+    <button type="button" class="icon-btn nav-close" aria-label="Close menu"><%- icon('close', '', 20) %></button>
+  </div>
+
+  <ul>
+    <% nav.forEach(function (item) { %>
+      <li><a href="<%= relUrl(item.href.replace(/^\//, '')) %>"><%= item.label %></a></li>
+    <% }); %>
+  </ul>
+
+  <% const topicNavItems = locals.topicNav || []; %>
+  <% if (topicNavItems.length) { %>
+    <div class="widget-title">Browse topics</div>
+    <ul>
+      <% topicNavItems.forEach(function (c) { %>
+        <li><a href="<%= relUrl('topic/' + c.slug) %>"><%= c.name %> <span class="count">(<%= c.count %>)</span></a></li>
+      <% }); %>
+    </ul>
+  <% } %>
+
+  <% const collectionNavItems = locals.collectionNav || []; %>
+  <% if (collectionNavItems.length) { %>
+    <div class="widget-title">Shop by collection</div>
+    <ul>
+      <% collectionNavItems.forEach(function (c) { %>
+        <li><a href="<%= relUrl('collection/' + c.slug) %>"><%= c.name %> <span class="count">(<%= c.count %>)</span></a></li>
+      <% }); %>
+    </ul>
+  <% } %>
+
+  <div class="social-row" style="margin-top:auto">
+    <% socials.forEach(function (s) { %>
+      <a href="<%= s[1] %>" target="_blank" rel="noopener noreferrer" aria-label="<%= s[0] %>"><%- icon(s[0], '', 17) %></a>
+    <% }); %>
+  </div>
+</nav>
