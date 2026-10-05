@@ -25,9 +25,32 @@ import { postsByDate } from './src/data/posts/index.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC = path.join(__dirname, 'public');
 
-const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || '0.0.0.0';
+/**
+ * Passenger (Hostinger's "Setup Node.js App") does NOT hand the
+ * application a port number — it sets PORT to the path of a Unix
+ * domain socket. Calling `listen(port, host)` with a socket path makes
+ * Node read the host string as the backlog, which throws
+ * ERR_INVALID_ARG_TYPE and kills the process during boot. LiteSpeed
+ * then serves its "503 Service Unavailable — the server is temporarily
+ * busy" page.
+ *
+ * So: bind to the socket when we are given one, and to a TCP port
+ * otherwise. Never pass a host alongside a socket path.
+ */
+const RAW_PORT = process.env.PORT;
+const IS_SOCKET = typeof RAW_PORT === 'string' && /[\\/]/.test(RAW_PORT);
 const IS_PROD = process.env.NODE_ENV === 'production';
+
+// Log failures instead of dying silently — these end up in the
+// Hostinger Node.js log and are the difference between a 503 you can
+// diagnose and one you cannot.
+process.on('unhandledRejection', (err) => {
+  console.error('[leafcraftpro] Unhandled promise rejection:', err);
+});
+process.on('uncaughtException', (err) => {
+  console.error('[leafcraftpro] Uncaught exception:', err);
+  process.exit(1);
+});
 
 // ---- Route lookup ----------------------------------------------
 // Built once at boot. Restart the app to pick up content changes.
@@ -52,7 +75,10 @@ app.use(
         frameAncestors: ["'none'"],
         baseUri: ["'self'"],
         formAction: ["'self'", 'mailto:'],
-        upgradeInsecureRequests: IS_PROD ? [] : null,
+        // Only force HTTPS upgrades when we are actually serving over
+        // HTTPS. Disabling it with `null` in development keeps localhost
+        // working; omitting the key entirely leaves helmet's default on.
+        ...(IS_PROD ? {} : { upgradeInsecureRequests: null }),
       },
     },
     crossOriginEmbedderPolicy: false,
@@ -95,6 +121,32 @@ app.get('/feed.xml', (req, res) => {
 
 app.get('/search-index.json', (req, res) => {
   res.type('application/json').send(JSON.stringify(buildSearchIndex()));
+});
+
+/**
+ * Health check. Visit /healthz on the deployed site to tell the two
+ * failure modes apart:
+ *   - JSON response  → the Node app IS running; a problem elsewhere
+ *                      (usually .htaccess or the domain root)
+ *   - 503 page       → Passenger could not start the app at all; read
+ *                      the Node.js log in hPanel
+ */
+app.get('/healthz', (req, res) => {
+  res.type('application/json').send(
+    JSON.stringify(
+      {
+        ok: true,
+        app: site.name,
+        node: process.version,
+        mode: IS_PROD ? 'production' : 'development',
+        listening: IS_SOCKET ? 'unix socket' : `tcp:${Number(RAW_PORT) || 3000}`,
+        routes: routes.length,
+        uptime: Math.round(process.uptime()),
+      },
+      null,
+      2
+    )
+  );
 });
 
 // ---- HTML routes ------------------------------------------------
@@ -203,11 +255,29 @@ ${items}
 
 // ---- Boot -------------------------------------------------------
 
-app.listen(PORT, HOST, () => {
+const server = IS_SOCKET
+  ? app.listen(RAW_PORT)
+  : app.listen(Number(RAW_PORT) || 3000, process.env.HOST || '0.0.0.0');
+
+server.on('listening', () => {
+  const where = IS_SOCKET ? `unix socket ${RAW_PORT}` : `http://localhost:${Number(RAW_PORT) || 3000}`;
   console.log(`\n${site.name} is running`);
-  console.log(`  local:   http://localhost:${PORT}`);
-  console.log(`  routes:  ${routes.length}`);
-  console.log(`  mode:    ${IS_PROD ? 'production' : 'development'}\n`);
+  console.log(`  listening : ${where}`);
+  console.log(`  routes    : ${routes.length}`);
+  console.log(`  mode      : ${IS_PROD ? 'production' : 'development'}`);
+  console.log(`  site url  : ${site.url}\n`);
+});
+
+server.on('error', (err) => {
+  console.error(`\n[leafcraftpro] Failed to start: ${err.code || err.message}`);
+  if (err.code === 'EADDRINUSE') {
+    console.error(`  ${RAW_PORT} is already in use — another instance is probably still running.`);
+  } else if (err.code === 'EACCES') {
+    console.error(`  Not permitted to bind to ${RAW_PORT}. On shared hosting, let the host assign PORT.`);
+  } else if (err.code === 'ENOENT') {
+    console.error(`  Socket path does not exist: ${RAW_PORT}`);
+  }
+  process.exit(1);
 });
 
 export default app;

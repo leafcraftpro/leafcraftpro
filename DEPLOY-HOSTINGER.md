@@ -223,17 +223,33 @@ npm run build          # generates dist/ and the SEO files
 ### 3.3 Restart and check
 
 1. In hPanel → **Node.js**, click **Restart** on your application.
-2. Visit your domain. The app listens on the `PORT` Hostinger assigns, which
-   `server.js` reads from the environment automatically.
+2. Visit `https://yourdomain.com/healthz`. You should get JSON back:
+
+   ```json
+   { "ok": true, "app": "LeafCraftPRO", "node": "v22.x", "mode": "production",
+     "listening": "tcp:3000", "routes": 117, "uptime": 12 }
+   ```
+
+   **This one URL tells you where the problem is.** JSON means the app is running
+   and any remaining issue is routing or `.htaccess`. A 503 on `/healthz` means
+   Passenger could not start the app at all — jump to **§6.1**.
 3. Check the log if it does not come up: hPanel → **Node.js** → *Logs*, or
    `~/domains/yourdomain.com/app/stderr.log`.
 
-**If Hostinger's stub `app.js` conflicts with `server.js`**, either point the
-startup file at `server.js` (recommended) or replace `app.js` with:
+**The startup file must be `server.js` or `app.js`.** Hostinger's panel defaults to
+`app.js` and creates a **CommonJS** stub there. This project is an ES module
+(`"type": "module"`), so that stub dies instantly with
+`require is not defined in ES module scope` — and LiteSpeed answers with a 503.
+The repository ships its own `app.js` that simply loads the real server, so either
+setting works:
 
 ```js
-require('./server.js');
+// app.js
+import './server.js';
 ```
+
+If the panel overwrote it with its stub, delete the stub and let the uploaded
+`app.js` stand — or point the startup file at `server.js` instead.
 
 ### 3.4 Node mode environment variables
 
@@ -245,6 +261,16 @@ hPanel → **Node.js** → **Environment variables**:
 | `NODE_ENV` | `production` |
 
 Restart the app after adding them.
+
+> **Do not set `PORT` or `HOST` yourself.** Passenger assigns the port; hard-coding
+> it is a reliable way to break the app on a shared host.
+
+### 3.5 Do not mix the two deployment paths
+
+If you uploaded `dist/` into `public_html` on a previous attempt, remove it before
+using the Node.js app. A stale `public_html/.htaccess` from the static build will
+fight Passenger's routing, and you will get 503s or 404s that look like app
+failures but are not. Pick one path and clear the other.
 
 ---
 
@@ -370,14 +396,132 @@ You turned on the HTTPS redirect before SSL finished issuing. Comment the four
 redirect lines back out in `.htaccess`, wait for the certificate to become
 active, then re-enable them.
 
-**The Node app returns 503**
-Check hPanel → **Node.js** → *Logs*. The two usual causes are dependencies not
-installed (`npm install` in the application root) and the startup file pointing
-at the wrong file (set it to `server.js`).
+**The Node app returns 503 — see §6.1 below.**
 
 **The sitemap shows the wrong domain**
 You built before setting `SITE_URL`. Fix `src/config/site.js`, rebuild, and
 re-upload `sitemap.xml`, `robots.txt`, `feed.xml` and all the HTML files.
+
+---
+
+## 6.1 "503 Service Unavailable — the server is temporarily busy"
+
+That exact wording is **LiteSpeed's** error page, produced when Passenger tried to
+start your Node application and it did not come up. It is not a Hostinger outage
+and it is not your domain — it is always one of five things.
+
+### Step 1 — find out whether the app is running at all
+
+Visit `https://yourdomain.com/healthz`.
+
+| What you see | What it means | Go to |
+|---|---|---|
+| JSON with `"ok": true` | The app **is** running. The problem is routing or `.htaccess`, not the app. | Cause 5 |
+| The 503 page | Passenger could not start the app. | Cause 1 |
+
+### Cause 1 — the startup file (most common)
+
+Hostinger's panel defaults the startup file to **`app.js`** and writes a
+**CommonJS** stub there. This project is an ES module, so that stub fails on the
+first line with:
+
+```
+ReferenceError: require is not defined in ES module scope
+```
+
+…and Passenger reports 503. The repository now ships its own `app.js` that just
+loads the server, so both settings work:
+
+```js
+// app.js
+import './server.js';
+```
+
+**Fix:** in hPanel → **Node.js**, set *Application startup file* to **`server.js`**.
+If you prefer `app.js`, make sure the file contains the two lines above and not
+Hostinger's `require(...)` stub. Then click **Restart**.
+
+### Cause 2 — dependencies were never installed
+
+Passenger starts the app, Node cannot resolve `express`, and the process exits
+immediately. The log shows `Cannot find package 'express'`.
+
+**Fix:**
+
+```bash
+source /home/USERNAME/nodevenv/domains/yourdomain.com/app/22/bin/activate
+cd ~/domains/yourdomain.com/app
+npm install --omit=dev
+```
+
+`node_modules` must sit in the **application root**, next to `package.json`.
+Uploading it from your computer usually fails — it contains platform-specific
+binaries. Always install on the server.
+
+### Cause 3 — the application root is wrong
+
+The application root must be the folder that directly contains `package.json`
+and `server.js`. A very common mistake is pointing it one level too high, so the
+panel looks for `app/package.json` when the real path is
+`app/leafcraft-node/package.json`.
+
+**Fix:** hPanel → **Node.js** → check *Application root*. It should be the
+directory listing `package.json`, `server.js` and `app.js` side by side.
+
+### Cause 4 — the Node version is too old
+
+`package.json` requires Node 18 or newer. Hostinger lets you pick per
+application. If it was created on Node 14 or 16, the ES-module syntax fails.
+
+**Fix:** hPanel → **Node.js** → change the version to **18, 20 or 22**, then
+re-run `npm install` (the virtualenv path changes with the version) and restart.
+
+### Cause 5 — a leftover static deployment is fighting Passenger
+
+If you uploaded `dist/` into `public_html` on an earlier attempt, its
+`.htaccess` is still there intercepting requests before Passenger sees them. The
+symptoms are 503s, 404s, or the static site appearing while the app seems dead.
+
+**Fix:** delete everything inside `public_html` that came from `dist/` — including
+the hidden `.htaccess` — and let the Node application serve the domain. Do not run
+both paths at once.
+
+### Reading the log
+
+hPanel → **Node.js** → **Logs**, or over SSH:
+
+```bash
+tail -n 50 ~/domains/yourdomain.com/app/stderr.log
+tail -n 50 ~/domains/yourdomain.com/app/passenger.log
+```
+
+The startup banner prints the resolved listening address, so a healthy boot looks
+like:
+
+```
+LeafCraftPRO is running
+  listening : tcp:3000
+  routes    : 117
+  mode      : production
+  site url  : https://yourdomain.com
+```
+
+If you see that banner in the log but the site still 503s, the app started and
+then exited — look for an `[leafcraftpro] Uncaught exception` line directly after
+it.
+
+### The escape hatch
+
+You do not need the Node.js runtime. This project is a fully static site, and the
+whole class of 503 above disappears if you deploy it as files:
+
+1. hPanel → **Node.js** → **Delete** the application.
+2. Clear `public_html` completely.
+3. Upload the **contents of `dist/`** into `public_html` (see §2.1).
+
+That is the path most people should take. The Node.js app exists for the case
+where you want the server to render on request — it is not required for anything
+the site does.
 
 ---
 

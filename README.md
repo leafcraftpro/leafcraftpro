@@ -56,6 +56,11 @@ npm start            # http://localhost:3000
 **Always run `npm run build` before deploying.** Always run
 `node scripts/verify.js` before uploading.
 
+Once deployed, `GET /healthz` returns a small JSON health report — app name, Node
+version, mode, listening address, route count and uptime. It is the fastest way to
+tell "the app is not running" apart from "the app is running but routing is
+broken".
+
 ---
 
 ## Project structure
@@ -64,6 +69,7 @@ npm start            # http://localhost:3000
 leafcraft-node/
 ├── build.js                  # static site generator
 ├── server.js                 # Express server (same routes, rendered live)
+├── app.js                    # entry alias — loads server.js
 ├── package.json
 ├── DEPLOY-HOSTINGER.md       # full deployment walkthrough
 │
