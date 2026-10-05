@@ -65,8 +65,19 @@ for (const file of files) {
   pagesChecked++;
 
   // ---- title ----
-  if (!/<title>[^<]{10,}<\/title>/.test(html)) {
+  const titleMatch = html.match(/<title>([^<]*)<\/title>/);
+  if (!titleMatch || titleMatch[1].length < 10) {
     errors.push(`${rel}: missing or too-short <title>`);
+  } else {
+    const t = titleMatch[1];
+    if (t.length > 65) {
+      warnings.push(`${rel}: title is ${t.length} chars — Google truncates around 60`);
+    }
+    // The brand should appear once, not twice.
+    const brandCount = (t.match(/LeafCraftPRO/gi) || []).length;
+    if (brandCount > 1) {
+      errors.push(`${rel}: brand name appears ${brandCount}× in the title — "${t}"`);
+    }
   }
 
   // ---- canonical (skip the 404) ----
@@ -75,8 +86,11 @@ for (const file of files) {
   }
 
   // ---- meta description ----
-  if (!/<meta name="description" content="[^"]{40,}"/.test(html)) {
+  const descMatch = html.match(/<meta name="description" content="([^"]*)"/);
+  if (!descMatch || descMatch[1].length < 40) {
     errors.push(`${rel}: missing or too-short meta description`);
+  } else if (descMatch[1].length > 160) {
+    warnings.push(`${rel}: description is ${descMatch[1].length} chars — Google truncates around 158`);
   }
 
   // ---- exactly one h1 ----

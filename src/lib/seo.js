@@ -45,7 +45,16 @@ export function renderMeta(o = {}) {
   } = o;
 
   const url = absoluteUrl(path);
-  const fullTitle = title ? `${title} | ${site.name}` : `${site.name} — ${site.tagline}`;
+
+  // Only append the brand when the title does not already carry it —
+  // otherwise the home page renders "LeafCraftPRO — … | LeafCraftPRO".
+  const hasBrand = title && title.toLowerCase().includes(site.name.toLowerCase());
+  const fullTitle = !title
+    ? `${site.name} — ${site.tagline}`
+    : hasBrand
+      ? title
+      : `${title} | ${site.name}`;
+
   const desc = truncate(stripTags(description || site.shortDescription), 158);
   const shareImage = image || ogImage('site-default');
 

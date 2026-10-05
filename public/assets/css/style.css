@@ -1831,7 +1831,40 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 .to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
 .to-top:hover { background: var(--green-600); }
 
-/* ---------- 67. Overflow guard ---------- */
+/* ---------- 67. Brand mark ---------- */
+/* The tile that holds the woven-leaf mark. Layered inset highlight +
+   hairline ring + soft drop shadow reads as a physical enamel badge
+   rather than a flat coloured square. */
+.brand-mark {
+    width: 42px; height: 42px; border-radius: 13px; flex: none;
+    background: linear-gradient(150deg, #33935A 0%, #1C5638 50%, #6BA83E 100%);
+    display: grid; place-items: center; color: #fff;
+    position: relative; overflow: hidden;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .30),
+        inset 0 -1px 0 rgba(0, 0, 0, .10),
+        0 0 0 1px rgba(28, 86, 56, .10),
+        0 5px 14px rgba(28, 86, 56, .26);
+}
+.brand-mark::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(120% 92% at 26% 12%, rgba(255, 255, 255, .32), rgba(255, 255, 255, 0) 62%);
+}
+.brand-mark svg { width: 24px; height: 24px; position: relative; }
+.brand-mark img { width: 100%; height: 100%; object-fit: contain; border-radius: 13px; }
+
+.brand-name { letter-spacing: -.025em; }
+
+/* The footer sits on dark green, so the tile needs its own lift. */
+.footer-brand .brand-mark {
+    background: linear-gradient(150deg, #9ACB55 0%, #33935A 50%, #17432F 100%);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .34),
+        0 0 0 1px rgba(255, 255, 255, .10),
+        0 6px 18px rgba(0, 0, 0, .28);
+}
+
+/* ---------- 68. Overflow guard ---------- */
 /* The off-canvas menu sits at translateX(100%) while closed. A fixed
    element still contributes to the document's scrollable overflow, so
    without this the whole page can be swiped sideways on mobile even
@@ -1839,7 +1872,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
    creating a scroll container. */
 html { overflow-x: clip; }
 
-/* ---------- 68. Responsive additions ---------- */
+/* ---------- 69. Responsive additions ---------- */
 @media (max-width: 1080px) {
     .value-strip { grid-template-columns: repeat(2, 1fr); }
     .newsletter-band { grid-template-columns: 1fr; gap: 26px; }

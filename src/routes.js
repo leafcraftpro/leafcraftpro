@@ -208,7 +208,7 @@ export function buildRoutes() {
       },
       page: {
         title: i === 1
-          ? 'Craft Guides & Tutorials: 50 Step-by-Step Projects'
+          ? 'Craft Guides: 50 Step-by-Step Tutorials'
           : `Craft Guides — Page ${i} of ${blogPages}`,
         description:
           'Browse every LeafCraftPRO tutorial: palm leaf baskets, coconut leaf ornaments, weaving techniques, home decor and kids crafts, all tested by hand.',
@@ -465,7 +465,7 @@ export function buildRoutes() {
       },
       page: {
         title: i === 1
-          ? 'Shop Handmade Natural Crafts: Baskets, Decor & Gifts'
+          ? 'Shop Handmade Baskets, Decor & Gifts'
           : `Shop — Page ${i} of ${shopPages}`,
         description:
           'Shop thirty handmade pieces woven from natural palm and coconut leaves — baskets, home decor, ornaments, gift boxes and craft kits. Free shipping over $50.',

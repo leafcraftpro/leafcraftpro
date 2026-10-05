@@ -165,6 +165,30 @@ Nothing is hand-written per page. Every tag is derived from the content.
 
 ---
 
+## Brand assets
+
+The mark is a leaf with a gently bowed rib and three staggered vein pairs. The
+veins stop short of the rib, so the join reads as an over-under weave — the two
+things the workshop actually does, in one shape. It holds up from 16 px to 176 px.
+
+| File | Use |
+|---|---|
+| `assets/img/logo.svg` | 512×512 tile — schema `logo`, social avatars, app icon |
+| `assets/img/favicon.svg` | 64×64, heavier strokes so it survives 16 px |
+| `assets/img/logo-mark.svg` | Monochrome, for light backgrounds |
+| `assets/img/logo-mark-light.svg` | Monochrome white, for dark backgrounds |
+| `assets/img/logo-wordmark.svg` | Horizontal lockup with the tagline |
+
+The inline version used in the header and footer lives in `src/lib/icons.js` as
+`leafmark`. Its per-path `stroke-width` values are deliberate — the outline, rib
+and veins each carry a different weight so the mark does not turn to mud at
+header size. Do not collapse them to one value.
+
+To swap the mark, update the path data in `icons.js` **and** the five SVG files
+together, or the header and the social cards will disagree.
+
+---
+
 ## Performance notes
 
 - Images are served as WebP at four widths with `srcset` and `sizes`, so a

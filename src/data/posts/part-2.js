@@ -289,7 +289,7 @@ export default [
     category: 'coconut-leaf-crafts',
     excerpt:
       'The woven coconut leaf fish is a traditional favourite, made from two leaflets in half an hour. Learn the fold, the tail, and the fins that bring it to life.',
-    metaTitle: 'Coconut Leaf Fish: A Traditional Craft You Can Make',
+    metaTitle: 'Coconut Leaf Fish: A Traditional Craft',
     metaDescription:
       'Make a traditional coconut leaf fish from two leaflets in about thirty minutes. Step-by-step folding instructions with real measurements and honest troubleshooting.',
     keywords: [
@@ -558,7 +558,7 @@ export default [
     category: 'coconut-leaf-crafts',
     excerpt:
       'A quick five-point coconut leaf star you can fold in fifteen minutes. Perfect for garlands, gift toppers and simple Christmas tree ornaments.',
-    metaTitle: 'Fold a Coconut Leaf Star Ornament in Fifteen Minutes',
+    metaTitle: 'Fold a Coconut Leaf Star Ornament',
     metaDescription:
       'Fold a five-point coconut leaf star in about fifteen minutes. A simple beginner project for garlands, gift toppers and natural tree ornaments.',
     keywords: [
@@ -1082,7 +1082,7 @@ export default [
     category: 'baskets-weaving',
     excerpt:
       'A full tutorial for a woven mini bag from palm leaves. Build a square base, weave tight walls, and finish a neat rim and handle in about two hours.',
-    metaTitle: 'Woven Mini Bag Tutorial from Palm Leaves Step by Step',
+    metaTitle: 'Woven Mini Bag Tutorial from Palm Leaves',
     metaDescription:
       'Weave a mini bag from palm leaves in about two hours. A full tutorial covering the square base, tight walls, folded rim and a cord handle that lasts.',
     keywords: [

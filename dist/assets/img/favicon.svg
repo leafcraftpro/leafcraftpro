@@ -1,13 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="LeafCraftPRO">
   <defs>
-    <linearGradient id="f" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#24703F"/>
-      <stop offset="100%" stop-color="#8FBF4A"/>
+    <linearGradient id="lcFav" x1="0.05" y1="0" x2="0.95" y2="1">
+      <stop offset="0" stop-color="#33935A"/>
+      <stop offset="0.5" stop-color="#1C5638"/>
+      <stop offset="1" stop-color="#6BA83E"/>
     </linearGradient>
+    <clipPath id="lcFavClip"><rect width="64" height="64" rx="15"/></clipPath>
   </defs>
-  <rect width="64" height="64" rx="14" fill="url(#f)"/>
-  <g fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" transform="translate(10 10) scale(1.83)">
-    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
-    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+  <g clip-path="url(#lcFavClip)">
+    <rect width="64" height="64" fill="url(#lcFav)"/>
+  </g>
+  <!-- Two vein pairs only, and heavier strokes: a favicon has to survive
+       being drawn at 16px, where six thin veins would turn to mud. -->
+  <g transform="translate(9.56 8.34) scale(1.87)"
+     fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="1.85"
+          d="M12 2.3 C 17.4 5.6 20.4 9.6 20.4 14.2 C 20.4 18.4 17 21.2 12 23 C 7 21.2 3.6 18.4 3.6 14.2 C 3.6 9.6 6.6 5.6 12 2.3 Z"/>
+    <path stroke-width="1.6" d="M12 5.4 C 12.1 10.2 12.1 16.4 12 22.1"/>
+    <path stroke-width="1.4" d="M12.6 12 L 17.8 10.1"/>
+    <path stroke-width="1.4" d="M12.6 16.6 L 16.4 15.1"/>
+    <path stroke-width="1.4" d="M11.4 13.3 L 6.2 11.4"/>
+    <path stroke-width="1.4" d="M11.4 17.9 L 7.6 16.4"/>
   </g>
 </svg>

@@ -1,34 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="LeafCraftPRO">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" width="640" height="160"
+     role="img" aria-label="LeafCraftPRO — Craft, Learn, Create">
   <title>LeafCraftPRO</title>
   <defs>
-    <linearGradient id="lcTile" x1="0.05" y1="0" x2="0.95" y2="1">
+    <linearGradient id="lcWmTile" x1="0.05" y1="0" x2="0.95" y2="1">
       <stop offset="0" stop-color="#33935A"/>
       <stop offset="0.5" stop-color="#1C5638"/>
       <stop offset="1" stop-color="#6BA83E"/>
     </linearGradient>
-    <radialGradient id="lcGloss" cx="0.26" cy="0.14" r="0.9">
+    <radialGradient id="lcWmGloss" cx="0.26" cy="0.14" r="0.9">
       <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.26"/>
       <stop offset="0.52" stop-color="#FFFFFF" stop-opacity="0.04"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="lcEdge" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.30"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.04"/>
-    </linearGradient>
-    <clipPath id="lcTileClip"><rect width="512" height="512" rx="116"/></clipPath>
+    <clipPath id="lcWmClip"><rect x="16" y="24" width="112" height="112" rx="26"/></clipPath>
   </defs>
 
-  <g clip-path="url(#lcTileClip)">
-    <rect width="512" height="512" fill="url(#lcTile)"/>
-    <rect width="512" height="512" fill="url(#lcGloss)"/>
-    <rect x="4" y="4" width="504" height="504" rx="113"
-          fill="none" stroke="url(#lcEdge)" stroke-width="8"/>
+  <g clip-path="url(#lcWmClip)">
+    <rect x="16" y="24" width="112" height="112" fill="url(#lcWmTile)"/>
+    <rect x="16" y="24" width="112" height="112" fill="url(#lcWmGloss)"/>
   </g>
 
-  <!-- The mark: a leaf with a gently bowed rib and three staggered,
-       upward-sweeping vein pairs. The veins stop short of the rib so
-       the join reads as an over-under weave without becoming noise. -->
-  <g transform="translate(76 66.25) scale(15)"
+  <g transform="translate(32.52 38.38) scale(3.29)"
      fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
     <path stroke-width="1.5"
           d="M12 2.3 C 17.4 5.6 20.4 9.6 20.4 14.2 C 20.4 18.4 17 21.2 12 23 C 7 21.2 3.6 18.4 3.6 14.2 C 3.6 9.6 6.6 5.6 12 2.3 Z"/>
@@ -40,4 +32,14 @@
     <path stroke-width="1.1" d="M11.4 14.5 L 6 12.8"/>
     <path stroke-width="1.1" d="M11.4 17.9 L 7.4 16.5"/>
   </g>
+
+  <text x="156" y="93"
+        font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
+        font-size="46" font-weight="700" letter-spacing="-1.2"
+        fill="#1C5638">LeafCraftPRO</text>
+
+  <text x="158" y="119"
+        font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-size="13" font-weight="600" letter-spacing="5.2"
+        fill="#6E7F72">CRAFT · LEARN · CREATE</text>
 </svg>

@@ -75,7 +75,7 @@ export const blogCategories = [
     tagline: 'Materials, care and honest trade-offs',
     description:
       'What natural materials are actually good at, what they are not, and how to look after woven objects so they last. No greenwashing — where plastic wins, we say so.',
-    metaTitle: 'Eco Living: Natural Materials, Care and Sustainability',
+    metaTitle: 'Eco Living: Natural Materials and Care',
     metaDescription:
       'An honest look at natural materials and sustainable crafting. Compare palm leaf and plastic, learn how to care for woven crafts and source leaves responsibly.',
   },

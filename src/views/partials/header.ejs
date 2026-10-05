@@ -20,7 +20,7 @@ const socials = Object.entries(site.social).filter(([, v]) => v);
     <div class="header-inner">
 
       <a class="brand" href="<%= relUrl('') %>" aria-label="<%= site.name %> home">
-        <span class="brand-mark"><%- icon('leaf', '', 22) %></span>
+        <span class="brand-mark"><%- icon('leafmark', '', 24) %></span>
         <span class="brand-text">
           <span class="brand-name"><%= site.name %></span>
           <span class="brand-tag"><%= site.tagline %></span>
@@ -63,7 +63,7 @@ const socials = Object.entries(site.social).filter(([, v]) => v);
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
   <div class="mobile-nav-head">
     <span class="brand">
-      <span class="brand-mark"><%- icon('leaf', '', 20) %></span>
+      <span class="brand-mark"><%- icon('leafmark', '', 22) %></span>
       <span class="brand-text"><span class="brand-name"><%= site.name %></span></span>
     </span>
     <button type="button" class="icon-btn nav-close" aria-label="Close menu"><%- icon('close', '', 20) %></button>
