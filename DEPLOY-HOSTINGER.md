@@ -85,8 +85,9 @@ at runtime).
 ```
 server.js                 ← startup file
 app.js                    ← entry alias
-package.json
+package.json              ← without this, Passenger has nothing to start
 package-lock.json         ← pins exact versions; keep it
+preflight.js              ← deployment check; run it after uploading
 src/                      ← all routes, data, views, helpers
 public/                   ← CSS, JS, images — served directly
 deploy/htaccess-node.txt  ← reference only
@@ -95,6 +96,25 @@ deploy/htaccess-node.txt  ← reference only
 
 Everything else in the repository is documentation or development tooling and is
 optional on the server.
+
+> **Do not upload the contents of `public/` on their own.** This is the single
+> most common deployment mistake, and it produces a distinctive 503: the CSS and
+> images load fine, but every page 503s. `public/` is a *subfolder* of the
+> application, not the application itself. Passenger needs `package.json` and
+> `server.js` sitting in the folder it is pointed at — one level *above*
+> `public/`.
+>
+> The shape of the mistake:
+>
+> ```
+> ✗ application root/          ✓ application root/
+>   ├── assets/                  ├── package.json
+>   └── images/                  ├── server.js
+>                                ├── src/
+>                                └── public/
+>                                    ├── assets/
+>                                    └── images/
+> ```
 
 ### 2.1 Upload over SSH (recommended)
 
@@ -145,11 +165,48 @@ cd ~/domains/leafcraftpro.site/app
 npm install --omit=dev
 ```
 
-`--omit=dev` skips `sharp`, which is listed under `optionalDependencies` and is
-used only by the offline image-generation tool. The app never imports it.
+`--omit=dev` installs production dependencies only. The app needs just four:
+`express`, `ejs`, `helmet` and `compression`. There are no native modules, so
+this install is fast and has nothing that can fail to compile.
 
 If you prefer a graphical route, hPanel → **Node.js** → your application also has
 an **NPM install** button that runs this for you.
+
+### Verify the folder before you restart
+
+Run the preflight check in the application root. It reads and reports only — it
+changes nothing:
+
+```bash
+node preflight.js
+```
+
+It confirms that this folder is a valid application root and prints a `PASS` or
+`FAIL` line for each requirement, with the exact fix for anything that fails:
+
+```
+  ====================================================
+  PASS  package.json here     found
+  PASS  server.js here        found
+  PASS  src/ here             found
+  PASS  public/ here          found
+  PASS  node_modules here     found
+  PASS  dependencies present  4 of 4 resolvable
+  PASS  app source loads      117 routes built
+  PASS  a page renders        home page rendered
+  PASS  PORT is usable        unset — will bind 3000
+  PASS  HOST not hard-coded   unset (correct)
+  ====================================================
+
+  All checks passed. This folder can run the app.
+```
+
+**If any line says `FAIL`, fix it before restarting.** Every URL except real
+files returns 503 until all of these pass — that is what a 503 on this host
+almost always means.
+
+The most valuable line is `script dir` at the top: it prints the folder the check
+ran in. It must be the same folder you set as the **Application root** in hPanel.
 
 ### About the build step
 
@@ -337,9 +394,30 @@ curl -sI https://leafcraftpro.site/assets/css/style.css
 
 ### 8.1 The app returns 503, static assets return 200
 
-The web server works but the Node process is not serving. In likelihood order:
+The web server works but the Node process is not serving. Run `node preflight.js`
+in the application root first — it names the cause in one command. Then:
 
-**Cause 1 — dependencies were never installed in the application root.**
+**Cause 1 — the application root contains only `public/`'s contents.**
+*This is the most common cause, and the easiest to misread.* The folder that
+Passenger is pointed at holds `assets/` and `images/` but no `package.json` and no
+`server.js`. There is nothing to start, so every URL that is not a real file
+returns 503 while the CSS and images keep working perfectly.
+
+Tell-tale sign — the two groups behave completely differently:
+
+| Path | Result | Why |
+|---|---|---|
+| `/assets/css/style.css` | `200` | a real file; the web server serves it |
+| `/images/hero/main-1280.webp` | `200` | a real file |
+| `/` , `/healthz` , `/robots.txt` | `503` | not real files; handed to an app that is not there |
+| `/package.json` , `/server.js` | `503` | **proves the project root is not the document root** |
+
+**Fix:** upload the **whole project** — `package.json`, `package-lock.json`,
+`server.js`, `app.js`, `src/` and `public/` — into the application root, then run
+`npm install --omit=dev` there. Do not upload the *contents* of `public/` on
+their own; `public/` is a subfolder of the app, not the app.
+
+**Cause 2 — dependencies were never installed in the application root.**
 Node cannot resolve `express`, so the process exits the instant it starts.
 
 ```bash
@@ -350,15 +428,15 @@ npm install --omit=dev
 
 `node_modules` must sit next to `package.json`.
 
-**Cause 2 — the startup file.** See the note in §1. Set it to `server.js`, or make
+**Cause 3 — the startup file.** See the note in §1. Set it to `server.js`, or make
 sure `app.js` is the repository's version and not the panel's CommonJS stub.
 
-**Cause 3 — the application root is wrong.** It must be the folder that directly
+**Cause 4 — the application root is wrong.** It must be the folder that directly
 contains `package.json`, `server.js` and `app.js` side by side. A common mistake
 is pointing it one level too high, so the panel looks for `app/package.json` when
 the real path is `app/leafcraft-node/package.json`.
 
-**Cause 4 — the Node version is too old.** `package.json` requires Node 18+.
+**Cause 5 — the Node version is too old.** `package.json` requires Node 18+.
 Change it in hPanel → **Node.js**, then re-run `npm install` (the virtualenv path
 changes with the version) and restart.
 

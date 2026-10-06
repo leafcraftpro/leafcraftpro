@@ -46,7 +46,14 @@ To confirm it came up, visit <http://localhost:3000/healthz>.
 |---|---|
 | `npm start` | Runs the Express server |
 | `npm run dev` | Alias for `npm start` |
+| `npm run preflight` | Checks that the current folder can run the app |
 | `npm run build` | No-op. Exists so the deployment pipeline's build step succeeds |
+
+`npm run preflight` is the first thing to run when a deployed site returns 503.
+It verifies that the folder is a valid application root — `package.json`,
+`server.js`, `src/`, `public/` and `node_modules` all present — that the app's
+modules load, that 117 routes build, and that a page actually renders. It prints
+`PASS`/`FAIL` per check with the fix for anything failing, and changes nothing.
 
 The app has no build step — pages are rendered on request from `src/`, and
 `public/` is served directly. `npm run build` prints a line and exits 0 purely
@@ -60,6 +67,7 @@ because Hostinger's deploy system runs a build script if one is defined.
 leafcraft-node/
 ├── server.js                 # Express server — the whole app
 ├── app.js                    # entry alias — loads server.js
+├── preflight.js              # deployment check — run this on the server
 ├── package.json
 ├── DEPLOY-HOSTINGER.md       # full deployment walkthrough
 │
@@ -237,6 +245,7 @@ The short version:
 # 2. Upload this project to the application root (exclude node_modules)
 # 3. On the server, in the application root:
 npm install --omit=dev
+node preflight.js          # must print "All checks passed"
 #
 # 4. Click Restart, then verify:
 curl -s https://leafcraftpro.site/healthz
@@ -245,6 +254,11 @@ curl -s https://leafcraftpro.site/healthz
 `GET /healthz` returns a small JSON health report — app name, Node version,
 mode, listening address, route count and uptime. If you get JSON, the app is
 alive and serving.
+
+> **Upload the whole project, not just `public/`.** If only `public/`'s contents
+> reach the server, the CSS and images load but every page returns 503, because
+> Passenger has no `package.json` to start from. `node preflight.js` catches this
+> in one command.
 
 > **Do not set `PORT` or `HOST` yourself.** Passenger assigns them. Both
 > `server.js` and `app.js` work as the startup file.
