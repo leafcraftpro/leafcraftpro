@@ -16,6 +16,7 @@ const initials = author.name.split(' ').map(function (n) { return n[0]; }).join(
 <section class="page-hero" style="padding-bottom:104px">
   <div class="page-hero-bg">
     <%- blogImage(post.slug, '', { sizes: '100vw', width: 1280, height: 640, lazy: false,
+        fetchpriority: 'high',
         widths: (manifest.blog[post.slug] || {}).widths || null }) %>
   </div>
   <div class="container">

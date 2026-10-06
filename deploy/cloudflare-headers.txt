@@ -33,3 +33,15 @@
   X-Frame-Options: DENY
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:
+
+# Self-hosted variable fonts. These URLs are effectively immutable — a font
+# file is replaced by pointing at a new filename, never by editing in place —
+# so a year is safe. Remember each header may appear in only ONE rule.
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images are named by slug plus width, so replacing a photo reuses its URL.
+# A week balances repeat-visit speed against how long a swapped image can
+# linger in a browser that has already seen it.
+/images/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400

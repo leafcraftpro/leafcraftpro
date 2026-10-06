@@ -21,6 +21,16 @@ import { site, absoluteUrl, relUrl } from './src/config/site.js';
 import manifest from './src/data/manifest.js';
 import { excerpt } from './src/lib/helpers.js';
 import { postsByDate } from './src/data/posts/index.js';
+import {
+  postToMarkdown,
+  pageToMarkdown,
+  homeToMarkdown,
+  blogIndexToMarkdown,
+  shopIndexToMarkdown,
+  buildLlmsTxt,
+  buildLlmsFullTxt,
+} from './src/lib/markdown.js';
+import products from './src/data/products.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC = path.join(__dirname, 'public');
@@ -182,6 +192,53 @@ app.get('/healthz', (req, res) => {
 });
 
 // ---- HTML routes ------------------------------------------------
+
+/**
+ * Markdown output for language models — see src/lib/markdown.js and
+ * the llms.txt proposal at https://llmstxt.org.
+ */
+app.get('/llms.txt', (req, res) => {
+  res
+    .type('text/plain')
+    .set('Cache-Control', 'public, max-age=0, must-revalidate')
+    .send(buildLlmsTxt());
+});
+
+app.get('/llms-full.txt', (req, res) => {
+  res
+    .type('text/plain')
+    .set('Cache-Control', 'public, max-age=0, must-revalidate')
+    .send(buildLlmsFullTxt());
+});
+
+/**
+ * Markdown twin of a page: /about.md, /how-to-make-a-coil-basket.md, and
+ * /index.md for the home page. Anything without a twin falls through to 404.
+ */
+app.get(/^\/(.+)\.md$/, (req, res, next) => {
+  const slug = req.params[0];
+  const key = slug === 'index' ? '' : slug;
+  const route = routeMap.get(key);
+  if (!route) return next();
+
+  const src = route.data || {};
+  let md = null;
+
+  if (src.post) md = postToMarkdown(src.post);
+  else if (src.page) md = pageToMarkdown(src.page);
+  // The list pages have no single source object, so build them from the
+  // collections directly — the same functions the static build uses.
+  else if (key === '') md = homeToMarkdown();
+  else if (key === 'blog') md = blogIndexToMarkdown();
+  else if (key === 'shop') md = shopIndexToMarkdown(products);
+
+  if (!md) return next();
+
+  res
+    .type('text/markdown')
+    .set('Cache-Control', 'public, max-age=0, must-revalidate')
+    .send(md);
+});
 
 app.get(/.*/, async (req, res, next) => {
   const key = decodeURIComponent(req.path).replace(/^\/+|\/+$/g, '');

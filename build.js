@@ -35,8 +35,18 @@ import { render } from './src/lib/render.js';
 import { buildRoutes, buildSearchIndex, sitemapEntries } from './src/routes.js';
 import { site, absoluteUrl, relUrl } from './src/config/site.js';
 import { postsByDate } from './src/data/posts/index.js';
+import products from './src/data/products.js';
 import manifest from './src/data/manifest.js';
 import { excerpt } from './src/lib/helpers.js';
+import {
+  postToMarkdown,
+  pageToMarkdown,
+  homeToMarkdown,
+  blogIndexToMarkdown,
+  shopIndexToMarkdown,
+  buildLlmsTxt,
+  buildLlmsFullTxt,
+} from './src/lib/markdown.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = __dirname;
@@ -155,6 +165,11 @@ function buildRobots() {
     '',
     'Sitemap: ' + absoluteUrl('sitemap.xml'),
     '',
+    '# For language models and agents:',
+    '# ' + absoluteUrl('llms.txt') + ' — curated index of the guides',
+    '# ' + absoluteUrl('llms-full.txt') + ' — every guide in full, one file',
+    '# Any page also has a markdown twin: append .md to its URL.',
+    '',
   ].join('\n');
 }
 
@@ -258,6 +273,33 @@ async function build() {
   await write(path.join(DIST, 'manifest.webmanifest'), buildWebManifest());
   await write(path.join(DIST, 'search-index.json'), JSON.stringify(buildSearchIndex()));
   log('wrote sitemap.xml, robots.txt, feed.xml, manifest.webmanifest, search-index.json');
+
+  // 3b. Markdown twins and the llms.txt files.
+  //     The llms.txt proposal recommends that pages an agent might need also
+  //     exist as clean markdown at the same URL with the extension changed.
+  //     These sit alongside the HTML rather than replacing it.
+  let mdCount = 0;
+  for (const route of routes) {
+    const src = route.data || {};
+    let md = null;
+    if (src.post) md = postToMarkdown(src.post);
+    else if (src.page) md = pageToMarkdown(src.page);
+    if (!md) continue;
+
+    const out = outFileFor(route);
+    if (out === '404.html') continue;
+    await write(path.join(DIST, out.replace(/\.html$/, '.md')), md);
+    mdCount++;
+  }
+  // Index pages have no single source object, so build their twins directly.
+  await write(path.join(DIST, 'index.md'), homeToMarkdown());
+  await write(path.join(DIST, 'blog.md'), blogIndexToMarkdown());
+  await write(path.join(DIST, 'shop.md'), shopIndexToMarkdown(products));
+  mdCount += 3;
+
+  await write(path.join(DIST, 'llms.txt'), buildLlmsTxt());
+  await write(path.join(DIST, 'llms-full.txt'), buildLlmsFullTxt());
+  log(`wrote ${mdCount} markdown twins + llms.txt + llms-full.txt`);
 
   // 4. Cloudflare Pages configuration.
   //    `_headers` and `_redirects` are read from the build output root and

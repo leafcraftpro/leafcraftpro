@@ -14,6 +14,7 @@
     "build": "node build.js",
     "preflight": "node preflight.js",
     "image:add": "node add-image.js",
+    "verify:llms": "node verify-llms.mjs dist",
     "deploy:cloudflare": "wrangler pages deploy dist"
   },
   "dependencies": {

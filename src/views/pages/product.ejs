@@ -17,7 +17,7 @@ const lqipFor = function (slug) { return (manifest.products[slug] || {}).lqip ||
 
 <section class="page-hero">
   <div class="page-hero-bg">
-    <%- productImage(images[0], '', { sizes: '100vw', width: 1000, height: 500, lazy: false, widths: widthsFor(images[0]) }) %>
+    <%- productImage(images[0], '', { sizes: '100vw', width: 1000, height: 500, lazy: false, fetchpriority: 'high', widths: widthsFor(images[0]) }) %>
   </div>
   <div class="container">
     <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>

@@ -20,15 +20,25 @@ const bClass = bodyClass || '';
 <link rel="manifest" href="<%= relUrl('manifest.webmanifest') %>">
 <link rel="sitemap" type="application/xml" href="<%= relUrl('sitemap.xml') %>">
 <link rel="alternate" type="application/rss+xml" title="<%= site.name %> — Craft Guides" href="<%= relUrl('feed.xml') %>">
+<%# llms.txt proposal: advertise the markdown twin and the index that covers
+    this page, so agents do not have to guess at URLs. %>
+<link rel="describedby" type="text/plain" href="<%= relUrl('llms.txt') %>">
+<% if (markdownTwin) { %>
+<link rel="alternate" type="text/markdown" href="<%= relUrl(markdownTwin) %>">
+<% } %>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style"
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'">
-<noscript>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap">
-</noscript>
+<%# Fonts are self-hosted and declared in style.css, so there is no
+    third-party stylesheet to fetch. They are deliberately NOT preloaded:
+    both faces use font-display: swap, so text paints immediately with the
+    fallback and swapping later costs nothing. Preloading them would compete
+    for bandwidth with the LCP image below. %>
+<% if (preloadImage) { %>
+<link rel="preload" as="image"
+      href="<%= preloadImage.href %>"
+      imagesrcset="<%= preloadImage.srcset %>"
+      imagesizes="<%= preloadImage.sizes %>"
+      fetchpriority="high">
+<% } %>
 
 <link rel="stylesheet" href="<%= relUrl('assets/css/style.css') %>">
 
