@@ -61,6 +61,7 @@ To confirm it came up, visit <http://localhost:3000/healthz>.
 | `npm run dev` | Alias for `npm start` |
 | `npm run build` | Pre-renders all 117 pages into `dist/` for Cloudflare Pages |
 | `npm run preflight` | Checks that the current folder can run the Node app |
+| `npm run image:add` | Generates WebP derivatives for a new post photograph |
 | `npm run deploy:cloudflare` | `npm run build`, then deploys `dist/` with Wrangler |
 
 `npm run preflight` is the first thing to run when a deployed Node app returns
@@ -85,6 +86,7 @@ leafcraft-node/
 ├── app.js                    # entry alias — loads server.js
 ├── build.js                  # static export → dist/ (for Cloudflare Pages)
 ├── preflight.js              # deployment check — run this on the server
+├── add-image.js              # generates WebP derivatives for a new photo
 ├── wrangler.toml             # Cloudflare Pages project config
 ├── package.json
 ├── CLOUDFLARE-DEPLOY.md      # Cloudflare Pages walkthrough

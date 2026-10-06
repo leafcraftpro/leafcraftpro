@@ -13,6 +13,7 @@
     "dev": "node server.js",
     "build": "node build.js",
     "preflight": "node preflight.js",
+    "image:add": "node add-image.js",
     "deploy:cloudflare": "wrangler pages deploy dist"
   },
   "dependencies": {

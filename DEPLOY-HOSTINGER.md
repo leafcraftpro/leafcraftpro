@@ -386,9 +386,16 @@ editing it.
 2. Set `slug` to the URL you want — posts live at the root, e.g. `/my-new-guide`.
    Do **not** reuse an existing slug or a reserved path (`blog`, `shop`, `about`,
    `contact`, `faq`, `search`, `topics`, `sitemap`).
-3. Set `image` to the same slug, and add matching WebP files under
-   `public/images/blog/` — or point `image` at an existing slug to reuse its
-   photo.
+3. Set `image` to the same slug, then generate the image files from a source
+   photograph:
+
+   ```bash
+   npm install --no-save sharp     # only needed for this command
+   npm run image:add -- ~/Pictures/my-photo.jpg my-new-guide
+   ```
+
+   That writes the responsive WebP set, the 1200x630 social card and the
+   manifest entry. Or point `image` at an existing slug to reuse its photo.
 4. Restart the app.
 
 ---

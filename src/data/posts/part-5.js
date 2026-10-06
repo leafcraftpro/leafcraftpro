@@ -443,5 +443,55 @@ export default [
       { q: "How should I wrap a handmade leaf gift?", a: "Wrap it in unbleached tissue paper and tie it with jute twine. Add a short card noting that the piece is handmade, compostable and should be kept dry." },
       { q: "Do handmade leaf gifts need care instructions?", a: "It helps. Include a note to dust with a soft brush, keep the piece dry and reshape it by hand if it gets damp. A small care card makes the gift last much longer." }
     ]
+  },
+
+  // ---------------------------------------------------------------
+  // 51. how-to-make-a-coil-basket
+  // ---------------------------------------------------------------
+  {
+    slug: "how-to-make-a-coil-basket",
+    title: "How to Make a Coil Basket: 6 Steps, Base to Finish",
+    category: "baskets-weaving",
+    excerpt: "A coiled basket is built stitch by stitch around a fibre core. Six clear stages, from winding the base to trimming the rim, with real timings and honest fixes.",
+    metaTitle: "Coil Basket Tutorial: 6 Stages from Base to Rim",
+    metaDescription: "Make a coiled basket from a fibre core and stitching thread. Six clear stages, from winding the base to trimming the rim, with honest timings.",
+    keywords: ["coil basket", "coiled basketry", "how to make a coil basket", "natural fibre basket", "coil basket tutorial"],
+    tags: ["intermediate", "weaving", "coil-basket"],
+    publishedAt: "2026-09-10",
+    readTime: 9,
+    difficulty: "Intermediate",
+    image: "how-to-make-a-coil-basket",
+    imageAlt: "Hands binding a coiled natural fibre basket with a cream and green geometric pattern",
+    intro: "<p>Coil basketry is the oldest and slowest way to make a basket, and the only one where the shape is decided stitch by stitch rather than row by row. Instead of weaving flat strips over and under one another, you wind a bundle of fibres into a spiral and bind each new coil to the last with a single thread. Nothing is knotted and nothing is glued. The structure holds because every stitch grips the row beneath it.</p><p>That makes it the most forgiving technique I teach. A mistake costs you one stitch to unpick, not a whole panel. It also makes it the most time-hungry: a basket about 18 cm across takes me eight to ten hours across several evenings, and no amount of practice makes the stitching itself go much faster.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>Coiled baskets appear on every continent, and the technique is remarkably consistent wherever you find it: a core of bundled plant fibre, a binding thread, and a spiral that grows outward from the centre. What changes is the material. In the Mediterranean the core is often esparto grass; elsewhere it is sweetgrass, pine needles, sisal or split palm. Once you understand the principle you can coil almost anything that bends without snapping.</p>" },
+      { type: "heading", level: 2, text: "What makes coil basketry different" },
+      { type: "paragraph", html: "<p>In a woven basket the strength comes from warp and weft interlocking, and the shape is set by the frame you build first. In a coiled basket the strength comes from tension. Each stitch wraps over the new coil and catches the stitch below, so the rows lock together the way knitted fabric does. That is why a coiled basket holds its shape long before the rim is finished, and why a single loose row makes the whole wall bulge.</p>" },
+      { type: "materials", title: "What You'll Need", items: ["A core: 4 to 6 mm bundles of split palm strip, sweetgrass, pine needles or sisal. Palm is the easiest to source.", "Binding thread: waxed linen, strong cotton or split palm fibre, about 0.5 mm thick", "A blunt tapestry needle, size 13 to 15", "Sharp scissors, plus a small clip or peg", "A shallow dish of water to keep the core supple as you work"] },
+      { type: "heading", level: 2, text: "The six stages of a coiled basket" },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Start the base", text: "Bind three or four core strands together for about 3 cm, then curl the bound end into a tight spiral. Stitch each new round to the previous one, spacing stitches about 4 mm apart. Keep the first five rounds as flat as you can, because a domed centre never flattens out later." },
+        { title: "Build the shape", text: "Lay a fresh core bundle on top of the previous round and stitch through both, catching the row below. Space the stitches slightly wider on the outside of a curve to widen the basket, or return to 4 mm and stack each coil directly on the last to bring the walls up straight." },
+        { title: "Add the design", text: "Change the binding thread to introduce colour. In coiled work the pattern comes entirely from the thread, never the core, so a colour change costs nothing but a join and a fresh needle length. Carry the old thread inside the core bundle for two or three stitches before trimming it." },
+        { title: "Shape the rim", text: "For the final two rounds, stop widening and stitch more tightly at about 3 mm apart. This draws the rim in slightly and gives it a firm edge that will not flex. If the rim looks wavy, the tension drifted on the round below, so go back one row rather than trying to correct it at the top." },
+        { title: "Trim and finish", text: "Trim the core ends flush and tuck them under the last coil. Run the final thread back through four or five stitches inside the wall, then out through the middle of the core, and cut it flush. Never knot the end, because a knot sits proud and works loose with handling." },
+        { title: "The finished basket", text: "Stand the basket on a flat surface and check that it does not rock. If it does, press it gently back into shape while the fibres are still slightly damp and leave it to dry overnight. The colour deepens over the first month as the fibres finish drying." }
+      ] },
+      { type: "image", src: "how-to-make-a-coil-basket", alt: "A finished coiled basket with a cream, green and dark brown geometric pattern", caption: "The pattern comes entirely from the binding thread, not the core, so a design change costs nothing but a join." },
+      { type: "heading", level: 2, text: "Reading the pattern" },
+      { type: "paragraph", html: "<p>Because the core stays hidden, every design decision in coiled work is a decision about the thread. Traditional patterns are built from a small number of moves repeated with discipline: hold one colour for a set number of rounds, then switch. The geometry emerges from where the switches land relative to each other, not from any drawn plan. Count your rounds out loud for the first band and the rest tends to follow.</p>" },
+      { type: "table", head: ["Pattern", "How it is made", "Best for"], rows: [["Bands", "Hold one thread colour for a fixed number of rounds", "Simple graphic pieces"], ["Steps", "Stagger each colour change by one stitch", "Spiral and diagonal effects"], ["Diamonds", "Widen a band, then narrow it symmetrically", "Traditional geometric work"], ["Speckle", "Single contrast stitches at regular intervals", "Breaking up a large plain area"]] },
+      { type: "heading", level: 2, text: "Where coiled baskets go wrong" },
+      { type: "paragraph", html: "<p>Almost every failure traces back to tension rather than technique. Pulling each stitch as tight as it will go seems careful, but it compresses the core and the wall starts to dip inward within a few rounds. Aim for firm and even instead: the stitch should grip the row below without denting the bundle it wraps. The second most common problem is a base that will not sit flat, which is nearly always the first five rounds rather than anything you did later.</p>" },
+      { type: "tips", title: "Helpful Tips", items: ["Keep the core damp rather than wet. Dry core cracks when bent, while sodden core stretches and the basket shrinks as it dries.", "Count stitches per round for the first five rounds. The base is the only place where an error compounds.", "Make colour joins on the inside of the wall wherever you can, so the change hides in the weave.", "Work in daylight. Coiled stitching is fine work and a dropped stitch is invisible under a warm bulb."] },
+      { type: "cta", title: "Would rather start with a finished one?", text: "Our coiled baskets are made to these exact proportions and arrive ready to use or give.", buttonText: "Shop woven baskets", buttonLink: "/shop" }
+    ],
+    faq: [
+      { q: "How long does a coiled basket take to make?", a: "A basket about 18 cm across takes eight to ten hours of stitching, usually spread over several evenings. The base accounts for roughly a quarter of that time because the rounds are small and the increases need care." },
+      { q: "What is the difference between coiled and woven baskets?", a: "A woven basket interlocks flat strips over and under one another to form the wall. A coiled basket winds a bundle of fibres into a spiral and binds each round to the last with a separate thread, so the strength comes from stitch tension rather than interlocking." },
+      { q: "Can I make a coil basket from dried leaves?", a: "Yes, but soak dried strips in warm water for twenty minutes first. Dried fibre cracks when bent dry, and cracked core shows through the binding as a rough patch." },
+      { q: "Why is my coiled basket base not flat?", a: "Almost always too much spacing in the first five rounds. The base needs stitches close enough together, about 4 mm apart, to hold the spiral in one plane. Pulling stitches very tight also cups the base, so aim for firm and even rather than as tight as possible." },
+      { q: "Do coiled baskets need a rim treatment?", a: "No. The tighter final two rounds are the rim. Adding a separate binding on top tends to make the edge bulky and is not traditional in most coiled traditions." }
+    ]
   }
 ];

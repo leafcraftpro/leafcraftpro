@@ -347,7 +347,7 @@ Content lives in `src/data/`. Edit, build, deploy.
 | What you want to change | File |
 |---|---|
 | Site name, domain, contact, social links, analytics | `src/config/site.js` |
-| Blog posts (50 of them) | `src/data/posts/part-1.js` … `part-5.js` |
+| Blog posts (51 of them) | `src/data/posts/part-1.js` … `part-5.js` |
 | Products (30 of them) | `src/data/products.js` |
 | Topics and collections | `src/data/categories.js` |
 | About, FAQ, policies, glossary | `src/data/pages.js` |
@@ -358,6 +358,26 @@ Content lives in `src/data/`. Edit, build, deploy.
 npm run build
 npx wrangler pages deploy dist
 ```
+
+**Adding a post with a new photograph.** Generate the image derivatives first —
+the site needs four responsive WebP widths, a blur-up placeholder and a
+1200x630 social card, and all of it is recorded in the image manifest:
+
+```bash
+npm install --no-save sharp     # only needed for this command
+npm run image:add -- ~/Pictures/my-photo.jpg my-new-guide
+```
+
+Then reference the slug in the post:
+
+```js
+image: 'my-new-guide',
+imageAlt: 'Describe what is in the photograph',
+```
+
+`add-image.js` skips any width wider than the source rather than upscaling, and
+records only the widths it actually wrote, so `srcset` never advertises a file
+that does not exist.
 
 If you connected the repository, pushing to `main` is enough — Cloudflare
 rebuilds automatically.
