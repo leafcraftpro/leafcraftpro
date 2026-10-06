@@ -124,6 +124,38 @@ app.get('/search-index.json', (req, res) => {
 });
 
 /**
+ * Web app manifest. `base.ejs` links to it, so it has to exist or the
+ * browser logs a 404 on every page load.
+ */
+app.get('/manifest.webmanifest', (req, res) => {
+  res.type('application/manifest+json').send(
+    JSON.stringify(
+      {
+        name: `${site.name} — ${site.tagline}`,
+        short_name: site.name,
+        description: site.shortDescription,
+        start_url: relUrl(''),
+        scope: relUrl(''),
+        display: 'standalone',
+        background_color: '#FCFAF3',
+        theme_color: site.themeColor,
+        lang: site.language,
+        icons: [
+          {
+            src: relUrl('assets/img/favicon.svg'),
+            sizes: 'any',
+            type: 'image/svg+xml',
+            purpose: 'any',
+          },
+        ],
+      },
+      null,
+      2
+    )
+  );
+});
+
+/**
  * Health check. Visit /healthz on the deployed site to tell the two
  * failure modes apart:
  *   - JSON response  → the Node app IS running; a problem elsewhere
