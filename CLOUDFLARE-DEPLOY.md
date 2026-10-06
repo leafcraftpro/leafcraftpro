@@ -78,12 +78,52 @@ dist/
 ├── blog/
 │   └── page/
 │       └── 2.html              ← served at /blog/page/2
-├── assets/                     ← CSS, JS, SVG
-├── images/                     ← 401 WebP files
+├── about.md                    ← markdown twin of about.html
+├── how-to-make-a-coil-basket.md
+├── assets/
+│   ├── css/  js/  img/
+│   └── fonts/                  ← 6 self-hosted variable font files
+├── images/                     ← 400+ WebP files
+├── llms.txt                    ← curated index for language models
+├── llms-full.txt               ← every guide in full, one file
 ├── robots.txt  sitemap.xml  feed.xml  manifest.webmanifest  search-index.json
 ├── _headers                    ← response headers (Cloudflare reads this)
 └── _redirects                  ← redirect rules (Cloudflare reads this)
 ```
+
+### Markdown twins and `llms.txt`
+
+The build also emits a markdown version of every content page, at the same URL
+with `.md` in place of `.html`, plus `/llms.txt` and `/llms-full.txt`. This
+follows the [llms.txt proposal](https://llmstxt.org) so language models and
+agents can read the site without parsing HTML.
+
+Each page advertises its twin in the head, which is how an agent finds it
+without guessing at URLs:
+
+```html
+<link rel="describedby" type="text/plain" href="/llms.txt">
+<link rel="alternate" type="text/markdown" href="/about.md">
+```
+
+`robots.txt` points at `llms.txt` as well. Lighthouse's agentic-browsing audit
+checks for the file, so it is worth keeping.
+
+Run `npm run verify:llms` after a build to check that every link in `llms.txt`
+resolves, that the section order matches the spec, and that every link carries a
+description.
+
+### Fonts are self-hosted
+
+`assets/fonts/` holds six WOFF2 files — Playfair Display and Inter as variable
+fonts, in latin and latin-ext subsets. They are served from this origin rather
+than `fonts.googleapis.com`, which removes two third-party origins (DNS, TLS and
+a CSS round trip) from the critical path. Both faces are SIL Open Font License
+1.1, so self-hosting is permitted.
+
+They are deliberately **not** preloaded: both use `font-display: swap`, so text
+paints immediately with the fallback and the swap costs nothing. Preloading them
+would compete for bandwidth with the LCP image, which *is* preloaded.
 
 ### Why `.html` files and not `about/index.html`
 
@@ -101,7 +141,7 @@ every canonical would point at a URL that 308-redirects to a different one. The
 build emits `about.html` for exactly this reason — see the comment block at the
 top of `build.js`.
 
-The build verifies this: after rendering, all 11,340 internal links resolve and
+The build verifies this: after rendering, all 11,705 internal links resolve and
 every canonical matches the URL Cloudflare will serve.
 
 ---
