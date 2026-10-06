@@ -46,6 +46,11 @@ To confirm it came up, visit <http://localhost:3000/healthz>.
 |---|---|
 | `npm start` | Runs the Express server |
 | `npm run dev` | Alias for `npm start` |
+| `npm run build` | No-op. Exists so the deployment pipeline's build step succeeds |
+
+The app has no build step — pages are rendered on request from `src/`, and
+`public/` is served directly. `npm run build` prints a line and exits 0 purely
+because Hostinger's deploy system runs a build script if one is defined.
 
 ---
 

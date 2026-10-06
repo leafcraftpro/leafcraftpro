@@ -151,6 +151,23 @@ used only by the offline image-generation tool. The app never imports it.
 If you prefer a graphical route, hPanel → **Node.js** → your application also has
 an **NPM install** button that runs this for you.
 
+### About the build step
+
+`package.json` defines a `build` script:
+
+```json
+"build": "echo 'Build complete'"
+```
+
+This is **intentional and does nothing**. Hostinger's deployment pipeline expects
+a build script to exist and runs it after installing dependencies, so the entry is
+there to satisfy that requirement. It is a no-op because this app has nothing to
+compile — pages are rendered on request from `src/`, and `public/` is served
+directly. There is no bundling, no transpiling and no static generation.
+
+Do not "fix" it into something real. There is no build output to produce, and a
+script that failed here would fail the whole deployment.
+
 ---
 
 ## 4. Set environment variables
