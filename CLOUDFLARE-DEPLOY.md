@@ -13,6 +13,36 @@ npm run build      # writes dist/
 
 ---
 
+## Current deployment
+
+Live as of 2026-10-06.
+
+| | |
+|---|---|
+| Pages project | `leafcraftpro` |
+| Production URL | <https://leafcraftpro.pages.dev> |
+| Custom domains | `leafcraftpro.site`, `www.leafcraftpro.site` (both active, Google Trust Services cert) |
+| Production branch | `main` |
+| DNS | `CNAME leafcraftpro.site` and `CNAME www.leafcraftpro.site` → `leafcraftpro.pages.dev`, both proxied |
+
+The zone was already on Cloudflare, so no nameserver migration was needed. The
+previous `A` record pointing at the Hostinger origin (`2.57.91.91`) was replaced
+by the CNAME above. The `_dmarc`, `_domainkey` and `spf` TXT records were left
+untouched — the domain sends no mail (`v=spf1 -all`), so nothing there can break.
+
+**To roll back to Hostinger:** delete the two CNAMEs, recreate
+`A leafcraftpro.site → 2.57.91.91` (proxied), and point
+`CNAME www.leafcraftpro.site → leafcraftpro.site` (proxied).
+
+**To redeploy after a content change:**
+
+```bash
+npm run build
+npx wrangler pages deploy dist --project-name=leafcraftpro --branch=main
+```
+
+---
+
 ## 0. Why Pages and not Workers
 
 Cloudflare Workers run JavaScript in a V8 isolate, not Node.js. Express cannot run
