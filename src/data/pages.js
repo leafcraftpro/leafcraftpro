@@ -87,7 +87,7 @@ export const pages = [
         type: 'list',
         ordered: false,
         items: [
-          'Fifty in-depth tutorials, from a twenty-minute coaster set to a full laundry basket.',
+          'In-depth tutorials, from a twenty-minute coaster set to a full laundry basket.',
           'Honest material guides that compare natural and synthetic options without the hype.',
           'A small shop of finished pieces, for anyone who would rather buy than weave.',
           'Every tutorial tested by hand in our own workshop before it is published.',
@@ -97,6 +97,10 @@ export const pages = [
         type: 'quote',
         text: 'A basket that looks right on the bench and sags within a week was never finished properly. Tension is everything.',
         cite: 'Theo Nakamura, Workshop Lead',
+      },
+      {
+        type: 'author',
+        author: 'romen-roy',
       },
       {
         type: 'cta',

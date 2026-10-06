@@ -248,7 +248,7 @@ async function build() {
       const html = await render(route.view, {
         ...route.data,
         manifest,
-        page: route.page,
+        seo: route.page,
         current: route.current || '',
         bodyClass: route.bodyClass || '',
       });

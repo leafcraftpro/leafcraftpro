@@ -10,7 +10,45 @@
 import { esc } from './helpers.js';
 import { icon } from './icons.js';
 import { relUrl } from '../config/site.js';
+import { getAuthor } from '../data/categories.js';
 import manifest from '../data/manifest.js';
+
+/** Render the founder card, with their portrait where one exists. */
+function renderAuthor(block) {
+  // The block carries a slug rather than a copy of the author object, so the
+  // name, role and bio have exactly one home (src/data/categories.js).
+  const author = typeof block.author === 'string' ? getAuthor(block.author) : block.author;
+  if (!author) return '';
+
+  const entry = (manifest.authors && manifest.authors[author.image]) || {};
+  const widths = entry.widths && entry.widths.length ? entry.widths : [];
+  const portrait = widths.length
+    ? `<img src="${relUrl(`images/authors/${author.image}-${widths.includes(480) ? 480 : widths[widths.length - 1]}.webp`)}"
+           srcset="${widths.map((w) => `${relUrl(`images/authors/${author.image}-${w}.webp`)} ${w}w`).join(', ')}"
+           sizes="(max-width: 700px) 40vw, 220px" alt="${esc(author.imageAlt || author.name)}"
+           width="220" height="220" loading="lazy" decoding="async">`
+    : `<span class="author-initials" style="font-size:2.6rem">${esc(
+        author.name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase()
+      )}</span>`;
+
+  const socials = Object.entries(author.social || {})
+    .map(
+      ([k, v]) =>
+        `<a href="${esc(v)}" rel="noopener" target="_blank" aria-label="${esc(author.name)} on ${esc(k)}">${icon(k === 'pinterest' ? 'pinterest' : 'instagram', '', 16)}</a>`
+    )
+    .join('');
+
+  return `
+<div class="founder-card">
+  <div class="fc-portrait">${portrait}</div>
+  <div class="fc-body">
+    <span class="eyebrow eyebrow-plain">${esc(author.role)}</span>
+    <h3>${esc(author.name)}</h3>
+    <p>${esc(author.bio)}</p>
+    ${socials ? `<div class="social-row">${socials}</div>` : ''}
+  </div>
+</div>`.trim();
+}
 
 /** Render one inline image block that references a blog image slug. */
 function renderImage(block) {
@@ -36,6 +74,8 @@ function renderImage(block) {
 }
 
 const RENDERERS = {
+  author: renderAuthor,
+
   heading: (b) => {
     const level = Math.min(Math.max(Number(b.level) || 2, 2), 4);
     const id = String(b.text || '')

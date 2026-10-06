@@ -203,7 +203,7 @@ export default [
       { type: "heading", level: 2, text: "Styling a natural tree" },
       { type: "list", ordered: false, items: ["Mix woven leaves with plain glass baubles; the contrast keeps it from looking rustic in a heavy way.", "Use unbleached linen ribbon rather than tinsel for the garland.", "Cluster the woven pieces near the lights, where the weave catches a warm glow.", "Add a few cinnamon sticks to the tree so the room smells of spice and leaf together.", "Keep a handful spare for the table, tied to napkins or laid across a runner."] },
       { type: "tips", title: "Helpful Tips", items: ["Weave the star first; it is the most forgiving and gives you the feel of the strip.", "Keep the ornaments away from direct heat and open flames.", "If a star point will not hold, a single stitch of twine through the centre fixes it.", "Store the set in a paper bag, not plastic, so any last moisture can escape."] },
-      { type: "quote", text: "A tree trimmed with leaves feels less like a display and more like the garden came indoors for a fortnight.", cite: "Maya Ellis" },
+      { type: "quote", text: "A tree trimmed with leaves feels less like a display and more like the garden came indoors for a fortnight.", cite: "Romen Roy" },
       { type: "cta", title: "Make it a tradition", text: "Our festive kit includes prepared strips, twine and printed instructions for all three ornaments.", buttonText: "Shop festive kits", buttonLink: "/shop" }
     ],
     faq: [

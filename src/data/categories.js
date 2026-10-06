@@ -154,11 +154,13 @@ export const productCategories = [
 /** Authors — served at /author/<slug> */
 export const authors = [
   {
-    slug: 'maya-ellis',
-    name: 'Maya Ellis',
+    slug: 'romen-roy',
+    name: 'Romen Roy',
     role: 'Founder & Head Maker',
-    bio: 'Maya has been weaving with palm and coconut leaves for over fifteen years. She founded LeafCraftPRO to keep traditional leaf craft alive and to teach it in plain, honest language.',
+    bio: 'Romen has been weaving with palm and coconut leaves for over fifteen years. He founded LeafCraftPRO to keep traditional leaf craft alive and to teach it in plain, honest language.',
     location: 'Portland, Oregon',
+    image: 'romen-roy',
+    imageAlt: 'Romen Roy, founder of LeafCraftPRO, seated outdoors with a woven leaf craft',
     social: {
       instagram: 'https://www.instagram.com/leafcraftpro',
       pinterest: 'https://www.pinterest.com/leafcraftpro',

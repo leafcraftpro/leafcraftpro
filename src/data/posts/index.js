@@ -45,7 +45,7 @@ export function postWordCount(post) {
 
 /** Normalise every post with its resolved relations and derived data. */
 function decorate(post, index) {
-  const author = getAuthor(post.author || 'maya-ellis');
+  const author = getAuthor(post.author || 'romen-roy');
   const category = getBlogCategory(post.category);
   const words = postWordCount(post);
 

@@ -68,10 +68,10 @@ export const site = {
 
   // ---- Publisher / author ---------------------------------
   author: {
-    name: 'Maya Ellis',
-    slug: 'maya-ellis',
+    name: 'Romen Roy',
+    slug: 'romen-roy',
     role: 'Founder & Head Maker',
-    bio: 'Maya has been weaving with palm and coconut leaves for over fifteen years. She founded LeafCraftPRO to keep traditional leaf craft alive and to teach it in plain, honest language.',
+    bio: 'Romen has been weaving with palm and coconut leaves for over fifteen years. He founded LeafCraftPRO to keep traditional leaf craft alive and to teach it in plain, honest language.',
   },
 
   // ---- Feature flags --------------------------------------
@@ -90,8 +90,9 @@ export const site = {
   },
 
   // ---- Verification meta tags -----------------------------
+  // Rendered in the head. Leave a value empty to omit that tag.
   verification: {
-    google: '',
+    google: '2iFfWNfebfHslvOgPawmNFb0chC5Vvo-8wlMSmP2mrI',
     pinterest: '',
     bing: '',
   },

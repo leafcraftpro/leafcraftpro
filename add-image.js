@@ -45,6 +45,7 @@ const OG_HEIGHT = 630;
 const GROUPS = {
   blog: { dir: 'blog', og: true },
   products: { dir: 'products', og: true },
+  authors: { dir: 'authors', og: false },
   hero: { dir: 'hero', og: false },
 };
 

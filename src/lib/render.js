@@ -14,7 +14,7 @@ import ejs from 'ejs';
 import { site, relUrl, absoluteUrl } from '../config/site.js';
 import {
   esc, stripTags, truncate, excerpt, formatDate, money, discountPercent,
-  numberShort, blogImage, productImage, heroImage, ogImage, starsHtml, slugify,
+  numberShort, blogImage, productImage, heroImage, authorImage, ogImage, starsHtml, slugify,
 } from './helpers.js';
 import { icon } from './icons.js';
 import { renderBlocks, renderArticle, extractHeadings } from './blocks.js';
@@ -39,6 +39,7 @@ export const helpers = {
   blogImage,
   productImage,
   heroImage,
+  authorImage,
   ogImage,
   starsHtml,
   slugify,

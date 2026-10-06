@@ -1,9 +1,14 @@
 <%
 /**
  * Base layout.
- * Receives: body (rendered view HTML) and page (SEO descriptor).
+ * Receives: body (rendered view HTML) and seo (SEO descriptor).
+ *
+ * NOTE: the descriptor is `seo`, NOT `page`. Information pages pass their own
+ * content object as `page`, and passing the descriptor under that name
+ * overwrote it — which silently rendered six pages with an empty body. The
+ * `|| page` fallback is only for safety; nothing should rely on it.
  */
-const p = page || {};
+const p = seo || page || {};
 const bClass = bodyClass || '';
 %><!DOCTYPE html>
 <html lang="<%= site.language %>">

@@ -1686,6 +1686,40 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     color: #fff; font-family: var(--font-display); font-weight: 700;
     font-size: 1.5rem; letter-spacing: .02em;
 }
+/* A real portrait, where the author has one. The parent supplies the circle
+   and the border, so this only has to fill it without distorting the face. */
+.author-photo {
+    width: 100%; height: 100%; display: block;
+    object-fit: cover; object-position: center 22%;
+}
+.author-box .ab-avatar .author-photo,
+.article-meta .am-author .am-avatar .author-photo {
+    object-position: center 25%;
+}
+/* Founder card, used on the About page. */
+.founder-card {
+    display: grid; grid-template-columns: 220px 1fr; gap: 30px;
+    align-items: center; margin: 40px 0;
+    padding: 28px; border-radius: var(--radius-lg);
+    background: var(--cream-2); border: 1px solid var(--line);
+}
+.founder-card .fc-portrait {
+    width: 220px; height: 220px; border-radius: var(--radius-lg);
+    overflow: hidden; background: var(--cream-3); flex: none;
+    display: grid; place-items: center;
+}
+.founder-card .fc-portrait img {
+    width: 100%; height: 100%; display: block;
+    object-fit: cover; object-position: center 20%;
+}
+.founder-card .fc-body h3 {
+    font-family: var(--font-display); font-size: 1.5rem; margin: 4px 0 8px;
+}
+.founder-card .fc-body p { margin: 0 0 14px; color: var(--ink-soft); }
+@media (max-width: 700px) {
+    .founder-card { grid-template-columns: 1fr; gap: 20px; padding: 22px; }
+    .founder-card .fc-portrait { width: 160px; height: 160px; }
+}
 .author-box .ab-avatar,
 .article-meta .am-author .am-avatar {
     width: 74px; height: 74px; border-radius: 50%; overflow: hidden;

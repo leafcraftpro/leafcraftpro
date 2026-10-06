@@ -1007,5 +1007,18 @@
       1280,
       1600
     ]
+  },
+  "authors": {
+    "romen-roy": {
+      "lqip": "data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAAAwBQCdASoUABYAPxF8tFQsJ6SjKAqpgCIJZACdMuI3XsAAy7CMK12GXuHH8GVIbmESMAD4mu7nxfV8qr9QfQjusYnsDUKmhox6GqwXc6dtUvIyClwfnd8rnJAENFSRC0egiAJun/ADb6tYifsI57okEwYdEtC86jlhIUUsO3vkWe+aNpWklPx3O87xCZMC50ZVWh13FfTQ8rBXrfyD3kouAhU8WTau2BqYWU7qoqxXUi1/cg09kNBumoWluxKjNWaQwaWaCSXADAqx6mAAAA==",
+      "width": 1191,
+      "height": 1320,
+      "widths": [
+        400,
+        640,
+        960
+      ],
+      "src": 960
+    }
   }
 }

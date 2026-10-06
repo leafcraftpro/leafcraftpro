@@ -47,7 +47,7 @@ export default [
     description: [
       {
         type: "paragraph",
-        html: "<p>This is the basket Maya has taught for fifteen years, and the one we still make most often. It begins as a flat square of woven leaf and grows upward, row by row, until the sides stand on their own. Nothing is glued and nothing is stapled. The rim is folded back into the weave so the basket finishes itself.</p>",
+        html: "<p>This is the basket Romen has taught for fifteen years, and the one we still make most often. It begins as a flat square of woven leaf and grows upward, row by row, until the sides stand on their own. Nothing is glued and nothing is stapled. The rim is folded back into the weave so the basket finishes itself.</p>",
       },
       { type: "heading", level: 3, text: "How it is made" },
       {

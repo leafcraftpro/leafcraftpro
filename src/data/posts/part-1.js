@@ -513,7 +513,7 @@ export default [
       {
         type: "quote",
         text: "A wall hanging is not decoration for its own sake. It is a record of an afternoon, and it should look like one.",
-        cite: "Maya Ellis, LeafCraftPRO",
+        cite: "Romen Roy, LeafCraftPRO",
       },
       {
         type: "tips",

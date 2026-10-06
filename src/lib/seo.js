@@ -140,6 +140,12 @@ const organisation = () => {
     },
     image: { '@id': LOGO_ID },
     sameAs,
+    founder: {
+      '@type': 'Person',
+      name: site.author.name,
+      jobTitle: site.author.role,
+      url: absoluteUrl(`author/${site.author.slug}`),
+    },
     contactPoint: [
       {
         '@type': 'ContactPoint',

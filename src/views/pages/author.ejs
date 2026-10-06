@@ -10,8 +10,12 @@ const initials = author.name.split(' ').map(function (n) { return n[0]; }).join(
   <div class="container">
     <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
     <div style="display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-bottom:18px">
-      <span style="width:82px;height:82px;border-radius:50%;overflow:hidden;flex:none;border:3px solid rgba(255,255,255,.25)">
-        <span class="author-initials" style="font-size:1.7rem"><%= initials %></span>
+      <span style="width:82px;height:82px;border-radius:50%;overflow:hidden;flex:none;border:3px solid rgba(255,255,255,.25);display:block">
+        <% if (author.image && manifest.authors && manifest.authors[author.image]) { %>
+          <%- authorImage(author, { width: 160, height: 160, lazy: false, className: 'author-photo' }) %>
+        <% } else { %>
+          <span class="author-initials" style="font-size:1.7rem"><%= initials %></span>
+        <% } %>
       </span>
       <div>
         <span class="eyebrow eyebrow-plain" style="color:var(--lime-400)"><%= author.role %></span>

@@ -157,6 +157,34 @@ function resolveLqip(dir, base, explicit) {
 }
 
 /**
+ * Render the portrait for an author. Falls back to nothing if the author has no
+ * photo in the manifest, so a new author can be added to categories.js before
+ * their picture exists.
+ */
+export function authorImage(author, opts = {}) {
+  const { className = '', width = 480, height = 480, lazy = true } = opts;
+  if (!author || !author.image) return '';
+
+  const widths = resolveWidths('authors', author.image, opts.widths);
+  if (!widths || !widths.length) return '';
+
+  const src = relUrl(`images/authors/${author.image}-${pickSrcWidth(width, widths)}.webp`);
+  const srcset = buildSrcset('authors', author.image, [320, 480, 640, 960], widths);
+  const cls = className ? ` class="${className}"` : '';
+  const lqipResolved = resolveLqip('authors', author.image, opts.lqip);
+  const style = lqipResolved
+    ? ` style="background-image:url('${lqipResolved}');background-size:cover"`
+    : '';
+  const alt = opts.alt || author.imageAlt || `${author.name}, ${author.role}`;
+
+  return (
+    `<img src="${src}" srcset="${srcset}" sizes="(max-width: 700px) 60vw, 320px" ` +
+    `alt="${esc(alt)}" width="${width}" height="${height}"${cls}${style}` +
+    `${lazy ? ' loading="lazy" decoding="async"' : ' decoding="async"'}>`
+  );
+}
+
+/**
  * Render a responsive <img> for a blog image.
  * Pass `widths` from the image manifest so the srcset only lists
  * files that exist.

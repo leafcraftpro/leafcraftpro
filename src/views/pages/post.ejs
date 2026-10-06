@@ -43,7 +43,7 @@ const initials = author.name.split(' ').map(function (n) { return n[0]; }).join(
             <div class="article-meta" style="border-top:0;padding-top:0">
               <span class="am-item"><%- icon('calendar', '', 15) %> <time datetime="<%= formatDate(post.publishedAt, 'iso') %>"><%= formatDate(post.publishedAt) %></time></span>
               <a class="am-author" href="<%= relUrl('author/' + author.slug) %>">
-                <span class="am-avatar"><span class="author-initials"><%= initials %></span></span>
+                <span class="am-avatar"><% if (author.image && manifest.authors && manifest.authors[author.image]) { %><%- authorImage(author, { width: 68, height: 68 }) %><% } else { %><span class="author-initials"><%= initials %></span><% } %></span>
                 By <%= author.name %>
               </a>
               <span class="am-item"><%- icon('clock', '', 15) %> <%= post.readTime %> min read</span>
@@ -141,7 +141,7 @@ const initials = author.name.split(' ').map(function (n) { return n[0]; }).join(
           <% } %>
 
           <div class="author-box">
-            <div class="ab-avatar"><div class="author-initials"><%= initials %></div></div>
+            <div class="ab-avatar"><% if (author.image && manifest.authors && manifest.authors[author.image]) { %><%- authorImage(author, { width: 148, height: 148 }) %><% } else { %><div class="author-initials"><%= initials %></div><% } %></div>
             <div>
               <span class="ab-role"><%= author.role %></span>
               <h4><%= author.name %></h4>

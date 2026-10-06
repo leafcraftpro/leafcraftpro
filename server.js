@@ -250,7 +250,7 @@ app.get(/.*/, async (req, res, next) => {
     const html = await render(route.view, {
       ...route.data,
       manifest,
-      page: route.page,
+      seo: route.page,
       current: route.current || '',
       bodyClass: route.bodyClass || '',
     });
@@ -268,7 +268,7 @@ app.use(async (req, res) => {
     const html = await render(notFound.view, {
       ...notFound.data,
       manifest,
-      page: notFound.page,
+      seo: notFound.page,
       current: '/404',
       bodyClass: '',
     });
