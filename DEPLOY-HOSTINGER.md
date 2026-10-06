@@ -99,13 +99,29 @@ npm run serve:dist     # then open http://localhost:4000
 
 ### 2.1 Upload the files
 
+**The fast way — one zip.** The repository ships `leafcraftpro-site.zip`, which
+already contains the whole built site (532 files, `.htaccess` included). It is
+regenerated with `npm run package`.
+
 1. Log in to **hPanel** → **Files** → **File Manager**.
 2. Open the `public_html` folder for your domain.
    - If `public_html` already contains a `default.php` or an `index.html` from
      a previous install, **delete it first** — otherwise it will shadow your
      home page.
-3. Upload **the contents of `dist/`**, not the `dist` folder itself.
-   `public_html/index.html` must exist when you are done.
+   - If an earlier deployment is still there, clear it out completely. Mixing
+     two deployments is a common source of confusing 503s and 404s.
+3. Upload `leafcraftpro-site.zip`, then click **Extract**.
+   - Extract it **into `public_html`**, not into a subfolder. The archive
+     contains the *contents* of `dist/`, so `public_html/index.html` must exist
+     when you are done.
+4. Delete the zip afterwards.
+
+**Why a zip rather than loose files:** the browser uploader is slow with 532
+files and frequently **drops the hidden `.htaccess`**, which silently breaks
+every clean URL. Extraction on the server preserves it.
+
+**The manual way — upload the contents of `dist/`.** Upload **the contents of
+`dist/`**, not the `dist` folder itself.
 
 **If you have a lot of files**, FTP is faster and more reliable than the browser
 uploader. Use the FTP details from hPanel → **Files** → **FTP Accounts**, and
@@ -115,7 +131,7 @@ upload with FileZilla or WinSCP. Set the transfer type to **Binary** and enable
 **If you prefer the terminal**, Hostinger gives you SSH access on most plans:
 
 ```bash
-# Build a zip locally first
+# Build an archive locally first
 cd leafcraft-node
 tar -czf ../leafcraft-dist.tar.gz -C dist .
 
@@ -230,9 +246,17 @@ npm run build          # generates dist/ and the SEO files
      "listening": "tcp:3000", "routes": 117, "uptime": 12 }
    ```
 
-   **This one URL tells you where the problem is.** JSON means the app is running
-   and any remaining issue is routing or `.htaccess`. A 503 on `/healthz` means
-   Passenger could not start the app at all — jump to **§6.1**.
+   If you get JSON, the Node app is alive and serving. If you get the Hostinger
+   503 page instead, the app never started — **but before you chase Node**,
+   confirm that static files fail too:
+
+   ```bash
+   curl -sI https://yourdomain.com/assets/css/style.css
+   ```
+
+   A `200` here with a broken `/healthz` is a Node problem (§6.1.1). A `503`
+   here means the *whole account* is refusing requests, which is a resource
+   limit rather than anything to do with this application (§6.1.2).
 3. Check the log if it does not come up: hPanel → **Node.js** → *Logs*, or
    `~/domains/yourdomain.com/app/stderr.log`.
 
@@ -374,13 +398,24 @@ node scripts/verify.js
 
 ## 6. Troubleshooting
 
+**Quick triage.** Before reading further, run one command:
+
+```bash
+curl -sI https://yourdomain.com/assets/css/style.css
+```
+
+`200` → the web server is fine and the problem is above it (routing, `.htaccess`,
+or the Node app). `503` → the whole account is refusing requests; jump straight
+to **§6.1.2**.
+
 **The site shows a Hostinger "coming soon" page**
 Something else is sitting in `public_html`. Delete `default.php`,
 `index.php` or the old `index.html` and re-upload.
 
 **`/blog` gives a 404 but `/blog/` works**
-`.htaccess` is missing. Re-upload `dist/.htaccess` and make sure your FTP client
-is showing hidden files.
+`.htaccess` is missing. Re-upload `dist/.htaccess` (or extract
+`leafcraftpro-site.zip`, which contains it) and make sure your FTP client is
+showing hidden files.
 
 **The site loads but looks unstyled**
 `assets/css/style.css` did not upload. Check that the whole `assets/` folder is
@@ -406,47 +441,34 @@ re-upload `sitemap.xml`, `robots.txt`, `feed.xml` and all the HTML files.
 
 ## 6.1 "503 Service Unavailable — the server is temporarily busy"
 
-That exact wording is **LiteSpeed's** error page, produced when Passenger tried to
-start your Node application and it did not come up. It is not a Hostinger outage
-and it is not your domain — it is always one of five things.
+That exact wording — *"The server is temporarily busy, try again later!"* — is
+Hostinger's edge page. **Read this first, it saves a lot of time:**
 
-### Step 1 — find out whether the app is running at all
+> ### The one test that tells you everything
+>
+> Request a **static file** that no application code is involved in:
+>
+> ```bash
+> curl -sI https://yourdomain.com/assets/css/style.css
+> ```
+>
+> | Result | Meaning |
+> |---|---|
+> | `200` — the CSS comes back | The web server **is** serving your files. The fault is specific to dynamic routes → go to **§6.1.1** |
+> | `503` — same error page | **Everything** is failing, including plain files. This is **not** a Node, Passenger, `.htaccess` or code problem → go to **§6.1.2** |
+>
+> A code or `.htaccess` fault breaks *some* URLs. A resource-limit or
+> server-level fault breaks *all* of them. This single curl distinguishes the
+> two in one second.
 
-Visit `https://yourdomain.com/healthz`.
+### 6.1.1 A 503 only on dynamic routes
 
-| What you see | What it means | Go to |
-|---|---|---|
-| JSON with `"ok": true` | The app **is** running. The problem is routing or `.htaccess`, not the app. | Cause 5 |
-| The 503 page | Passenger could not start the app. | Cause 1 |
+The web server works, but requests that would reach Node fail. In order of
+likelihood:
 
-### Cause 1 — the startup file (most common)
-
-Hostinger's panel defaults the startup file to **`app.js`** and writes a
-**CommonJS** stub there. This project is an ES module, so that stub fails on the
-first line with:
-
-```
-ReferenceError: require is not defined in ES module scope
-```
-
-…and Passenger reports 503. The repository now ships its own `app.js` that just
-loads the server, so both settings work:
-
-```js
-// app.js
-import './server.js';
-```
-
-**Fix:** in hPanel → **Node.js**, set *Application startup file* to **`server.js`**.
-If you prefer `app.js`, make sure the file contains the two lines above and not
-Hostinger's `require(...)` stub. Then click **Restart**.
-
-### Cause 2 — dependencies were never installed
-
-Passenger starts the app, Node cannot resolve `express`, and the process exits
-immediately. The log shows `Cannot find package 'express'`.
-
-**Fix:**
+**Cause 1 — dependencies were never installed in the application root.**
+Node cannot resolve `express`, so the process exits the instant it starts.
+`node_modules` must sit next to `package.json` in the application root.
 
 ```bash
 source /home/USERNAME/nodevenv/domains/yourdomain.com/app/22/bin/activate
@@ -454,39 +476,76 @@ cd ~/domains/yourdomain.com/app
 npm install --omit=dev
 ```
 
-`node_modules` must sit in the **application root**, next to `package.json`.
-Uploading it from your computer usually fails — it contains platform-specific
-binaries. Always install on the server.
+**Cause 2 — the startup file.** Hostinger's panel defaults the startup file to
+`app.js` and writes a **CommonJS** stub there. This project is an ES module
+(`"type": "module"`), so that stub dies on its first line with
+`ReferenceError: require is not defined in ES module scope`.
 
-### Cause 3 — the application root is wrong
+The repository ships its own `app.js` that just loads the real server, so
+either setting works:
 
-The application root must be the folder that directly contains `package.json`
-and `server.js`. A very common mistake is pointing it one level too high, so the
-panel looks for `app/package.json` when the real path is
-`app/leafcraft-node/package.json`.
+```js
+// app.js
+import './server.js';
+```
 
-**Fix:** hPanel → **Node.js** → check *Application root*. It should be the
-directory listing `package.json`, `server.js` and `app.js` side by side.
+Set *Application startup file* to `server.js` (or `app.js`), then **Restart**.
 
-### Cause 4 — the Node version is too old
+**Cause 3 — the application root is wrong.** It must be the folder that
+directly contains `package.json`, `server.js` and `app.js` side by side. A
+common mistake is pointing it one level too high, so the panel looks for
+`app/package.json` when the real path is `app/leafcraft-node/package.json`.
 
-`package.json` requires Node 18 or newer. Hostinger lets you pick per
-application. If it was created on Node 14 or 16, the ES-module syntax fails.
+**Cause 4 — the Node version is too old.** `package.json` requires Node 18+.
+Change it in hPanel → **Node.js**, then re-run `npm install` (the virtualenv
+path changes with the version) and restart.
 
-**Fix:** hPanel → **Node.js** → change the version to **18, 20 or 22**, then
-re-run `npm install` (the virtualenv path changes with the version) and restart.
+**Cause 5 — a leftover static deployment is fighting Passenger.** A stale
+`public_html/.htaccess` from an earlier static upload intercepts requests
+before Passenger sees them. See §3.5 — pick one deployment path and clear the
+other.
 
-### Cause 5 — a leftover static deployment is fighting Passenger
+### 6.1.2 A 503 on *everything*, including static files
 
-If you uploaded `dist/` into `public_html` on an earlier attempt, its
-`.htaccess` is still there intercepting requests before Passenger sees them. The
-symptoms are 503s, 404s, or the static site appearing while the app seems dead.
+This is **not** caused by your code, your `.htaccess`, or Passenger. Hostinger
+serves this page when a hosting-plan resource limit is exceeded. From
+Hostinger's own documentation:
 
-**Fix:** delete everything inside `public_html` that came from `dist/` — including
-the hidden `.htaccess` — and let the Node application serve the domain. Do not run
-both paths at once.
+> "When your hosting plan reaches the limit of **processes** or **RAM**, your
+> website visitors may encounter the **503 Service Unavailable** error."
 
-### Reading the log
+**Check it:** hPanel → **Websites** → **Dashboard** → **Resources Usage**.
+Look at four numbers:
+
+| Resource | What to look at |
+|---|---|
+| **RAM / Processes** | The #1 cause of a site-wide 503. Compare peak against the plan's ceiling. |
+| **CPU** | Crossing the ceiling slows the site; it usually does not 503 on its own. |
+| **Entry processes** | Concurrent requests. Long keep-alive connections each hold one. |
+| **Inodes / disk** | 532 files for the static build is nothing — but check anyway. |
+
+If a limit is pinned at 100%, that is your answer. Then:
+
+1. **Immediately** — hPanel → **Websites** → **Dashboard** → **Boost**. This
+   lifts the resource ceiling temporarily (usually ~24 h) and brings the site
+   back while you fix the underlying cause. It is the fastest way to get a
+   503'd site online.
+2. **Then** — reduce the peak:
+   - Prefer the **static** deployment (§2) over the Node app. Serving a file
+     costs a fraction of what booting and running a Node process costs — on a
+     shared plan this is usually the difference between fitting and not.
+   - Delete anything else running on the account: old domains, staging copies,
+     cron jobs, leftover Node applications, unused WordPress installs. Every one
+     of them competes for the same pool.
+   - Keep the `Connection close` header in `dist/.htaccess` enabled (it ships
+     that way). Each keep-alive connection can occupy a worker; closing it
+     immediately frees the process.
+   - If peaks keep recurring, the account has outgrown the plan.
+
+**Rule of thumb:** reaching the process or RAM limit **10–20 times in a month**
+is Hostinger's own signal that the plan is too small for the workload.
+
+### Reading the Node log
 
 hPanel → **Node.js** → **Logs**, or over SSH:
 
@@ -495,8 +554,7 @@ tail -n 50 ~/domains/yourdomain.com/app/stderr.log
 tail -n 50 ~/domains/yourdomain.com/app/passenger.log
 ```
 
-The startup banner prints the resolved listening address, so a healthy boot looks
-like:
+A healthy boot prints:
 
 ```
 LeafCraftPRO is running
@@ -506,22 +564,38 @@ LeafCraftPRO is running
   site url  : https://yourdomain.com
 ```
 
-If you see that banner in the log but the site still 503s, the app started and
-then exited — look for an `[leafcraftpro] Uncaught exception` line directly after
-it.
+If you see that banner and the site still 503s, the app started and then
+something else failed — look for an `[leafcraftpro] Uncaught exception` line
+directly after it. If the log is **empty**, the app was never started at all,
+which points to §6.1.1 Cause 1 or 3.
 
-### The escape hatch
+### The escape hatch — one upload, no Node
 
-You do not need the Node.js runtime. This project is a fully static site, and the
-whole class of 503 above disappears if you deploy it as files:
+The static deployment cannot produce this 503. One zip is committed to the
+repository, so you do not even need to build:
 
-1. hPanel → **Node.js** → **Delete** the application.
-2. Clear `public_html` completely.
-3. Upload the **contents of `dist/`** into `public_html` (see §2.1).
+1. hPanel → **Files** → **File Manager** → open `public_html`.
+2. Clear the existing contents. **Do not** leave an old `index.html` or
+   `default.php` in place — it will shadow your home page.
+3. Upload **`leafcraftpro-site.zip`** (26 MB) from the repository root, then
+   click **Extract**. Extract it *into* `public_html`, not into a subfolder.
+4. Delete the zip afterwards.
+5. Turn the File Manager setting **Show hidden files** on and confirm
+   `.htaccess` is present at `public_html/.htaccess`. It is inside the zip, and
+   it is what makes the clean URLs work.
 
-That is the path most people should take. The Node.js app exists for the case
-where you want the server to render on request — it is not required for anything
-the site does.
+To rebuild the zip after changing content:
+
+```bash
+npm run build      # regenerates dist/
+npm run package    # regenerates leafcraftpro-site.zip
+```
+
+Confirm it worked with `curl -sI https://yourdomain.com/assets/css/style.css`
+— you want `200`.
+
+If you want to keep the Node application too, do not — running both is the
+single most confusing failure mode on this host. Pick one.
 
 ---
 

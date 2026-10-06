@@ -1,12 +1,31 @@
 # ============================================================
 #  LeafCraftPRO — Apache configuration for the STATIC build.
-#  This file is copied into dist/ by `npm run build`.
+#  Copied into dist/ by `npm run build`.
 #  Upload it to public_html alongside the generated folders.
+#
+#  Design rules for this file (they matter on shared hosting):
+#   * Only directives inside <IfModule> guards, so a host that
+#     lacks a module gets a working site rather than a 500.
+#   * `Options -Indexes` only — never `-MultiViews`. MultiViews
+#     is a negotiated content filter and is ignored on LiteSpeed,
+#     and the `Options` directive itself is rejected by hosts
+#     that run with AllowOverride Options disallowed.
+#   * No forced HTTPS rewrite by default. Turn it on only after
+#     the certificate is active (see the block below).
+#   * Everything here is HTTP-level. A 503 that appears on EVERY
+#     URL — including static .css and .webp files — is a server
+#     or resource-limit problem, not an .htaccess problem.
 # ============================================================
 
-AddDefaultCharset UTF-8
+# ---------- DEFAULTS ----------
+<IfModule mod_mime.c>
+    AddDefaultCharset UTF-8
+</IfModule>
 DirectoryIndex index.html
-Options -Indexes -MultiViews
+
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
 
 # ---------- URL REWRITING ----------
 <IfModule mod_rewrite.c>
@@ -15,25 +34,23 @@ Options -Indexes -MultiViews
     # If you deploy into a sub-folder (e.g. /leafcraft), uncomment and edit:
     # RewriteBase /leafcraft/
 
-    # --- Force HTTPS (enable once your SSL certificate is active) ---
-    RewriteCond %{HTTPS} off
-    RewriteCond %{HTTP:X-Forwarded-Proto} !https
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+    # --- Force HTTPS -------------------------------------------------
+    # LEAVE THIS COMMENTED OUT until the Let's Encrypt certificate is
+    # actually active. Enabling it early produces a redirect loop, and
+    # behind a load balancer it can bounce requests forever.
+    # Uncomment the three lines below once SSL works:
+    #
+    # RewriteCond %{HTTPS} off
+    # RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-    # --- Redirect /index.html to the clean root ---
-    RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
-    RewriteRule ^ / [R=301,L]
-
-    # --- Strip trailing slashes on real files (keeps one canonical URL) ---
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.+)/$ /$1 [R=301,L]
-
-    # --- Let real files and folders through untouched ---
+    # --- Let real files and folders through untouched -----------------
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
 
-    # --- Otherwise try the pretty directory URL, then the .html file ---
+    # --- Otherwise resolve the clean URL ------------------------------
+    # /blog  ->  /blog/index.html   then   /blog.html
     RewriteCond %{REQUEST_FILENAME}/index.html -f
     RewriteRule ^(.*)$ /$1/index.html [L]
 
@@ -52,19 +69,26 @@ ErrorDocument 404 /404.html
     Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
     Header always set Cross-Origin-Opener-Policy "same-origin"
     Header unset X-Powered-By
-    Header unset Server
 </IfModule>
 
-# --- Block access to anything that should never be public ---
-# The static build only contains generated HTML, images, CSS, JS and
-# the SEO files, so this list is deliberately short.
-<FilesMatch "\.(md|log|ini|lock|bak|sh|yml|yaml|map)$">
+# --- Block access to backend and source files ---------------------
+# Harmless for the static build (none of these exist in dist/), but
+# the Node deployment shares a docroot with the project, so this is
+# the belt to go with package.json's braces.
+# Note: no `lock` here on purpose — it would also block .htaccess.
+<FilesMatch "\.(md|log|ini|bak|sh|yml|yaml|map|example)$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
     <IfModule !mod_authz_core.c>
         Order allow,deny
         Deny from all
+    </IfModule>
+</FilesMatch>
+
+<FilesMatch "^(package(-lock)?\.json|build\.js|server\.js|app\.js)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
     </IfModule>
 </FilesMatch>
 
@@ -86,7 +110,6 @@ ErrorDocument 404 /404.html
         AddOutputFilterByType DEFLATE application/rss+xml application/javascript
         AddOutputFilterByType DEFLATE application/json application/ld+json
         AddOutputFilterByType DEFLATE application/manifest+json image/svg+xml
-        AddOutputFilterByType DEFLATE font/woff font/woff2
     </IfModule>
 </IfModule>
 
@@ -111,11 +134,6 @@ ErrorDocument 404 /404.html
     <FilesMatch "\.html$">
         Header set Cache-Control "public, max-age=0, must-revalidate"
     </FilesMatch>
-    Header set Connection keep-alive
-</IfModule>
-
-# --- Keep the HTML small: no ETag churn on every deploy ---
-<IfModule mod_headers.c>
     <FilesMatch "\.(webp|svg|css|js|woff2)$">
         Header unset ETag
     </FilesMatch>
@@ -127,4 +145,19 @@ FileETag None
     AddType image/webp .webp
     AddType application/manifest+json .webmanifest
     AddType font/woff2 .woff2
+    AddType application/json .json
+</IfModule>
+
+# ---------- REDUCE PROCESS COUNT ON SHARED HOSTING ----------
+# Each concurrent request on this host may cost a worker process.
+# Hostinger returns "503 Service Unavailable — the server is
+# temporarily busy" as soon as the plan's process/RAM ceiling is hit.
+# Turning keep-alive off frees a worker as soon as a response is
+# finished instead of holding it open, which is the single easiest
+# way to lower the peak count for a low-traffic content site.
+#
+# If your host's Resources Usage shows the process limit being hit,
+# make sure the two lines below are NOT commented out.
+<IfModule mod_headers.c>
+    Header set Connection close
 </IfModule>

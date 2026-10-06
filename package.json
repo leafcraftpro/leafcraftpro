@@ -12,6 +12,7 @@
     "start": "node server.js",
     "dev": "node server.js",
     "build": "node build.js",
+    "package": "node scripts/package-static.js",
     "images": "node scripts/optimize-images.js",
     "serve:dist": "node scripts/serve-dist.js"
   },
