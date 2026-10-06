@@ -1,0 +1,22 @@
+# ============================================================
+#  LeafCraftPRO — Cloudflare Pages redirects.
+#  Copied into dist/_redirects by `npm run build`.
+#
+#  Format:  [source] [destination] [code]
+#  Order matters: the top-most matching rule wins.
+#
+#  Most of the clean-URL work is done automatically by Pages:
+#    /about       is served from  about.html
+#    /about.html  redirects to    /about
+#
+#  So this file only needs the cases Pages does not handle.
+# ============================================================
+
+# One canonical home page. Pages serves `/` from index.html but does
+# not redirect the explicit filename, so do it here.
+/index.html  /  301
+
+# The search page is a client-side tool with nothing to index.
+# Kept out of robots.txt as well; this stops anyone linking to it.
+# (Remove these two lines if you want /search reachable.)
+# /search  /  301

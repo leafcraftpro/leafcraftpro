@@ -2,7 +2,7 @@
   "name": "leafcraftpro",
   "version": "1.0.0",
   "private": true,
-  "description": "LeafCraftPRO - handmade natural craft tutorials and shop. Node.js web app for Hostinger.",
+  "description": "LeafCraftPRO - handmade natural craft tutorials and shop. Node.js app plus a static export for Cloudflare Pages.",
   "type": "module",
   "main": "server.js",
   "engines": {
@@ -11,8 +11,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "build": "echo 'Build complete'",
-    "preflight": "node preflight.js"
+    "build": "node build.js",
+    "preflight": "node preflight.js",
+    "deploy:cloudflare": "wrangler pages deploy dist"
   },
   "dependencies": {
     "compression": "^1.7.5",

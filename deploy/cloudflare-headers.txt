@@ -1,0 +1,35 @@
+# ============================================================
+#  LeafCraftPRO — Cloudflare Pages response headers.
+#  Copied into dist/_headers by `npm run build`.
+#
+#  READ THIS BEFORE ADDING A HEADER
+#  --------------------------------
+#  Cloudflare JOINS duplicate headers with a comma rather than
+#  letting the later rule override the earlier one. If you set
+#  Cache-Control under both `/*` and `/images/*`, the browser
+#  receives:
+#
+#      Cache-Control: public, max-age=0, must-revalidate, public, max-age=31536000
+#
+#  which is invalid and behaves unpredictably. So: **define each
+#  header in exactly one rule.** Where you need a different value
+#  for a subtree, use `! Header-Name` to detach it first.
+#
+#  Pages already sends these, so they are deliberately NOT set
+#  here (re-setting them would be redundant, not harmful):
+#      X-Content-Type-Options: nosniff
+#      Referrer-Policy: strict-origin-when-cross-origin
+#      Access-Control-Allow-Origin: *
+#      Etag
+#
+#  Deliberately no Cache-Control: Cloudflare's own guidance is to
+#  avoid custom caching on Pages. Assets are cached per deployment
+#  on the CDN, and every response carries an Etag, so browsers
+#  revalidate cheaply with a 304. See CLOUDFLARE-DEPLOY.md §6 if
+#  you want to override this anyway.
+# ============================================================
+
+/*
+  X-Frame-Options: DENY
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:

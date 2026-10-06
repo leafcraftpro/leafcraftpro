@@ -29,6 +29,16 @@ yarn-error.log*
 # serves them directly. Only the large originals are kept out of git.
 .raw-images/
 
+# ---- Build output ----
+# dist/ is the Cloudflare Pages upload folder, produced by `npm run build`.
+# Cloudflare rebuilds it from source on every deploy, so there is no reason
+# to commit ~34 MB of generated HTML.
+dist/
+
+# ---- Cloudflare / Wrangler ----
+.wrangler/
+.dev.vars
+
 # ---- Hostinger / Passenger artefacts ----
 # Passenger writes its own runtime files into the application root.
 .cpanel/

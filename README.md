@@ -4,11 +4,24 @@ A complete, SEO-optimised website for a handmade natural-craft workshop: 50
 in-depth craft guides, 30 products, a working client-side search, and
 auto-generated structured data on every page.
 
-Built as a **Node.js web application** that renders every page on request. There
-is no database and no admin panel — content lives in plain JavaScript modules
-under `src/data/`.
+Built as a **Node.js web application** that renders every page on request, and
+which also exports to a **fully static site for Cloudflare Pages**. One route
+table drives both, so the two deployments cannot drift apart.
+
+There is no database and no admin panel — content lives in plain JavaScript
+modules under `src/data/`.
 
 **Live target:** <https://leafcraftpro.site>
+
+---
+
+## Deploy targets
+
+| Target | What runs | Guide |
+|---|---|---|
+| **Cloudflare Pages** (recommended) | pre-rendered static files, served from the edge | [CLOUDFLARE-DEPLOY.md](CLOUDFLARE-DEPLOY.md) |
+| **Hostinger / cPanel** | the Express server, behind Passenger | [DEPLOY-HOSTINGER.md](DEPLOY-HOSTINGER.md) |
+| **Local development** | the Express server on port 3000 | `npm start` |
 
 ---
 
@@ -44,20 +57,23 @@ To confirm it came up, visit <http://localhost:3000/healthz>.
 
 | Command | What it does |
 |---|---|
-| `npm start` | Runs the Express server |
+| `npm start` | Runs the Express server on port 3000 |
 | `npm run dev` | Alias for `npm start` |
-| `npm run preflight` | Checks that the current folder can run the app |
-| `npm run build` | No-op. Exists so the deployment pipeline's build step succeeds |
+| `npm run build` | Pre-renders all 117 pages into `dist/` for Cloudflare Pages |
+| `npm run preflight` | Checks that the current folder can run the Node app |
+| `npm run deploy:cloudflare` | `npm run build`, then deploys `dist/` with Wrangler |
 
-`npm run preflight` is the first thing to run when a deployed site returns 503.
-It verifies that the folder is a valid application root — `package.json`,
+`npm run preflight` is the first thing to run when a deployed Node app returns
+503. It verifies that the folder is a valid application root — `package.json`,
 `server.js`, `src/`, `public/` and `node_modules` all present — that the app's
 modules load, that 117 routes build, and that a page actually renders. It prints
 `PASS`/`FAIL` per check with the fix for anything failing, and changes nothing.
 
-The app has no build step — pages are rendered on request from `src/`, and
-`public/` is served directly. `npm run build` prints a line and exits 0 purely
-because Hostinger's deploy system runs a build script if one is defined.
+`npm run build` writes `dist/` — the folder you upload to Cloudflare Pages. It
+emits `.html` files (`about.html`, not `about/index.html`) because Cloudflare
+strips `.html` to an extension-less URL without a trailing slash, which is what
+every canonical on the site expects. The Node app ignores `dist/` entirely and
+renders on request.
 
 ---
 
@@ -67,12 +83,17 @@ because Hostinger's deploy system runs a build script if one is defined.
 leafcraft-node/
 ├── server.js                 # Express server — the whole app
 ├── app.js                    # entry alias — loads server.js
+├── build.js                  # static export → dist/ (for Cloudflare Pages)
 ├── preflight.js              # deployment check — run this on the server
+├── wrangler.toml             # Cloudflare Pages project config
 ├── package.json
-├── DEPLOY-HOSTINGER.md       # full deployment walkthrough
+├── CLOUDFLARE-DEPLOY.md      # Cloudflare Pages walkthrough
+├── DEPLOY-HOSTINGER.md       # Node.js / Passenger walkthrough
 │
 ├── deploy/
-│   └── htaccess-node.txt     # Passenger / Apache config reference
+│   ├── cloudflare-headers.txt    # → dist/_headers
+│   ├── cloudflare-redirects.txt  # → dist/_redirects
+│   └── htaccess-node.txt         # Passenger / Apache config reference
 │
 ├── src/
 │   ├── config/
@@ -229,10 +250,33 @@ respect for `prefers-reduced-motion`. See `/accessibility` on the built site.
 
 ## Deployment
 
-See **[DEPLOY-HOSTINGER.md](DEPLOY-HOSTINGER.md)** for the complete walkthrough —
-creating the Node.js application, uploading the project, installing dependencies,
-restarting, the post-deploy SEO checklist and troubleshooting.
+### Cloudflare Pages (recommended)
 
+```bash
+npm install
+npm run build                      # writes dist/
+npx wrangler pages deploy dist     # or upload dist/ in the dashboard
+```
+
+Or connect the repository in the Cloudflare dashboard and let it build on every
+push:
+
+| Setting | Value |
+|---|---|
+| Root directory | `leafcraft-node` |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+
+Full walkthrough, including the custom domain and DNS: **[CLOUDFLARE-DEPLOY.md](CLOUDFLARE-DEPLOY.md)**.
+
+> The build emits `.html` files rather than directory indexes on purpose —
+> Cloudflare serves `/about.html` at `/about` (no trailing slash) but
+> `/about/index.html` at `/about/` (with one), and every canonical URL on this
+> site has no trailing slash.
+
+### Hostinger / cPanel (Node.js)
+
+See **[DEPLOY-HOSTINGER.md](DEPLOY-HOSTINGER.md)** for the complete walkthrough.
 The short version:
 
 ```bash

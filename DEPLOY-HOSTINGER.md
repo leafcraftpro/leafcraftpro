@@ -213,17 +213,29 @@ ran in. It must be the same folder you set as the **Application root** in hPanel
 `package.json` defines a `build` script:
 
 ```json
-"build": "echo 'Build complete'"
+"build": "node build.js"
 ```
 
-This is **intentional and does nothing**. Hostinger's deployment pipeline expects
-a build script to exist and runs it after installing dependencies, so the entry is
-there to satisfy that requirement. It is a no-op because this app has nothing to
-compile — pages are rendered on request from `src/`, and `public/` is served
-directly. There is no bundling, no transpiling and no static generation.
+That is the **static export** — it pre-renders all 117 pages into `dist/` for the
+Cloudflare Pages deployment (see `CLOUDFLARE-DEPLOY.md`).
 
-Do not "fix" it into something real. There is no build output to produce, and a
-script that failed here would fail the whole deployment.
+**The Node app does not need it.** `server.js` renders pages on request, so
+nothing in `dist/` is read at runtime here. Hostinger's pipeline runs the build
+script after `npm install` if one is defined, so on this host it is wasted work:
+about six seconds and roughly 32 MB of disk that nothing will serve.
+
+That is harmless, and it is why the script is left in place rather than removed —
+the same `package.json` drives both deployments. If you want to skip it, set the
+build command to something trivial in the panel, or simply let it run; it is
+deterministic and cannot break the deployment unless a route fails to render, in
+which case the build exits non-zero and the deploy stops, which is the behaviour
+you want anyway.
+
+To run it manually:
+
+```bash
+npm run build     # writes dist/ (optional on this host)
+```
 
 ---
 
