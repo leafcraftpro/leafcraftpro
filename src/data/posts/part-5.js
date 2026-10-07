@@ -493,5 +493,55 @@ export default [
       { q: "Why is my coiled basket base not flat?", a: "Almost always too much spacing in the first five rounds. The base needs stitches close enough together, about 4 mm apart, to hold the spiral in one plane. Pulling stitches very tight also cups the base, so aim for firm and even rather than as tight as possible." },
       { q: "Do coiled baskets need a rim treatment?", a: "No. The tighter final two rounds are the rim. Adding a separate binding on top tends to make the edge bulky and is not traditional in most coiled traditions." }
     ]
+  },
+
+  // ---------------------------------------------------------------
+  // 52. how-to-make-a-ribbon-checker-weave
+  // ---------------------------------------------------------------
+  {
+    slug: "how-to-make-a-ribbon-checker-weave",
+    title: "How to Make a Ribbon Checker Weave in 6 Steps",
+    category: "baskets-weaving",
+    excerpt: "A ribbon checker weave takes two ribbons and about five minutes. Here is the six-step method, plus how to keep the square even and take the same weave to palm leaf.",
+    metaTitle: "Ribbon Checker Weave Tutorial: 6 Easy Steps",
+    metaDescription: "Learn the ribbon checker weave in six clear steps. Two ribbons, five minutes, and the over-under technique that every woven basket is built on.",
+    keywords: ["ribbon checker weave", "checker weave", "ribbon weaving", "over under weave", "ribbon craft"],
+    tags: ["beginner", "weaving", "ribbon"],
+    publishedAt: "2026-10-07",
+    readTime: 6,
+    difficulty: "Beginner",
+    image: "how-to-make-a-ribbon-checker-weave",
+    imageAlt: "Hands weaving green and white satin ribbons into a checkerboard square",
+    intro: "<p>A ribbon checker weave is the smallest useful thing you can make with the over-under weave. Two colours, a few minutes, and you have a flat square of interlocking ribbon that looks far more complicated than it is. It is also the cheapest way to learn the one skill every basket depends on.</p><p>I teach this before any leaf project. Ribbon is wide, stiff and brightly coloured, so you can see exactly where each strand goes and feel immediately when a weave has gone loose. Palm strips are thinner, darker and far less forgiving, and a beginner who has already made three of these squares gets to their first basket much faster.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>The weave itself is a plain checkerboard. Each strand passes over one and under the next, and the strand beside it does the opposite. That alternation is what locks the square together: nothing is glued, nothing is knotted at the crossings, and the piece holds its shape only because the strands cannot slide in either direction once the grid is tight.</p>" },
+      { type: "heading", level: 2, text: "Why start with ribbon instead of leaf" },
+      { type: "paragraph", html: "<p>Ribbon has three advantages as a teaching material. It is a consistent width, so you are not fighting a strip that tapers along its length. It has a visible face and back, which makes it obvious the moment a strand has been flipped. And it holds a crease, so a fold you press stays put while you bring the next strand across. Leaf does none of these things until you have learned to control it.</p>" },
+      { type: "materials", title: "What You'll Need", items: ["Two lengths of ribbon in contrasting colours, 1.5 cm wide and about 60 cm long", "Sharp scissors", "A ruler if you want the finished square to be a set size", "Two small pins or clips to hold the first crossing steady", "Optional: an iron on low, for pressing the finished square flat"] },
+      { type: "heading", level: 2, text: "The six steps" },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Cross the ribbons into a plus", text: "Lay the white ribbon horizontally and the green ribbon vertically across it, crossing at the centre so you have a plus sign. Check that the two arms of each ribbon are the same length, because every later strand is measured against them. Pin the crossing if the ribbon is slippery." },
+        { title: "Weave the green over and under", text: "Fold the top arm of the green ribbon down over the white, then take the bottom arm up and across so it passes over one white arm and under the other. You have just made the first two crossings of the checkerboard." },
+        { title: "Weave the white over and under", text: "Now do the same in the other direction. Take the right arm of the white ribbon and pass it over the green, then bring the left arm across so it goes under. Every strand should now alternate: over, under, over, under." },
+        { title: "Continue alternating", text: "Add the remaining strands one at a time, and start each new strand the opposite way from the one before it. If the last strand went over first, this one goes under first. That single rule is what produces a checkerboard rather than a pile." },
+        { title: "Tighten gently and evenly", text: "Work around the square pulling each strand a little at a time, never one strand all the way. Pulling a single strand tight first distorts the square and you cannot correct it afterwards. Aim for the weave to close up so no daylight shows through, while the outer edges stay straight." },
+        { title: "The finished square", text: "Press the square flat under a book for ten minutes, or run a low iron over it, then trim the loose ends on a diagonal so they tuck under the outer strands. The square is now stable enough to use as a gift topper, a coaster or an ornament." }
+      ] },
+      { type: "image", src: "how-to-make-a-ribbon-checker-weave", alt: "A finished green and white ribbon checker weave square on a pale background", caption: "Every strand alternates over and under. That alternation, not glue or knots, is what holds the square together." },
+      { type: "heading", level: 2, text: "Keeping the square square" },
+      { type: "paragraph", html: "<p>The most common failure is a weave that drifts into a parallelogram. It almost always comes from tightening one direction before the other. Weave the whole grid loosely first, then tighten the horizontal strands in pairs, then the vertical ones. If it has already pulled out of shape, relax the two strands on the long diagonal and re-tighten the opposite pair.</p><p>Wider ribbon is more forgiving than narrow ribbon, because there is more surface for the strands to grip. If your first square keeps slipping, move up to 2 cm ribbon before you conclude the technique is wrong.</p>" },
+      { type: "table", head: ["Ribbon width", "Best for", "Strands each way for a 10 cm square"], rows: [["1 cm", "Fine work: bookmarks and small ornaments", "10"], ["1.5 cm", "The general-purpose size: gift toppers and coasters", "7"], ["2.5 cm", "Large, quick squares for decorations and bows", "4"]] },
+      { type: "heading", level: 2, text: "Taking the same weave to palm leaf" },
+      { type: "paragraph", html: "<p>Everything above transfers directly to leaf. Cut palm or coconut strips to a consistent width, soak them for ten minutes so they bend without cracking, and weave exactly as you did with ribbon. Two differences matter: leaf strips are thinner, so you need more of them for the same size square, and they shrink slightly as they dry, so weave a little looser than feels right and let the drying do the tightening. A leaf square made this way is the flat base of almost every basket on this site.</p>" },
+      { type: "tips", title: "Helpful Tips", items: ["Cut every strand to the same length before you start. Uneven ends are the main reason a finished square looks untidy.", "Weave the whole grid loosely, then tighten. Tightening as you go is what distorts the square.", "If satin ribbon keeps sliding, a small piece of double-sided tape under the first crossing holds it still.", "For leaf, weave slightly loose and let the fibres shrink as they dry. That is what locks the base tight."] },
+      { type: "cta", title: "Ready to weave with leaf?", text: "The over-under weave you just learned is the foundation of every basket we make. Start with the beginner guide.", buttonText: "Read the beginner guide", buttonLink: "/palm-leaf-weaving-for-beginners" }
+    ],
+    faq: [
+      { q: "What size ribbon is best for a checker weave?", a: "1.5 cm ribbon is the general-purpose size and the easiest to learn on. Wider ribbon grips better and is more forgiving, so 2.5 cm is a good choice for a first attempt. Narrow ribbon below 1 cm slips easily and is best left until the technique feels natural." },
+      { q: "How long should the ribbons be?", a: "About 60 cm for each strand when making a 10 cm square, which leaves enough to grip while tightening and to trim afterwards. Ribbon is cheap, and running short halfway through is the one problem you cannot fix." },
+      { q: "How do I stop a ribbon checker weave coming loose?", a: "Tighten the whole grid evenly rather than strand by strand. Once every strand is snug the crossings grip each other and the square cannot slide. If the ribbon is satin and slippery, a small piece of double-sided tape under the first crossing is usually enough." },
+      { q: "Can I make a checker weave with paper or palm leaves?", a: "Yes. The technique is identical for any flat strip. Paper needs no preparation but tears if pulled hard. Palm or coconut leaf strips should be soaked for ten minutes first, and woven slightly loose because they shrink as they dry." },
+      { q: "What can I make with a ribbon checker weave?", a: "Small squares work as gift toppers, coasters, hanging ornaments and bookmarks. Sew or glue several squares together edge to edge and they become a table runner or a decorative panel. Larger squares made from wide ribbon work as bows and wreath decorations." }
+    ]
   }
 ];
