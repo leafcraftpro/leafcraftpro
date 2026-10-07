@@ -543,5 +543,747 @@ export default [
       { q: "Can I make a checker weave with paper or palm leaves?", a: "Yes. The technique is identical for any flat strip. Paper needs no preparation but tears if pulled hard. Palm or coconut leaf strips should be soaked for ten minutes first, and woven slightly loose because they shrink as they dry." },
       { q: "What can I make with a ribbon checker weave?", a: "Small squares work as gift toppers, coasters, hanging ornaments and bookmarks. Sew or glue several squares together edge to edge and they become a table runner or a decorative panel. Larger squares made from wide ribbon work as bows and wreath decorations." }
     ]
+  },
+
+  // ---------------------------------------------------------------
+  // 53. how-to-make-a-palm-leaf-bowl
+  // ---------------------------------------------------------------
+  {
+    slug: "how-to-make-a-palm-leaf-bowl",
+    title: "How to Make a Palm Leaf Bowl in 7 Steps",
+    category: "palm-leaf-crafts",
+    excerpt: "A wide shallow bowl is the most useful thing you can weave from palm leaf. Seven steps, from the flat base to the rim that stops it spreading.",
+    metaTitle: "How to Make a Palm Leaf Bowl: 7 Steps",
+    metaDescription: "Weave a wide shallow palm leaf bowl in seven steps. Learn how to flare the walls evenly and set a rim that stops the bowl spreading as it dries.",
+    keywords: ["palm leaf bowl", "woven bowl", "how to make a palm leaf bowl", "leaf bowl tutorial", "natural bowl"],
+    tags: ["beginner", "weaving", "bowl"],
+    publishedAt: "2026-10-05",
+    readTime: 8,
+    difficulty: "Beginner",
+    image: "how-to-make-a-palm-leaf-bowl",
+    imageAlt: "A shallow handwoven palm leaf bowl holding lemons on a wooden workbench",
+    intro: "<p>A bowl is the first shaped object most people weave, and the reason is simple: you already know the technique. A bowl is a flat base with walls that lean outward instead of standing straight up. The only new skill is controlling how fast they lean.</p><p>It is also the most useful thing in this whole collection. A basket holds things you put away. A bowl holds things you keep out. Ours has held lemons, bread, keys, garlic, a phone, and on one memorable occasion a very small cat.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>The wall angle is everything. Lean the walls out too slowly and you get a deep cylinder that will not sit flat. Lean them out too fast and the rim goes floppy before the bowl has any depth. The target is a wall that rises at roughly 30 degrees from vertical for the first four rows, then eases back to nearly vertical.</p>" },
+      { type: "heading", level: 2, text: "What you need" },
+      { type: "materials", title: "Materials", items: ["12 to 16 palm leaflets, fresh or soaked", "A sharp knife or strip cutter", "A shallow dish of water", "A weight such as a heavy book for drying", "Optional: a round former about 15 cm across"] },
+      { type: "heading", level: 2, text: "The seven steps" },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Cut and soften the strips", text: "Cut leaflets into strips about 1.5 cm wide. Keep them as long as you can, because joins in a bowl show more than joins in a flat mat. Soak for ten minutes until they bend without cracking." },
+        { title: "Weave a flat base", text: "Weave a tight over-under square 14 to 16 cm across. Do not worry about the shape being perfectly square. You will round it off in the next step." },
+        { title: "Round the corners", text: "Work around the base adding short strips into each corner until the outline reads as a circle rather than a square. This is the step people rush. Take the extra ten minutes." },
+        { title: "Turn the first row", text: "Fold every strip upward at the edge of the base and weave the first wall row through them. Keep this row tight. It is the hinge the whole bowl turns on." },
+        { title: "Flare the walls", text: "For the next three rows, space your stitches slightly wider on the outside of each turn. This is what makes the wall lean outward. Roughly one extra millimetre per stitch per row is enough." },
+        { title: "Straighten and build height", text: "Once the bowl is about 15 cm across, stop widening. Weave the remaining rows straight up so the bowl has depth and the opening stays the width you want." },
+        { title: "Set the rim", text: "Weave the final two rows at a tighter spacing and fold the last row back into the row below. This is what stops the bowl spreading as it dries, and it is not optional." }
+      ] },
+      { type: "image", src: "how-to-make-a-palm-leaf-bowl", alt: "A finished shallow palm leaf bowl on a workbench", caption: "A finished bowl: wide, shallow, and flat on the base. The rim is folded back, which is what keeps it from spreading." },
+      { type: "heading", level: 2, text: "Drying is part of the making" },
+      { type: "paragraph", html: "<p>A freshly woven bowl is floppy. It will not hold its shape until the leaf dries, which takes two to three days in a warm room. Put it on a flat surface with a light weight inside and leave it. Do not be tempted to handle it much while it is damp, because every squeeze leaves a dent that dries in.</p><p>If the walls do sag, the rim was not set tightly enough. You can rescue it by dampening the top two rows, re-weaving them tighter, and drying again.</p>" },
+      { type: "table", head: ["Size", "Base", "Depth", "Best for"], rows: [["Small", "10 cm", "4 cm", "Keys, garlic, jewellery"], ["Medium", "15 cm", "7 cm", "Fruit, bread, serving"], ["Large", "22 cm", "9 cm", "Salad, a centrepiece"]] },
+      { type: "heading", level: 2, text: "Keeping it food safe" },
+      { type: "paragraph", html: "<p>Untreated palm leaf is food safe, and it is what a great deal of the world eats off every day. The trouble starts when someone reaches for a tin of varnish to make it last longer. Most clear finishes are not rated for food contact, and once a bowl has been varnished you cannot undo it. If you want a bowl for bread, fruit or salad, leave it bare and accept that it will darken.</p><p>There is one exception worth knowing. A food-safe oil such as walnut or flaxseed will darken the leaf and add a little water resistance without sealing it, and it is safe once fully cured. Wipe it on thinly, leave it two days, and reapply once a year. Do not do this to a bowl you intend to use for anything oily, because the oil and the food will start to blend.</p>" },
+      { type: "tips", title: "Helpful Tips", items: ["Keep the base absolutely flat while you work. A bowl with a domed base will rock forever.", "Add new strips on opposite sides of the bowl, not next to each other, or the wall will pull out of round.", "Weave slightly looser than feels right. Leaf shrinks as it dries and does the tightening for you.", "Do not varnish a bowl you intend to use for food. Untreated leaf is food safe; most varnishes are not."] },
+      { type: "cta", title: "Want the flat version first?", text: "A bowl is a base with walls. If you have not woven the base yet, start there.", buttonText: "Read the base guide", buttonLink: "/how-to-weave-a-basket-base" }
+    ],
+    faq: [
+      { q: "How long does a palm leaf bowl take to make?", a: "About two and a half hours for a 15 cm bowl, plus two to three days of drying. The weaving is not the slow part. Most of the time goes on rounding the base and setting the rim properly." },
+      { q: "Can I use a palm leaf bowl for food?", a: "Yes, if you leave it untreated. Untreated palm leaf is food safe and is used for plates and food wrapping across South Asia. Do not varnish or oil a bowl you plan to eat from, and do not use it for wet food like soup." },
+      { q: "Why is my bowl sagging?", a: "Almost always because the rim was not set tightly enough. The final two rows need tighter stitch spacing and the last row folded back into the row below. If it has already sagged, dampen the top two rows, re-weave them tighter and dry it again." },
+      { q: "How do I stop the bowl rocking?", a: "The base has to be flat before you turn the first wall row. If it has already dried domed, dampen the base, press it flat under a weight and leave it to dry again. Prevention is much easier than the fix." },
+      { q: "How do I clean a palm leaf bowl?", a: "Wipe it with a dry cloth or a barely damp one. Never soak it and never put it in a dishwasher. For crumbs, a soft dry brush works better than a wet cloth because it does not soften the fibres." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 54. palm-leaf-magazine-holder
+  // ---------------------------------------------------------------
+  {
+    slug: "palm-leaf-magazine-holder",
+    title: "Palm Leaf Magazine Holder: A Weekend Project",
+    category: "palm-leaf-crafts",
+    excerpt: "A tall woven holder for magazines and newspapers, built on a rigid frame so it stands upright. Takes an afternoon and about twenty leaflets.",
+    metaTitle: "Palm Leaf Magazine Holder Tutorial",
+    metaDescription: "Make a tall woven palm leaf magazine holder. Built on a rigid frame so it stands upright, with a flat back and a slanted front that keeps magazines in.",
+    keywords: ["palm leaf magazine holder", "woven magazine rack", "diy magazine holder", "leaf storage", "natural magazine rack"],
+    tags: ["intermediate", "weaving", "storage"],
+    publishedAt: "2026-10-03",
+    readTime: 9,
+    difficulty: "Intermediate",
+    image: "palm-leaf-magazine-holder",
+    imageAlt: "A woven palm leaf magazine holder on a wooden floor holding rolled magazines",
+    intro: "<p>Magazine holders fail in one of two ways. They are floppy, so they lean over the moment you put anything in them. Or they are ugly, because most of them are folded plastic. This one solves both by being woven onto a rigid frame, which gives it a spine.</p><p>It is a genuinely useful object in a way a lot of craft projects are not. Ours holds a year of a monthly magazine and has stood by the same armchair for three years without leaning.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>The frame is the whole trick. Without it you are weaving a tall, thin, unsupported box, which is the least stable shape in basketry. With it, the weave is doing what leaf does best, which is look good, while the frame does the structural work.</p>" },
+      { type: "heading", level: 2, text: "Materials and frame" },
+      { type: "materials", title: "What You'll Need", items: ["About 20 palm leaflets, cut into 1.5 cm strips", "Four 30 cm lengths of 6 mm cane or stiff wire for the frame", "Twine for binding the frame corners", "A shallow dish of water", "A craft knife and a cutting board", "A weight for drying"] },
+      { type: "heading", level: 2, text: "Building it" },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Make the frame", text: "Bind the four cane lengths into a tall rectangle about 30 cm high, 22 cm wide and 10 cm deep. Bind every corner tightly with twine and check it does not rack. A frame that twists will make a holder that twists." },
+        { title: "Weave the back panel", text: "Weave a flat over-under panel to fit the back of the frame. Weave it a centimetre oversize on every edge so you have something to fold around the cane. Soak the strips first so they bend around the corners without splitting." },
+        { title: "Attach the back", text: "Fold the oversize edges around the frame and stitch them down with twine. Work from the middle outward so the panel stays centred and does not pull to one side." },
+        { title: "Weave the two sides", text: "Weave narrower panels for the two sides and attach them the same way. The sides are what stop the holder collapsing sideways, so keep the weave tight here." },
+        { title: "Weave the slanted front", text: "The front panel is shorter than the back and slopes forward, which is what keeps magazines from falling out. Weave it flat, then attach it starting about 8 cm up from the base." },
+        { title: "Weave the base", text: "Weave a small flat panel for the floor of the holder and stitch it in. This takes the weight of the magazines, so double it if you plan to load it up." },
+        { title: "Dry under weight", text: "Stand the holder on a flat surface, load it with a few magazines and leave it to dry for three days. The magazines hold the shape while the leaf sets." }
+      ] },
+      { type: "image", src: "palm-leaf-magazine-holder", alt: "A woven palm leaf magazine holder in a living room", caption: "The slanted front is what does the work. Straight sides look tidier and dump your magazines on the floor." },
+      { type: "heading", level: 2, text: "Getting the proportions right" },
+      { type: "paragraph", html: "<p>Magazines are taller and wider than they look. Measure the largest one you own and add 2 cm to each dimension before you cut the frame. A holder sized to a standard A4 magazine will not take a Sunday supplement.</p>" },
+      { type: "table", head: ["Dimension", "Size", "Why"], rows: [["Height", "30 cm", "Clears a Sunday supplement"], ["Width", "22 cm", "Fits an A4 magazine plus finger room"], ["Depth", "10 cm", "Holds about eight issues"], ["Front height", "8 cm lower than the back", "Keeps contents from tipping out"]] },
+      { type: "notice", tone: "warning", text: "Do not skip the frame to save time. A tall unsupported weave will lean within a week and there is no way to fix it once the leaf has dried." },
+      { type: "heading", level: 2, text: "Where it actually works" },
+      { type: "paragraph", html: "<p>A magazine holder is a piece of furniture whether you think of it that way or not, so it wants to sit where furniture sits. Beside an armchair, at the end of a sofa, on the floor next to a fireplace. What it does not want is a spot in full sun, because leaf fades faster than almost any other natural material and a holder that lives on a sunny windowsill will be noticeably paler within a summer.</p><p>It also wants a wall behind it or a heavy object beside it. A tall empty holder is light, and light things get knocked over. Once it has a few magazines in it the problem disappears, but the first week is when it is most vulnerable. If you have a cat, put something in it on day one.</p>" },
+      { type: "tips", title: "Helpful Tips", items: ["Bind the frame corners with a figure-eight wrap. It resists racking far better than a simple loop.", "Weave the panels a little loose. They tighten as they dry and a tight panel will bow the frame.", "Load it with magazines while it dries. The weight sets the shape better than a clamp.", "If you want a darker finish, use older leaflets. They dry to a deeper straw than fresh ones."] },
+      { type: "cta", title: "Prefer something simpler first?", text: "A wall hanging uses the same flat panel technique with no frame at all.", buttonText: "Read the wall hanging guide", buttonLink: "/palm-leaf-wall-hanging" }
+    ],
+    faq: [
+      { q: "How long does a magazine holder take to make?", a: "About five to six hours across two sittings, plus three days of drying. Building the frame and attaching the panels takes most of the time. The weaving itself is quick once the frame is square." },
+      { q: "Do I have to use a frame?", a: "For a tall holder, yes. Leaf alone is not rigid enough to support a 30 cm vertical wall under load. For a short holder under 15 cm you can skip it, but anything taller will lean." },
+      { q: "What can I use instead of cane?", a: "Stiff garden wire works, as does bamboo skewer bundles or even a wire coat hanger cut and straightened. Anything that holds a straight line and does not rust is fine." },
+      { q: "How many magazines does it hold?", a: "About eight standard monthly issues at 10 cm deep. Making the frame deeper is the only way to hold more, and beyond about 15 cm the holder starts to look bulky." },
+      { q: "Can I hang it on a wall instead?", a: "Yes, and it works well. Bind two twine loops to the top of the back panel before you weave it in, so the loops are anchored behind the weave rather than stitched on afterwards." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 55. palm-leaf-tissue-box-cover
+  // ---------------------------------------------------------------
+  {
+    slug: "palm-leaf-tissue-box-cover",
+    title: "How to Weave a Palm Leaf Tissue Box Cover",
+    category: "palm-leaf-crafts",
+    excerpt: "A woven cover that hides the cardboard box and takes about ninety minutes. Sized for a standard box, with a slot that does not tear the tissue.",
+    metaTitle: "Palm Leaf Tissue Box Cover Tutorial",
+    metaDescription: "Weave a palm leaf tissue box cover in about ninety minutes. Sized for a standard box, with a reinforced slot in the lid that will not tear the tissue.",
+    keywords: ["tissue box cover", "palm leaf tissue holder", "woven tissue box", "diy tissue cover", "natural bathroom decor"],
+    tags: ["beginner", "weaving", "home-decor"],
+    publishedAt: "2026-10-01",
+    readTime: 7,
+    difficulty: "Beginner",
+    image: "palm-leaf-tissue-box-cover",
+    imageAlt: "A woven palm leaf tissue box cover with tissue pulled through the top",
+    intro: "<p>A tissue box cover is one of those small projects that quietly improves a room. The cardboard box is designed to be thrown away and looks like it. Covering it takes ninety minutes and the result lasts years, because you keep moving the cover onto the next box.</p><p>It is also a good first project with a lid, since a tissue box lid is flat and simple. If you have ever wanted to try a fitted lid without committing to a full basket, start here.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>The one part worth getting right is the slot. Cut it too sharply and it tears the first tissue every time. Cut it too wide and the whole box looks untidy. A slot about 9 cm long and 1.5 cm wide with rounded ends is the size that works.</p>" },
+      { type: "heading", level: 2, text: "Materials" },
+      { type: "materials", title: "What You'll Need", items: ["10 to 12 palm leaflets, cut into 1.5 cm strips", "A standard tissue box to work from", "A shallow dish of water", "Twine for stitching the lid", "A blunt needle"] },
+      { type: "heading", level: 2, text: "Weaving the cover" },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Measure the box", text: "Measure the cardboard box, not the tissues. A standard box is about 24 x 12 x 7 cm. Add 1 cm to each dimension for the thickness of the weave, or the cover will not slide on." },
+        { title: "Weave the four sides as one strip", text: "Weave a long flat panel that wraps all the way around the box, rather than four separate panels. A single strip means only one seam to hide, and it cannot come apart at the corners." },
+        { title: "Join the seam", text: "Bring the two ends together and stitch them with twine, working from the inside so the stitch does not show. Do this while the leaf is still damp so the seam settles flat." },
+        { title: "Weave the base", text: "Weave a flat panel for the base and stitch it to the bottom edge of the wrap. The base is hidden in use, so this is a good place to use your shorter offcuts." },
+        { title: "Weave the lid", text: "Weave a flat panel slightly larger than the top opening, then weave a shallow lip around three of its edges so it sits on rather than sliding off. Leave the front edge without a lip so it lifts easily." },
+        { title: "Cut the slot", text: "Mark a 9 cm line on the lid and cut it with rounded ends, not square ones. Weave two short strips across the slot underneath to reinforce it and to stop the tissue catching on the raw edge." },
+        { title: "Dry in place", text: "Slide the cover onto the box while still slightly damp and leave it there to dry. It will shrink onto the box and fit exactly." }
+      ] },
+      { type: "image", src: "palm-leaf-tissue-box-cover", alt: "A woven tissue box cover on a side table", caption: "Drying it on the box is what gives the exact fit. Dry it off the box and it will shrink a size too small." },
+      { type: "heading", level: 2, text: "Making the slot behave" },
+      { type: "paragraph", html: "<p>The slot is where almost all the frustration lives. Three things matter: rounded ends so the tissue does not catch, a reinforced underside so the raw leaf edge does not fray, and the right width. If you find the first tissue keeps tearing, widen the slot by two millimetres rather than trying to smooth the edge.</p>" },
+      { type: "table", head: ["Part", "Size", "Note"], rows: [["Wrap", "24 x 12 cm perimeter, 8 cm tall", "One continuous strip"], ["Base", "24 x 12 cm", "Use offcuts"], ["Lid", "25 x 13 cm", "1 cm oversize for the lip"], ["Slot", "9 x 1.5 cm", "Rounded ends"]] },
+      { type: "heading", level: 2, text: "Sizing it for other boxes" },
+      { type: "paragraph", html: "<p>Tissue boxes are not one size, and the cube-shaped ones are a different project altogether. For a standard rectangular box the method above works unchanged, you just substitute your own measurements. For a cube box, around 11 cm on every side, you weave a shorter wrap and a square lid, and the slot runs across the middle rather than along the length.</p><p>The one measurement that does not scale is the slot. Whatever the box size, keep the slot near 9 cm long and 1.5 cm wide, because that is sized to the tissue sheet, not to the box. A cube box with a proportionally scaled slot will be far too small and will tear every sheet.</p>" },
+      { type: "tips", title: "Helpful Tips", items: ["Dampen the leaf before cutting the slot. Dry leaf splits along the cut line.", "Reinforce the slot from underneath with two short strips. It doubles the life of the cover.", "If your box is a different size, measure it and add 1 cm. Do not trust the standard dimensions.", "Use the shortest offcuts for the base. Nobody sees it and it saves your long strips for the visible parts."] },
+      { type: "cta", title: "Ready for a lid on something bigger?", text: "The same lip technique scales up to a full basket lid.", buttonText: "Read the basket lid guide", buttonLink: "/how-to-weave-a-basket-lid" }
+    ],
+    faq: [
+      { q: "How long does a tissue box cover take?", a: "About ninety minutes of weaving plus a day of drying. It is one of the quickest projects on this site and needs very little leaf, which makes it a good use for offcuts." },
+      { q: "Will it fit my tissue box?", a: "Only if you measure your box. Standard boxes vary by a centimetre or more between brands. Measure yours, add 1 cm for the weave, and cut to that. Do not use the dimensions in this guide without checking." },
+      { q: "Why does the tissue keep tearing?", a: "Usually the slot has square ends that catch the paper, or it is too narrow. Rounded ends and a slot about 1.5 cm wide solves it. Widening by two millimetres is easier than smoothing a frayed edge." },
+      { q: "Can I make it without a lid?", a: "Yes, but you lose the neatest part of the design. An open-topped cover means the box is visible from above, and the tissue pulls awkwardly from an unprotected edge." },
+      { q: "How do I clean it?", a: "Wipe with a dry cloth. It sits in a bathroom, so make sure it dries out fully after cleaning and do not leave it somewhere it gets splashed regularly." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 56. coconut-leaf-dragonfly
+  // ---------------------------------------------------------------
+  {
+    slug: "coconut-leaf-dragonfly",
+    title: "How to Make a Coconut Leaf Dragonfly",
+    category: "coconut-leaf-crafts",
+    excerpt: "A dragonfly from a single coconut leaflet, with four wings that hold their shape. A twenty-minute project that looks far more delicate than it is.",
+    metaTitle: "Coconut Leaf Dragonfly Tutorial",
+    metaDescription: "Make a coconut leaf dragonfly from a single leaflet in about twenty minutes. Four shaped wings, a folded body, and a technique that keeps them rigid.",
+    keywords: ["coconut leaf dragonfly", "leaf dragonfly", "coconut leaf craft", "diy leaf insect", "natural ornament"],
+    tags: ["beginner", "ornament", "coconut-leaf"],
+    publishedAt: "2026-09-29",
+    readTime: 7,
+    difficulty: "Beginner",
+    image: "coconut-leaf-dragonfly",
+    imageAlt: "A delicate dragonfly ornament woven from coconut leaf with long slender wings",
+    intro: "<p>A dragonfly is the best first coconut leaf figure, better than a bird or a fish, because the whole thing comes from one leaflet and needs no joins. You fold, split and shape, and twenty minutes later you have something that looks like it took an hour.</p><p>It is also the figure that teaches the most. The wing fold you learn here is the same fold used for the bird, the butterfly and half the ornaments on this site, so it is worth doing properly rather than quickly.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>The trick to a good dragonfly is that the wings are not cut to shape. They are split from the leaflet and then creased, which is what gives them a stiff leading edge and a thin trailing one. Cut wings look flat and floppy and will not hold an angle. Creased wings hold whatever angle you set them at, which is what makes the figure look like it is flying rather than resting.</p>" },
+      { type: "heading", level: 2, text: "Choosing the leaflet" },
+      { type: "paragraph", html: "<p>Pick a leaflet from the middle of a frond rather than the tip. Mid-frond leaflets are wider and have a more even rib, which matters because the rib becomes the leading edge of both wings on that side. A narrow tip leaflet gives you wings that are too slim to read at a distance.</p><p>Fresh is easier than dried. A fresh coconut leaflet splits cleanly along its veins; a dried one shatters. If you only have dried material, soak it for twenty minutes first and it will behave almost like fresh.</p>" },
+      { type: "heading", level: 2, text: "Folding the dragonfly" },
+      { type: "materials", title: "What You'll Need", items: ["One coconut leaflet, about 40 cm long, fresh or soaked", "A craft knife or a sharp thumbnail", "A shallow dish of water", "A needle and strong thread if you want to hang it"] },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Strip the leaflet", text: "Pull the leaflets off the main rib so you have a single flat blade. Run your thumbnail along the central rib to split it into two halves, each with its own thin rib." },
+        { title: "Make the body", text: "Take one half and fold it lengthwise into a narrow strip about 5 mm wide, keeping the rib on the outside. Fold it again so the body is four layers thick. This is what gives the dragonfly its weight." },
+        { title: "Tie the thorax", text: "About one third of the way along the body, pinch the fold and tie it tightly with thread or a thin strip of leaf. This is the thorax, and it is where the wings will attach." },
+        { title: "Split the wings", text: "From the other half of the leaflet, split four strips about 10 cm long, each keeping a piece of the rib along one edge. The rib edge becomes the stiff leading edge of the wing." },
+        { title: "Crease the wings", text: "Fold each wing strip lengthwise along its rib so it forms a shallow V. This crease is what makes the wing hold an angle instead of drooping. Do not press it flat." },
+        { title: "Attach the wings", text: "Slide two wings into the tied thorax on each side, angled slightly forward and back so the four read separately. Tie again over the top of them to lock all four in place." },
+        { title: "Shape and dry", text: "Fan the wings to the angle you want, bend the tail into a gentle curve, and leave it to dry for a day. Once dry the wings will hold that exact angle." }
+      ] },
+      { type: "image", src: "coconut-leaf-dragonfly", alt: "A finished coconut leaf dragonfly on a weathered surface", caption: "Four separate wings, each creased along its rib. That crease is the difference between a dragonfly and a crumpled leaf." },
+      { type: "heading", level: 2, text: "Getting the angles right" },
+      { type: "paragraph", html: "<p>The wings are the whole figure, and the angle between them is what sells it. A real dragonfly holds its four wings almost perpendicular to its body, slightly forward on the leading pair and slightly back on the trailing pair. Set them all at the same angle and you get something that looks like a paper aeroplane.</p><p>Set them too flat against the body and it reads as a moth. The difference is only about fifteen degrees, so it is worth looking at a photograph of a real one before you start, rather than trusting memory.</p>" },
+      { type: "table", head: ["Part", "Size", "Note"], rows: [["Body", "About 12 cm long", "Four layers thick"], ["Wings", "About 10 cm each", "Rib along the leading edge"], ["Thorax tie", "One third along", "Where the wings attach"], ["Total span", "About 22 cm", "Across the leading pair"]] },
+      { type: "notice", tone: "info", text: "These dry stiff and brittle. If you plan to hang one, tie the hanging thread around the thorax before it dries rather than piercing the body afterwards, which will crack it." },
+      { type: "tips", title: "Helpful Tips", items: ["Use the rib of the leaflet as the wing's leading edge. It is already stiff and needs no support.", "Tie the thorax tighter than feels comfortable. It is the joint that takes all the strain.", "Set the wings and dry the figure hanging, so gravity pulls them into a natural flying pose.", "Two colour tones look better than one. Use a slightly older leaflet for the body and a fresh one for the wings."] },
+      { type: "cta", title: "Want the same fold as a bird?", text: "The wing crease you just learned is the basis of the woven leaf bird too.", buttonText: "Read the bird guide", buttonLink: "/coconut-leaf-bird" }
+    ],
+    faq: [
+      { q: "How long does a coconut leaf dragonfly take?", a: "About twenty minutes once you have stripped the leaflet, plus a day to dry. The folding itself is quick. Most of the time goes on getting the four wings set at the right angles." },
+      { q: "Can I make one from dried leaf?", a: "Yes, but soak it first. Dried coconut leaf shatters along the veins when you split it. Twenty minutes in water and it behaves almost exactly like fresh leaf, and it will dry back to the same stiffness." },
+      { q: "Why do my wings droop?", a: "The wings were not creased along the rib. A flat wing has no rigidity, so it sags. Fold each wing strip lengthwise into a shallow V along its rib and it will hold whatever angle you set." },
+      { q: "How do I hang it?", a: "Tie a thread around the thorax while the leaf is still damp, before it dries stiff. Piercing the body afterwards will crack it. A loop around the thorax is also stronger than any hole." },
+      { q: "Will it last outdoors?", a: "A few weeks at most. Rain and sun will soften and then fade it. Indoors, away from direct sun, one will keep its shape and colour for years." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 57. coconut-leaf-crown
+  // ---------------------------------------------------------------
+  {
+    slug: "coconut-leaf-crown",
+    title: "How to Weave a Coconut Leaf Crown",
+    category: "coconut-leaf-crafts",
+    excerpt: "A woven crown from two coconut leaflets, built from interlocking points so it adjusts to any head size. A traditional fold, learned in about half an hour.",
+    metaTitle: "Coconut Leaf Crown Weaving Guide",
+    metaDescription: "Weave a coconut leaf crown from two leaflets in about thirty minutes. Interlocking points that adjust to any head size, with no glue, ties or measuring.",
+    keywords: ["coconut leaf crown", "leaf crown", "woven crown", "coconut leaf craft", "diy leaf headdress"],
+    tags: ["beginner", "coconut-leaf", "traditional"],
+    publishedAt: "2026-09-27",
+    readTime: 8,
+    difficulty: "Beginner",
+    image: "coconut-leaf-crown",
+    imageAlt: "A woven coconut leaf crown made of interlocking leaf points on linen",
+    intro: "<p>This is a fold that children learn in about ten minutes in the places where coconut grows, and adults take half an hour over because they keep trying to make it neat. It is a crown, a hatband, a festival headdress and the fastest way to turn a leaf into something a child will actually wear.</p><p>The clever part is that it needs no measuring. You fold a repeating point and join the two ends, and because the points interlock the band adjusts to whatever head it goes on. It is genuinely one size fits all, and it stays put.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>The structure is a repeating V. Each fold makes a point, and each point locks into the one before it, so the band gets its strength from the pattern rather than from any binding. Pull it wider and the points open; push it together and they close. That is why it fits everyone without adjustment.</p>" },
+      { type: "heading", level: 2, text: "Preparing the leaflets" },
+      { type: "paragraph", html: "<p>You need two leaflets, and they should be a similar width or the points will be uneven. Strip them from the rib and keep them whole rather than splitting them, because the crown is made from the full width of the leaf folded repeatedly rather than from narrow strips.</p><p>Soak both for ten minutes. The fold needs the leaf to be supple enough to crease sharply without cracking, and a dry leaflet will split at every point.</p>" },
+      { type: "heading", level: 2, text: "Folding the crown" },
+      { type: "materials", title: "What You'll Need", items: ["Two coconut leaflets, about 50 cm long", "A shallow dish of water", "Nothing else. This one needs no tools"] },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Fold the first point", text: "Hold one leaflet with the rib facing you. Fold the top left corner down and across to the right edge, making a triangle with a sharp point at the top. Press the crease firmly with a thumbnail." },
+        { title: "Fold the second point", text: "Take the new top left corner and fold it down and across again the same way, making a second triangle that overlaps the first. Keep the folds the same size. The repeat is what makes the pattern." },
+        { title: "Keep going", text: "Repeat until you have run most of the way down the leaflet, leaving about 10 cm at the end. Each fold should take roughly the same width of leaf, so the points stay even." },
+        { title: "Make the second strip", text: "Fold the second leaflet exactly the same way. You now have two identical toothed strips, which will be woven together to make the crown double-thick and much stronger." },
+        { title: "Interlock the two strips", text: "Lay the two strips point to point, offset by half a point, and press them together so the points mesh. They should lock without any tie. If they do not, one strip has different sized folds." },
+        { title: "Form the circle", text: "Bring the two ends together and tuck the loose ends into the weave at the opposite end, working them in the direction of the pattern so they disappear. This is the join, and it needs no thread." },
+        { title: "Set the size", text: "Slide the crown onto a head, or over an upturned bowl of about the right size, and press the points flat. Leave it to dry in that shape and it will hold." }
+      ] },
+      { type: "image", src: "coconut-leaf-crown", alt: "A finished coconut leaf crown resting on linen", caption: "Two toothed strips meshed together. The join is a tuck, not a knot, which is why it sits flat against the head." },
+      { type: "heading", level: 2, text: "Making the folds even" },
+      { type: "paragraph", html: "<p>Uneven folds are the only real failure mode, and they show up at the join. If the two ends will not mesh, it is not the join that is wrong, it is that the folds drifted in size somewhere in the middle. Count them as you go, or fold against a mark, and the ends will meet cleanly.</p><p>If you have already finished and the join will not sit, do not force it. Unfold the last four or five points, re-fold them to match the other end, and try again. Leaf will take being re-folded twice, but not five times.</p>" },
+      { type: "table", head: ["Head size", "Leaflet length", "Points needed"], rows: [["Child", "40 cm", "About 14"], ["Adult small", "50 cm", "About 18"], ["Adult large", "60 cm", "About 22"]] },
+      { type: "notice", tone: "info", text: "Because the points interlock, the crown will adjust by several centimetres in either direction. Do not overthink the sizing. Make it roughly right and the pattern does the rest." },
+      { type: "tips", title: "Helpful Tips", items: ["Press every crease with a thumbnail. A soft crease opens up as soon as the leaf dries.", "Count your folds. Even folds are the difference between a crown that closes and one that will not.", "Make two strips and mesh them. A single strip is thin and floppy; two give it real structure.", "Dry it on a bowl of about the right size. It sets the circle perfectly and saves adjusting it on a head."] },
+      { type: "cta", title: "Making these with children?", text: "This is one of the best leaf projects for younger children. Here is how to set it up.", buttonText: "Read the kids craft guide", buttonLink: "/easy-leaf-crafts-for-kids" }
+    ],
+    faq: [
+      { q: "How long does a coconut leaf crown take?", a: "About thirty minutes for an adult, closer to ten for someone who has made them before. Children manage it in about fifteen minutes once they have watched it done twice." },
+      { q: "Will it fit an adult head?", a: "Yes, any size. The interlocking points mean the band adjusts by several centimetres, so one crown fits a child and an adult. Make the strip roughly the right length and the pattern handles the rest." },
+      { q: "Why will my crown not join at the ends?", a: "The folds drifted in size partway through, so the two ends have different point counts. Unfold the last four or five points, match them to the other end and re-fold. Forcing the join will tear the leaf." },
+      { q: "Does it need glue or thread?", a: "No. The points mesh and the ends tuck into the weave. That is the whole point of the pattern, and a crown held together with glue will crack along the glue line as it dries." },
+      { q: "How long will it last?", a: "Indoors, a few months before it goes brittle. Fresh crowns last a day or two at a festival before they start to soften. It is a compostable object and is meant to be." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 58. coconut-leaf-wind-chime
+  // ---------------------------------------------------------------
+  {
+    slug: "coconut-leaf-wind-chime",
+    title: "How to Make a Coconut Leaf Wind Chime",
+    category: "coconut-leaf-crafts",
+    excerpt: "A wind chime from woven coconut leaf shapes and wooden beads. Leaf does not ring, so this one clacks softly, which is easier to live with than metal.",
+    metaTitle: "Coconut Leaf Wind Chime Tutorial",
+    metaDescription: "Make a coconut leaf wind chime from woven leaf shapes and wooden beads. A soft clacking sound rather than a metal ring, with no drilling or glue needed.",
+    keywords: ["coconut leaf wind chime", "leaf wind chime", "diy wind chime", "natural wind chime", "garden craft"],
+    tags: ["intermediate", "garden", "coconut-leaf"],
+    publishedAt: "2026-09-25",
+    readTime: 8,
+    difficulty: "Intermediate",
+    image: "coconut-leaf-wind-chime",
+    imageAlt: "A hanging wind chime made from woven coconut leaf shapes and wooden beads",
+    intro: "<p>Leaf does not ring. That is the first thing to understand about a leaf wind chime, and it is also the reason to make one. Metal chimes are beautiful for about a week and then they are a noise you cannot switch off. A leaf chime clacks, softly, and only when the wind is actually moving.</p><p>It is also a better neighbour. Ours hangs on a back fence and can be heard from about three metres on a breezy day and not at all on a still one, which is roughly the behaviour you want from something that makes noise in a garden.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>Sound comes from the strike, not the shape. Two flat pieces of dry leaf hitting each other make a dry, woody clack. Add a wooden bead between them and you get a softer knock with a bit of pitch. The whole design is about arranging those two sounds so they alternate.</p>" },
+      { type: "heading", level: 2, text: "What you need" },
+      { type: "materials", title: "What You'll Need", items: ["Four coconut leaflets, fresh or soaked", "About 20 wooden beads, 8 to 10 mm", "2 metres of strong natural twine", "A 20 cm stick or bamboo length for the top", "A needle with an eye wide enough for the twine", "A shallow dish of water"] },
+      { type: "heading", level: 2, text: "Building the chime" },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Weave four leaf shapes", text: "Weave four simple shapes from the leaflets, roughly 8 cm across. Diamonds and stars work well because they hang from a single point and swing freely. Keep them fairly thick so they have some weight." },
+        { title: "Dry the shapes completely", text: "This matters more than any other step. A chime built from damp leaf will go slack and stop striking within a week. Leave the shapes two full days somewhere warm and dry." },
+        { title: "Cut five lengths of twine", text: "Four hanging lines, each about 30 cm, and one centre line about 40 cm. The centre line holds the striker and is what the outer lines are arranged around." },
+        { title: "Thread the centre line", text: "Thread the centre line through the middle of the top stick and knot it underneath. Thread on three beads, then tie a knot to hold them, leaving about 15 cm of free line below for the striker to swing on." },
+        { title: "Hang the four shapes", text: "Tie one line to each end and to two points along the top stick, spacing them evenly. Thread each line through a leaf shape, then a bead, then knot. The bead sits below the shape and is what the shape strikes against." },
+        { title: "Tune the spacing", text: "Adjust the knots so all four shapes hang at the same height and about 4 cm apart from each other. Closer and they tangle in a strong wind. Further apart and they never touch." },
+        { title: "Hang and test", text: "Hang it up and let the wind find it. If it rattles constantly rather than clacking, the shapes are too close. If it never sounds, they are too far apart or too light." }
+      ] },
+      { type: "image", src: "coconut-leaf-wind-chime", alt: "A finished coconut leaf wind chime hanging against a cream wall", caption: "Four shapes, a bead below each, and a striker on the centre line. The spacing is what you tune, not the shapes." },
+      { type: "heading", level: 2, text: "Tuning the sound" },
+      { type: "paragraph", html: "<p>There are only three variables worth adjusting. The gap between shapes sets how often it sounds. The weight of the shapes sets how loud it is. And the length of the centre line sets how far the striker travels, which controls how hard it hits.</p><p>Start with the centre line about 15 cm and the shapes 4 cm apart, which gives a chime that sounds in a light breeze and stays quiet in still air. If you want it louder, make the shapes thicker rather than moving them closer, because moving them closer is what causes tangling.</p>" },
+      { type: "table", head: ["Part", "Size", "Effect"], rows: [["Leaf shapes", "8 cm", "Bigger is louder"], ["Shape gap", "4 cm", "Closer sounds more often"], ["Centre line", "15 cm", "Longer hits harder"], ["Beads", "8 to 10 mm", "Softer knock than bare leaf"]] },
+      { type: "notice", tone: "warning", text: "Dry the leaf shapes completely before assembling. Damp leaf shrinks as it dries, which slackens every line and leaves you with a chime that hangs silently." },
+      { type: "tips", title: "Helpful Tips", items: ["Dry the shapes for two full days. This is the step that decides whether the chime works.", "Use a diamond or star shape. Anything that hangs from a single point swings better than a flat panel.", "Put a bead below each shape, not above. The bead is the thing the shape strikes.", "Bring it in for winter. A season of rain will soften the leaf and the chime will go quiet until it dries out again."] },
+      { type: "cta", title: "Want more coconut leaf shapes?", text: "The same leaflet folds into birds, fish, flowers and stars. Start with the easiest.", buttonText: "Browse coconut leaf crafts", buttonLink: "/coconut-leaf-decorations" }
+    ],
+    faq: [
+      { q: "Will a leaf wind chime actually make a sound?", a: "Yes, a soft clacking rather than a metal ring. It is audible from about three metres in a light breeze and silent in still air, which most people find more pleasant than a constant metal chime." },
+      { q: "How long does it take to make?", a: "About two hours of work, spread over three days because the leaf shapes need two full days to dry before assembly. Rush the drying and the chime will not work." },
+      { q: "Why is my chime silent?", a: "Either the shapes are still damp and have gone slack, or they hang too far apart to touch. Dry the shapes fully and bring them closer together, about 4 cm apart, so a light breeze can push them into contact." },
+      { q: "Can I hang it outdoors all year?", a: "Bring it in for winter. Rain softens the leaf and it will go quiet until it dries out, and repeated soaking shortens its life considerably. Indoors or under a porch it will last several years." },
+      { q: "Do I have to use wooden beads?", a: "No, but they help. Bare leaf on leaf gives a dry click. A bead between them softens it and adds a little pitch. Seeds, small shells or clay beads all work equally well." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 59. how-to-weave-a-basket-lid
+  // ---------------------------------------------------------------
+  {
+    slug: "how-to-weave-a-basket-lid",
+    title: "How to Weave a Basket Lid That Actually Fits",
+    category: "baskets-weaving",
+    excerpt: "A fitted lid is the hardest part of a basket and the part most guides skip. Here is how to size the lip so it sits on rather than falling through.",
+    metaTitle: "How to Weave a Basket Lid That Fits",
+    metaDescription: "Weave a basket lid that fits properly. Learn to size the lip so it sits on the rim without falling through, using the basket itself as the mould.",
+    keywords: ["basket lid", "how to weave a basket lid", "fitted basket lid", "basket lid tutorial", "woven lid"],
+    tags: ["intermediate", "weaving", "basket-lid"],
+    publishedAt: "2026-09-23",
+    readTime: 9,
+    difficulty: "Intermediate",
+    image: "how-to-weave-a-basket-lid",
+    imageAlt: "A handwoven palm leaf basket with a fitted woven lid resting slightly open",
+    intro: "<p>A basket without a lid is a bowl. A basket with a lid is storage. That is the whole reason to learn this, and it is the step where most tutorials quietly stop, because a lid that fits is genuinely fiddly and a lid that does not is useless.</p><p>The problem is always the same: the lid has to rest on the rim without falling through and without sitting so proud that it slides off. The answer is a lip, and the lip has to be sized to your specific basket rather than to a measurement in a guide.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>Think of the lid as a flat panel with a short wall around it, sitting inside the basket's opening. That short wall is the lip, and it is what stops the lid sliding sideways. Get the lip diameter right and the lid works. Get it a centimetre too small and the lid drops in. A centimetre too large and it perches on top like a hat.</p>" },
+      { type: "heading", level: 2, text: "Sizing the lip from your own basket" },
+      { type: "paragraph", html: "<p>Do not measure the basket with a ruler and then try to weave to that number. Weave the lip slightly oversize and adjust it while it is still damp, using the basket itself as the mould. Leaf moves when it is wet, and this is the one moment you can use that.</p><p>Weave the lip to the measured diameter plus about 5 mm, then dampen it and press it into the basket opening. It will take the exact shape of the rim. Leave it there to dry and it is a perfect fit, because it dried in place.</p>" },
+      { type: "heading", level: 2, text: "Weaving the lid" },
+      { type: "materials", title: "What You'll Need", items: ["12 to 15 palm leaflets, cut into 1.5 cm strips", "The finished basket to fit it to", "Twine for the lip edge", "A shallow dish of water", "A weight for drying"] },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Measure the opening", text: "Measure the inside of the basket at the rim, not the outside. If the opening is oval rather than round, measure both the long and short axis and write them down." },
+        { title: "Weave the flat panel", text: "Weave a flat panel to the shape of the opening, about 1 cm oversize on every edge. Keep the weave tight, because a lid gets handled more than a basket body and a loose weave will sag in the middle." },
+        { title: "Weave the lip", text: "Turn the edge strips upward all the way around and weave three rows to form a shallow wall. This is the lip. Weave it to the measured diameter plus about 5 mm." },
+        { title: "Dampen and fit", text: "While the lip is still damp, press the lid into the basket opening. Work around the edge with your thumbs, easing it in until it sits flat on the rim with the lip inside." },
+        { title: "Adjust the tight spots", text: "If the lid sticks, dampen that section and press again. If it is loose on one side, dampen it and push it outward from the inside. Small adjustments now save remaking the lid." },
+        { title: "Dry in place", text: "Leave the lid sitting in the basket for two days. It will shrink onto the rim and hold the exact shape. Do not remove it while it is damp or it will dry out of round." },
+        { title: "Add a knob or handle", text: "Optional, but a lid without one is awkward to lift. Weave a small loop into the centre of the panel, or thread a short length of twine through and knot it underneath." }
+      ] },
+      { type: "image", src: "how-to-weave-a-basket-lid", alt: "A woven basket with its fitted lid resting open", caption: "The lip is inside the opening, not over the rim. That is what stops it sliding, and it is invisible from outside." },
+      { type: "heading", level: 2, text: "When the lid will not sit right" },
+      { type: "paragraph", html: "<p>Three things go wrong, and they have three different fixes. If the lid drops into the basket, the lip is too small, so dampen it and push it outward before drying again. If it perches on top and rocks, the lip is too large, so dampen and press it inward.</p><p>The third failure is the annoying one: the lid fits but sits crooked, resting on two opposite sides and hovering over the other two. That is almost always an out-of-round basket rather than an out-of-round lid. Check the basket opening before blaming your weaving, and if it is the basket, a thicker lip on the loose sides will compensate.</p>" },
+      { type: "table", head: ["Lip diameter", "Result", "Fix"], rows: [["5 mm under", "Lid falls through", "Dampen and ease outward"], ["Exact", "Sits flat, slight friction", "Correct"], ["5 mm over", "Lid perches and rocks", "Dampen and press inward"], ["10 mm over", "Lid slides off", "Unpick two rows and re-weave"]] },
+      { type: "notice", tone: "info", text: "Always dry the lid in the basket. A lid dried on its own will shrink out of round, and by then it is too late to change it without soaking the whole thing again." },
+      { type: "tips", title: "Helpful Tips", items: ["Weave the lip oversize and adjust damp. It is far easier than unpicking.", "Use a slightly tighter weave for the lid panel than the basket body. Lids take more handling.", "Add a knob or loop. A flat lid is genuinely hard to lift off a full basket.", "If the basket is oval, mark the long axis with a scrap of thread so you do not fit the lid the wrong way round."] },
+      { type: "cta", title: "Starting from the basket itself?", text: "If you have not woven the body yet, begin with the base and work up.", buttonText: "Read the basket base guide", buttonLink: "/how-to-weave-a-basket-base" }
+    ],
+    faq: [
+      { q: "How do I know what size to make the lid?", a: "Measure the inside of your basket at the rim and add about 5 mm, then adjust while the lip is still damp by pressing it into the basket. Do not try to weave to an exact measurement from a guide, because every basket is slightly different." },
+      { q: "Why does my lid fall through?", a: "The lip is too small, usually by only a few millimetres. Dampen the lip, push it outward from the inside and dry it in the basket again. If it is more than a centimetre out, unpick two rows and re-weave." },
+      { q: "Should the lid sit inside or over the rim?", a: "Inside, with the lip resting on the rim. A lid that sits over the outside looks bulky and slides off. A lip that sits inside is hidden and grips the opening." },
+      { q: "How long does a lid take to make?", a: "About two hours of weaving plus two days of drying in the basket. The drying is not optional and cannot be rushed with heat, which will make the leaf brittle." },
+      { q: "Can I add a lid to a basket I already made?", a: "Yes. Measure the finished opening and follow the same steps. The only complication is that a dried basket will not flex, so you have less tolerance and should aim to get the lip right the first time." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 60. woven-trivet-tutorial
+  // ---------------------------------------------------------------
+  {
+    slug: "woven-trivet-tutorial",
+    title: "Woven Trivet Tutorial: A 40-Minute Project",
+    category: "baskets-weaving",
+    excerpt: "A square woven trivet that protects a table from hot dishes. Forty minutes, six strips, and a double-thickness weave that actually insulates.",
+    metaTitle: "Woven Trivet Tutorial: 40-Minute Project",
+    metaDescription: "Weave a square palm leaf trivet in forty minutes. Double-thickness over-under weave that insulates a table from hot dishes, with bound edges that will not fray.",
+    keywords: ["woven trivet", "diy trivet", "palm leaf trivet", "woven table mat", "heat proof mat"],
+    tags: ["beginner", "kitchen", "quick-project"],
+    publishedAt: "2026-09-21",
+    readTime: 6,
+    difficulty: "Beginner",
+    image: "woven-trivet-tutorial",
+    imageAlt: "A square woven palm leaf trivet with a cast iron teapot resting on it",
+    intro: "<p>A trivet is the quickest useful thing you can weave. Six strips, forty minutes, and it solves a problem you have every day, which is that hot things and wooden tables do not mix.</p><p>It is also the project I hand to people who have never woven anything. The over-under weave is simple, the shape is a square so there is nothing to shape, and you end up with something you will use tonight rather than something you have to find a place for.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>One thing matters more than the weave: thickness. A single-layer trivet barely insulates. Two layers woven separately and stitched together trap a pocket of air between them, and that air is what actually keeps the heat off the table. Skip the second layer and you have a decorative mat rather than a trivet.</p>" },
+      { type: "heading", level: 2, text: "Materials" },
+      { type: "materials", title: "What You'll Need", items: ["Six palm leaflets, cut into 2 cm strips", "A shallow dish of water", "Twine for binding the edges", "A blunt needle", "A weight for drying"] },
+      { type: "heading", level: 2, text: "Weaving it" },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Cut twelve strips", text: "Cut twelve strips about 20 cm long and 2 cm wide. Wider than a basket strip, because a trivet is stiff and does not need to bend around corners." },
+        { title: "Weave the first layer", text: "Lay six strips side by side and weave the other six across them over-under. Keep it loose at this stage. You are aiming for a square about 18 cm across." },
+        { title: "Even the edges", text: "Push the strips together until the weave closes and no daylight shows. Check the square is actually square by measuring the diagonals. Adjust while damp." },
+        { title: "Weave the second layer", text: "Weave a second identical square. Make it exactly the same size, because two layers of different sizes will not sit flat on each other." },
+        { title: "Stack and stitch", text: "Lay one square on the other at 90 degrees to it, so the strips cross rather than align. Stitch around the edge with twine, then add four stitches through the middle to stop the layers separating." },
+        { title: "Bind the edges", text: "Run a strip of leaf or a length of twine around the whole edge, stitching it down. This is what stops the ends fraying, and it also hides the loose strip ends." },
+        { title: "Dry under weight", text: "Press it flat under a heavy book for two days. A trivet that dries warped will rock every cup you put on it." }
+      ] },
+      { type: "image", src: "woven-trivet-tutorial", alt: "A woven trivet with a teapot resting on it", caption: "Two layers crossed at 90 degrees. The air trapped between them is what does the insulating." },
+      { type: "heading", level: 2, text: "How much heat it takes" },
+      { type: "paragraph", html: "<p>A two-layer trivet about 2 cm thick will handle a teapot, a serving dish or a pan that has been off the heat for a minute. It will not handle a pan straight off a hot hob at full temperature, and no natural fibre trivet will. Leaf chars before it burns, which gives you some warning, but the warning is a smell rather than a margin.</p><p>For anything seriously hot, use a cast iron trivet and put the woven one under the serving dish instead. That is what ours does most days, and it is the honest limit of what a leaf trivet should be asked to do.</p>" },
+      { type: "table", head: ["Source", "Safe?", "Note"], rows: [["Teapot, coffee pot", "Yes", "Everyday use"], ["Serving dish from the oven", "Yes", "After 30 seconds standing"], ["Pan off the hob", "Only after a minute", "Never straight off the heat"], ["Cast iron at full temperature", "No", "Use a metal trivet underneath"]] },
+      { type: "notice", tone: "warning", text: "Never put a woven trivet under a pan straight off the heat. Leaf chars rather than melting, so it gives a warning smell, but the table underneath gets no protection once the fibres are scorched." },
+      { type: "tips", title: "Helpful Tips", items: ["Weave two layers and cross them at 90 degrees. The trapped air is the insulation.", "Make it bigger than you think. An 18 cm trivet does not fit a large serving dish.", "Bind the edges. An unbound trivet sheds fibres onto the table every time you move it.", "Dry it under a weight. Warping is the one defect that makes a trivet useless."] },
+      { type: "cta", title: "Want the matching set?", text: "Coasters use the same weave at a smaller size, and stack neatly with a trivet.", buttonText: "Read the coaster guide", buttonLink: "/palm-leaf-coasters" }
+    ],
+    faq: [
+      { q: "How long does a woven trivet take?", a: "About forty minutes including the edge binding, plus two days of drying under a weight. It is one of the fastest projects here and needs only six leaflets." },
+      { q: "Is a woven trivet heat proof?", a: "Heat resistant, not heat proof. Two layers will protect a table from a teapot or a serving dish. A pan straight off the hob will scorch it. Use a metal trivet under anything seriously hot." },
+      { q: "Why does my trivet rock?", a: "It dried warped. Dampen it again, press it flat under a heavy book and leave it for two days. The weight has to be evenly distributed, so use a book rather than a clamp." },
+      { q: "Can I make it round instead of square?", a: "Yes, but square is faster and works better. A round trivet needs the corners filled in, which adds twenty minutes for no practical gain. Square also stacks better in a drawer." },
+      { q: "How do I clean it?", a: "Wipe with a dry cloth and shake out crumbs. Never soak it, because wet leaf softens and the trivet will lose its flatness. If it gets greasy, wipe with a barely damp cloth and dry it flat under a weight." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 61. woven-egg-basket
+  // ---------------------------------------------------------------
+  {
+    slug: "woven-egg-basket",
+    title: "How to Weave a Small Egg Basket",
+    category: "baskets-weaving",
+    excerpt: "A round basket with a curved handle, sized for six eggs. The handle is woven into the rim rather than added afterwards, which is what makes it strong.",
+    metaTitle: "How to Weave a Small Egg Basket",
+    metaDescription: "Weave a round palm leaf egg basket with an integrated curved handle. Sized for six eggs, with a handle woven into the rim so it cannot pull out under load.",
+    keywords: ["egg basket", "woven egg basket", "small basket tutorial", "basket with handle", "palm leaf basket"],
+    tags: ["intermediate", "weaving", "kitchen"],
+    publishedAt: "2026-09-19",
+    readTime: 8,
+    difficulty: "Intermediate",
+    image: "woven-egg-basket",
+    imageAlt: "A small round woven palm leaf egg basket with a curved handle holding six eggs",
+    intro: "<p>An egg basket is a small basket with one difficult feature: a handle that has to carry weight without pulling out. Most beginner baskets attach the handle afterwards by stitching it to the rim, and that join is where they fail, usually with a full basket in your hand.</p><p>The fix is to weave the handle into the rim as you go, so it is structurally part of the basket rather than an addition. It takes an extra twenty minutes and it is the difference between a basket you use and a basket you look at.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>Eggs are awkward cargo. They are heavy for their size, they roll, and they are fragile. That means the basket wants to be wide and shallow rather than tall and narrow, so the eggs sit in a single layer and cannot stack and crack each other. Six eggs in one layer needs an opening about 15 cm across.</p>" },
+      { type: "heading", level: 2, text: "Materials" },
+      { type: "materials", title: "What You'll Need", items: ["14 to 16 palm leaflets, cut into 1.5 cm strips", "Four long strips kept aside for the handle", "Twine for the rim binding", "A shallow dish of water", "A round former about 15 cm across, such as a bowl"] },
+      { type: "heading", level: 2, text: "Weaving the basket" },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Weave a round base", text: "Weave a flat over-under base and round off the corners until it is a circle about 12 cm across. A round base makes a round basket, which is what keeps eggs from gathering in corners." },
+        { title: "Turn up the walls", text: "Fold the edge strips up and weave the first wall row tightly. This row sets the diameter, so keep it snug. The basket will stay at about 15 cm from here on." },
+        { title: "Weave straight walls", text: "Continue upward without widening, so the walls rise vertically. Stop when the basket is about 9 cm tall, which is deep enough for a single layer of eggs with a little protection above." },
+        { title: "Insert the handle strips", text: "Before finishing the rim, slide four long strips down into the wall on opposite sides, two each side, pushed down at least four rows so they are anchored. These will become the handle." },
+        { title: "Weave the rim over them", text: "Weave the final two rim rows, passing over and under the handle strips as you go. This is what locks the handle into the structure rather than onto it." },
+        { title: "Form the handle", text: "Bring the four handle strips up and across, twisting them together into a single curved handle. Braid them loosely rather than tightly, so the handle has some give when the basket is loaded." },
+        { title: "Join and dry", text: "Join the handle ends into the rim on the opposite side the same way, weaving them down into the wall. Dampen the whole basket, set it on the former and dry for two days." }
+      ] },
+      { type: "image", src: "woven-egg-basket", alt: "A woven egg basket with a curved handle holding eggs", caption: "The handle goes down into the wall and is woven over by the rim. That is why it will not pull out." },
+      { type: "heading", level: 2, text: "Why the handle join matters" },
+      { type: "paragraph", html: "<p>A stitched-on handle concentrates all the load on a line of stitches about 3 cm long. Under a basket of eggs that is maybe 1.5 kg, which does not sound like much until you remember it is being carried by eight small holes in soft leaf. The stitches tear through, usually within a few weeks.</p><p>An integrated handle spreads that load down four rows of weave on each side. The force is distributed across the whole wall rather than a seam, and it simply does not fail. It is more work and it is not optional if you want to actually carry the thing.</p>" },
+      { type: "table", head: ["Detail", "Size", "Note"], rows: [["Base", "12 cm circle", "Round, not square"], ["Opening", "15 cm", "Six eggs in one layer"], ["Height", "9 cm", "Single layer with protection"], ["Handle", "18 cm span", "Braided loosely"], ["Capacity", "6 eggs", "Or a small amount of fruit"]] },
+      { type: "tips", title: "Helpful Tips", items: ["Anchor the handle strips four rows deep. Two rows is not enough and will pull out.", "Braid the handle loosely. A tight braid has no give and concentrates the load again.", "Use a former when drying. A round basket dried freehand will go oval.", "Do not make it taller. Depth encourages stacking, and stacked eggs crack each other."] },
+      { type: "cta", title: "New to basket weaving?", text: "This is an intermediate project. Start with the base and a simple basket first.", buttonText: "Read the beginner guide", buttonLink: "/palm-leaf-weaving-for-beginners" }
+    ],
+    faq: [
+      { q: "How many eggs does it hold?", a: "Six in a single layer, which is the point of the size. A deeper basket holds more but encourages stacking, and stacked eggs crack each other. If you need to carry a dozen, make two baskets rather than one deep one." },
+      { q: "How long does an egg basket take?", a: "About three and a half hours plus two days of drying. The handle adds roughly forty minutes over a plain basket of the same size, and it is the part worth not rushing." },
+      { q: "Why does my handle pull out?", a: "It was stitched on rather than woven in, or the strips were anchored too shallowly. The handle strips need to run at least four rows down into the wall and be woven over by the rim. Anything less will tear under load." },
+      { q: "Can I use it for anything else?", a: "Yes. It is a good size for a handful of cherry tomatoes, a few lemons, or collecting small items in the garden. The shallow shape makes it useful anywhere you want to see what is in the basket." },
+      { q: "Should the base be round or square?", a: "Round, for an egg basket. A square base leaves corners where eggs gather and knock together. Round also dries more evenly, which matters for a small basket." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 62. woven-wall-pocket
+  // ---------------------------------------------------------------
+  {
+    slug: "woven-wall-pocket",
+    title: "How to Make a Woven Wall Pocket",
+    category: "home-decor",
+    excerpt: "A flat-backed woven pocket that hangs on a single hook and holds letters, dried flowers or kitchen clutter. No frame, no fixings, about two hours.",
+    metaTitle: "How to Make a Woven Wall Pocket",
+    metaDescription: "Weave a palm leaf wall pocket that hangs from one hook. A flat back keeps it against the wall, and it holds letters, dried flowers or kitchen clutter.",
+    keywords: ["woven wall pocket", "palm leaf wall pocket", "hanging wall basket", "diy wall storage", "natural wall decor"],
+    tags: ["intermediate", "wall-decor", "weaving"],
+    publishedAt: "2026-09-17",
+    readTime: 8,
+    difficulty: "Intermediate",
+    image: "woven-wall-pocket",
+    imageAlt: "A woven palm leaf wall pocket on a cream wall holding dried flowers",
+    intro: "<p>A wall pocket is a basket that has given up pretending to stand up. It hangs flat against a wall, takes up no floor space, and does a job that nothing else quite does: keeping the things you need constantly within reach without them living on a surface.</p><p>The design constraint is the back. A round basket has no flat face, so a wall pocket needs a woven panel at the back and a pocket in front of it. Get that flat back right and the whole thing hangs neatly instead of swinging away from the wall.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>Most wall pockets fail by bulging. A pocket woven as a simple curve will push away from the wall at the middle, which looks untidy and means anything tall leans out. The fix is a stiff flat back panel, woven tighter than the pocket itself, so the pocket has something rigid to sit against.</p>" },
+      { type: "heading", level: 2, text: "Materials" },
+      { type: "materials", title: "What You'll Need", items: ["12 palm leaflets, cut into 1.5 cm strips", "A length of stiff cane or bamboo for the top edge, about 25 cm", "Twine for binding", "A shallow dish of water", "A weight for drying"] },
+      { type: "heading", level: 2, text: "Weaving it" },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Weave the back panel", text: "Weave a flat, tight over-under panel about 24 cm wide and 28 cm tall. Weave this one tighter than usual, because it has to stay flat against the wall under the weight of whatever the pocket holds." },
+        { title: "Reinforce the top edge", text: "Fold the top edge of the back panel over the cane length and stitch it down. This gives the pocket a straight top and stops it sagging in the middle, which is the most common failure." },
+        { title: "Weave the pocket front", text: "Weave a second panel the same width but only 18 cm tall. Weave this one more loosely, because it needs to curve forward to form the pocket." },
+        { title: "Attach the pocket sides", text: "Stitch the pocket front to the back panel down both sides, leaving the top open. Work from the bottom upward so any slack ends up at the opening rather than at the base." },
+        { title: "Attach the pocket base", text: "Stitch the bottom of the pocket front to the back panel along the base line, about 8 cm up from the bottom of the back panel. The back panel extends below the pocket, which is what keeps it flat on the wall." },
+        { title: "Add the hanging loop", text: "Bind a loop of twine to the cane at the centre, behind the back panel. Centre it carefully. An off-centre loop makes the pocket hang crooked, and it is hard to correct later." },
+        { title: "Dampen and dry flat", text: "Dampen the whole pocket, lay it face down on a flat surface with a weight on the back panel, and leave it for two days. Drying it flat is what gives it a flat back." }
+      ] },
+      { type: "image", src: "woven-wall-pocket", alt: "A woven wall pocket hanging on a wall with dried flowers", caption: "The back panel extends below the pocket and carries the hanging loop. That is what keeps it flush to the wall." },
+      { type: "heading", level: 2, text: "What to put in it" },
+      { type: "paragraph", html: "<p>A wall pocket is best at holding things that are tall, light and awkward to store flat. Dried flowers, rolled letters, a magazine, knitting needles, garden secateurs. It is bad at holding anything heavy or anything with a sharp edge that will catch the weave on the way in and out.</p><p>The 8 cm depth is the number to work to. Shallower and a magazine falls forward. Deeper and the pocket bulges away from the wall, which is the failure mode this whole design exists to avoid.</p>" },
+      { type: "table", head: ["Dimension", "Size", "Why"], rows: [["Back panel", "24 x 28 cm", "Extends below the pocket"], ["Pocket front", "24 x 18 cm", "Open at the top"], ["Pocket depth", "8 cm", "Holds a magazine upright"], ["Hanging loop", "5 cm", "Fits a standard picture hook"]] },
+      { type: "notice", tone: "info", text: "Weave the back panel tighter than the pocket. It sounds backwards, but the back is what has to stay flat and the pocket is what has to curve. Reversing them gives you a bulging back and a rigid pocket." },
+      { type: "tips", title: "Helpful Tips", items: ["Reinforce the top edge with cane. Without it the top sags within a week.", "Dry it face down under a weight. This is what flattens the back.", "Centre the hanging loop exactly. An off-centre loop is very hard to correct once dry.", "Keep the pocket to 8 cm deep. Deeper pockets push away from the wall."] },
+      { type: "cta", title: "Want a bigger wall piece?", text: "A wall hanging uses the same flat panel technique on a larger scale.", buttonText: "Read the wall hanging guide", buttonLink: "/palm-leaf-wall-hanging" }
+    ],
+    faq: [
+      { q: "How much weight will a wall pocket hold?", a: "About 1.5 kg safely, which covers dried flowers, letters, magazines and small tools. Beyond that the weave starts to stretch, and the hanging loop becomes the weak point rather than the pocket." },
+      { q: "Why does my wall pocket bulge?", a: "Either the back panel was woven too loosely, or the pocket is deeper than about 8 cm. The back needs a tighter weave than the pocket so it stays flat, and the pocket depth is what determines how far it pushes out." },
+      { q: "How long does it take to make?", a: "About two hours of weaving plus two days of drying. Most of the time is in the two panels. The assembly and stitching is quick once both are woven." },
+      { q: "Can I hang it without a hook?", a: "No. It needs a proper picture hook or a screw, because the weight is pulling away from the wall rather than down it. Adhesive strips are not reliable for anything but the lightest load." },
+      { q: "Do I need the cane at the top?", a: "Strongly recommended. Without a rigid top edge the panel sags in the middle and the pocket develops a curve along its opening. Cane, bamboo or stiff wire all work." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 63. palm-leaf-candle-holder
+  // ---------------------------------------------------------------
+  {
+    slug: "palm-leaf-candle-holder",
+    title: "How to Weave a Palm Leaf Candle Holder",
+    category: "home-decor",
+    excerpt: "A woven sleeve that holds a pillar candle steady. The weave keeps the flame away from the leaf, so it is safe, and it costs about an hour to make.",
+    metaTitle: "Palm Leaf Candle Holder Tutorial",
+    metaDescription: "Weave a palm leaf candle holder for a pillar candle. The woven sleeve keeps the flame clear of the leaf, and a metal insert takes the heat safely.",
+    keywords: ["palm leaf candle holder", "woven candle holder", "diy candle holder", "leaf candle sleeve", "natural table decor"],
+    tags: ["intermediate", "home-decor", "candles"],
+    publishedAt: "2026-09-15",
+    readTime: 7,
+    difficulty: "Intermediate",
+    image: "palm-leaf-candle-holder",
+    imageAlt: "A woven palm leaf candle holder holding a lit beeswax pillar candle",
+    intro: "<p>Woven candle holders have a bad reputation, and they have earned it. Most of them are a leaf basket with a candle dropped inside, which works until the candle burns down and the flame reaches the rim. Then you have a burning basket on a table.</p><p>This one is designed around that problem. The leaf sleeve is a decorative outer layer that never gets near the flame, and a metal cup inside takes all the heat. It looks like a woven candle holder and behaves like a proper one.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>The safety rule is simple: the leaf must never be within about 5 cm of the flame, measured at the point where the candle has burned down to the top of the metal cup. If the candle can burn lower than that, the design is wrong. Size the sleeve so the cup stops the candle before the flame reaches the weave.</p>" },
+      { type: "heading", level: 2, text: "Materials" },
+      { type: "materials", title: "What You'll Need", items: ["8 to 10 palm leaflets, cut into 1.5 cm strips", "A metal candle cup or a small tin, about 6 cm across", "A pillar candle no wider than the cup", "A shallow dish of water", "A weight for drying"] },
+      { type: "heading", level: 2, text: "Weaving the sleeve" },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Check the cup first", text: "Before weaving anything, make sure your metal cup is wide enough for the candle and deep enough that the candle sits with at least 5 cm of cup above the wax line. This is the safety margin and it decides the size of everything else." },
+        { title: "Weave a round base", text: "Weave a flat round base about 8 cm across, which is 2 cm wider than the cup. This gives the holder a footprint and stops it tipping." },
+        { title: "Turn up the walls", text: "Fold the edge strips up and weave straight walls without widening. The walls need to rise about 4 cm, which is enough to grip the cup without hiding it." },
+        { title: "Test the cup fit", text: "While the weave is still damp, press the metal cup into the sleeve. It should sit snugly with the rim of the cup about level with the top of the weave. Adjust while damp." },
+        { title: "Weave a rim", text: "Weave the final two rows tighter so the sleeve grips the cup. Do not fold the rim over the cup. The cup needs to be removable so you can clean out wax." },
+        { title: "Dry with the cup in", text: "Leave the cup in place and dry the sleeve for two days. The cup keeps the sleeve round while it sets, and the fit will be exact." },
+        { title: "Add a felt base", text: "Glue a small disc of felt to the underside. The weave alone will scratch a wooden table, and the felt also stops the holder sliding when you move the candle." }
+      ] },
+      { type: "image", src: "palm-leaf-candle-holder", alt: "A woven candle holder with a lit pillar candle", caption: "The metal cup does the work. The leaf sleeve is decoration and never gets near the flame." },
+      { type: "heading", level: 2, text: "Using it safely" },
+      { type: "paragraph", html: "<p>Three rules and you will never have a problem. Never let the candle burn down past the top of the metal cup. Never use a candle wider than the cup, because wax will run down the outside of the sleeve. And never leave it burning unattended, which applies to every candle but especially one with a woven surround.</p><p>Beeswax is the best choice here. It burns cooler and slower than paraffin, and it does not tunnel, so the flame stays centred and away from the weave for longer.</p>" },
+      { type: "table", head: ["Part", "Size", "Note"], rows: [["Base", "8 cm", "2 cm wider than the cup"], ["Walls", "4 cm tall", "Grips the cup, does not hide it"], ["Cup", "6 cm across", "Metal, removable"], ["Safety margin", "5 cm", "From flame to weave at lowest burn"]] },
+      { type: "notice", tone: "warning", text: "Never use a woven holder without a metal cup inside it. Leaf is dry, hollow and full of air, which is exactly what a candle needs to burn well and exactly what you do not want next to a flame." },
+      { type: "tips", title: "Helpful Tips", items: ["Always use a metal cup. Never put a candle directly into a leaf sleeve.", "Beeswax burns cooler and stays centred better than paraffin.", "Add a felt base so the weave does not scratch the table.", "Dry the sleeve with the cup inside so it sets perfectly round."] },
+      { type: "cta", title: "Want more table pieces?", text: "Coasters and placemats use the same weave and make a set with this.", buttonText: "Read the placemat guide", buttonLink: "/palm-leaf-placemats" }
+    ],
+    faq: [
+      { q: "Is a woven candle holder safe?", a: "Only with a metal cup inside. A candle placed directly into a leaf sleeve will set the leaf alight once it burns down. With a metal cup and a 5 cm margin between the flame and the weave, it is as safe as any candle holder." },
+      { q: "What kind of candle should I use?", a: "A pillar candle in beeswax. Beeswax burns cooler and slower than paraffin, and it does not tunnel, so the flame stays centred. A tea light is too short to give you a safe margin above the cup." },
+      { q: "How do I clean out the wax?", a: "Lift the metal cup out and pour hot water into it. The wax floats and sets on top, and you can lift it off in one piece. Never scrape wax out of the woven sleeve itself." },
+      { q: "How long does it take to make?", a: "About an hour plus two days of drying. It uses very little leaf, so it is a good project for using up offcuts from a larger basket." },
+      { q: "Will the leaf scorch?", a: "Not if the cup is tall enough. Scorching means the flame has got within about 2 cm of the weave, which means the candle has burned too low or the cup is too short. Stop using that candle and replace it." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 64. palm-leaf-puppet
+  // ---------------------------------------------------------------
+  {
+    slug: "palm-leaf-puppet",
+    title: "How to Make a Palm Leaf Hand Puppet",
+    category: "kids-crafts",
+    excerpt: "A simple hand puppet from two palm leaflets that fits a child's hand and takes about twenty minutes. No glue, no sharp tools, and it survives being played with.",
+    metaTitle: "Palm Leaf Hand Puppet for Kids",
+    metaDescription: "Make a palm leaf hand puppet with children in about twenty minutes. Folds into a mouth that opens and closes, needs no glue, and uses no sharp tools.",
+    keywords: ["palm leaf puppet", "leaf puppet", "hand puppet craft", "kids leaf craft", "diy puppet for children"],
+    tags: ["kids", "puppet", "quick-project"],
+    publishedAt: "2026-09-13",
+    readTime: 6,
+    difficulty: "Beginner",
+    image: "palm-leaf-puppet",
+    imageAlt: "A child's hand puppet made from woven palm leaf held up against a cream background",
+    intro: "<p>A hand puppet is the craft project that keeps giving, because the making is twenty minutes and the playing is the rest of the afternoon. It is also one of the few leaf projects that survives being used roughly, because the fold that makes the mouth is also what makes it strong.</p><p>Children from about five can make one with a little help on the first fold. The rest they can do themselves, and the moment the mouth opens and closes for the first time is reliably the best part of the afternoon.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>The whole puppet is one fold. You take a leaflet, fold it so the rib runs along the top, and the gap between the two layers becomes the mouth. Your thumb goes in the lower layer and your fingers in the upper, and opening your hand opens the mouth. That is it, and it is why this works with children when more complicated figures do not.</p>" },
+      { type: "heading", level: 2, text: "What you need" },
+      { type: "materials", title: "What You'll Need", items: ["Two palm leaflets, about 30 cm long", "A shallow dish of water", "A blunt needle and thread, or a strip of leaf for tying", "Scraps of leaf for eyes and decoration", "Nothing sharp"] },
+      { type: "heading", level: 2, text: "Making the puppet" },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Soften the leaflets", text: "Soak both leaflets for five minutes. Fresh ones may not need it, but dry ones will crack on the fold without it, and a cracked fold is the one thing that cannot be repaired." },
+        { title: "Fold the mouth", text: "Take the first leaflet and fold it in half lengthwise with the rib on the outside. Then fold the two ends back on themselves so you have a V shape with the point in the middle. This V is the mouth." },
+        { title: "Make the hand pocket", text: "Open the lower layer of the V and push your hand in gently to stretch it. It needs to fit a child's hand, so stretch it while the leaf is damp. It will hold the size once dry." },
+        { title: "Secure the fold", text: "Tie the folded point tightly with thread or a thin strip of leaf. This is the only fixing in the whole puppet, and it is what stops the mouth collapsing when it is opened and closed." },
+        { title: "Add the head shape", text: "Take the second leaflet and fold it over the top of the first to form a head. Tuck the ends inside and tie them off with the same knot, so the head and the mouth share one fixing." },
+        { title: "Add eyes", text: "Cut two small circles from a scrap of leaf and tuck them into the weave at the front of the head. Tuck rather than glue, so they can be moved if the face looks wrong." },
+        { title: "Dry and test", text: "Leave it to dry for a few hours, then work the mouth open and closed a few times to loosen the fold. A puppet that has never been worked is stiff and hard to use." }
+      ] },
+      { type: "image", src: "palm-leaf-puppet", alt: "A finished palm leaf hand puppet", caption: "The V fold is the mouth and the fixing. One knot holds the whole puppet together." },
+      { type: "heading", level: 2, text: "Making it last" },
+      { type: "paragraph", html: "<p>Most leaf crafts are decorative. This one gets played with, which means it needs to survive being put on and pulled off a hand dozens of times. The fold is strong, but the tying point is the weak spot, so use thread rather than a strip of leaf if you want it to last more than a week.</p><p>If the mouth goes floppy, the tie has loosened. Retie it tighter, dampen the fold and leave it to dry again. A puppet can be retied three or four times before the leaf at the knot starts to give.</p>" },
+      { type: "table", head: ["Age", "Help needed", "Time"], rows: [["4 to 5", "Adult folds, child decorates", "15 minutes"], ["6 to 8", "Adult helps with the tie", "20 minutes"], ["9 and up", "Independent", "20 minutes"]] },
+      { type: "notice", tone: "success", text: "Make two. Puppets are much more fun in pairs, and a second one takes half the time because the child has already learned the fold." },
+      { type: "tips", title: "Helpful Tips", items: ["Soak dry leaflets for five minutes. A dry fold cracks and cannot be fixed.", "Use thread for the tie if the puppet will be played with. A leaf tie lasts about a week.", "Stretch the hand pocket while damp, not after. Dried leaf will not stretch without tearing.", "Tuck the eyes in rather than gluing. You can move them if the face looks wrong."] },
+      { type: "cta", title: "More leaf crafts for children", text: "Crowns, fish and suncatchers all work well with the same age group.", buttonText: "Read the kids craft guide", buttonLink: "/easy-leaf-crafts-for-kids" }
+    ],
+    faq: [
+      { q: "What age is this suitable for?", a: "About four and up. Children of four or five need an adult to make the fold and the tie, and can do the decoration themselves. By nine they can make one independently in about twenty minutes." },
+      { q: "Do I need glue?", a: "No, and glue is worse than nothing here. A glued fold goes brittle and cracks the first time the mouth is worked. The puppet is held together by a single tie, which stays flexible." },
+      { q: "How long does a puppet last?", a: "About a week of active play if tied with thread, or a few days if tied with a leaf strip. It can be retied three or four times, and each time you should dampen the fold and dry it again." },
+      { q: "Can I use dried palm leaves?", a: "Yes, but soak them for five minutes first. A dry leaflet cracks along the fold, and a cracked fold cannot be repaired. Once soaked, dried leaf folds almost as well as fresh." },
+      { q: "Why is my puppet's mouth floppy?", a: "The tie at the folded point has loosened. Retie it tighter, dampen the fold and leave the puppet to dry again. If it goes floppy a second time, the leaf at the knot is failing and it is time to make a new one." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 65. leaf-suncatcher-craft
+  // ---------------------------------------------------------------
+  {
+    slug: "leaf-suncatcher-craft",
+    title: "Leaf Suncatchers: A Craft for Any Age",
+    category: "kids-crafts",
+    excerpt: "Pressed leaves in a simple card frame that glow in a window. Works from age three, uses material you already have, and takes an afternoon including drying.",
+    metaTitle: "Leaf Suncatcher Craft for Kids",
+    metaDescription: "Make pressed leaf suncatchers with children. A simple card frame holds the leaves, sunlight does the rest, and it works from about age three upward.",
+    keywords: ["leaf suncatcher", "suncatcher craft", "pressed leaf craft", "kids nature craft", "window craft"],
+    tags: ["kids", "nature", "quick-project"],
+    publishedAt: "2026-09-11",
+    readTime: 7,
+    difficulty: "Beginner",
+    image: "leaf-suncatcher-craft",
+    imageAlt: "Colourful pressed leaf suncatchers hanging in a bright window with sunlight glowing through",
+    intro: "<p>Suncatchers are the rare children's craft where the finished object is genuinely lovely, the process is genuinely simple, and the material is genuinely free. You pick leaves, press them, and trap them in a frame. Sunlight does the rest.</p><p>It also works from about age three, which is younger than almost anything else here. A three year old can choose leaves and arrange them. An adult does the frame and the cutting. By seven they can do the whole thing alone.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>The magic is in the pressing, not the frame. A fresh leaf is opaque and looks like a leaf. A pressed leaf is thin and translucent, and when light comes through it you can see the veins. That transformation is what makes the craft worth doing rather than just gluing leaves to card.</p>" },
+      { type: "heading", level: 2, text: "What you need" },
+      { type: "materials", title: "What You'll Need", items: ["A collection of thin leaves, gathered fresh", "Two squares of card, about 15 cm", "Clear sticky-back plastic or a laminating pouch", "Scissors", "A heavy book for pressing", "Thread for hanging"] },
+      { type: "heading", level: 2, text: "Making a suncatcher" },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Gather thin leaves", text: "Look for thin, flat leaves rather than thick or fleshy ones. Fern fronds, maple leaves, and most tree leaves press well. Anything thick and rubbery will stay opaque and look disappointing in the window." },
+        { title: "Press them for three days", text: "Lay the leaves flat between sheets of newspaper and put them under a heavy book. Three days is the minimum. A week is better, and pressed leaves keep for months in a folded newspaper." },
+        { title: "Cut the frame", text: "Cut a shape from the card, about 15 cm across. Cut the middle out leaving a 2 cm border. A circle, a heart or a simple square all work. Keep the cut-out centre for another suncatcher." },
+        { title: "Lay out the design", text: "Let the child arrange the pressed leaves on the sticky plastic before anything is sealed. Overlapping leaves make richer colour. Leave a small gap around the edge so the frame has something to stick to." },
+        { title: "Seal the leaves", text: "Lay a second sheet of sticky plastic over the top, pressing from the centre outward to push air out. Small bubbles are fine and mostly disappear. Large trapped air looks messy." },
+        { title: "Attach the frame", text: "Stick the card frame to the front, covering the plastic edges. If you cut two identical frames you can put one on each side, which looks much better from outside the window." },
+        { title: "Hang it up", text: "Thread a loop of cotton through the top of the frame and hang it in a sunny window. South or west facing gives the strongest light, though any window will show the colour." }
+      ] },
+      { type: "image", src: "leaf-suncatcher-craft", alt: "Pressed leaf suncatchers hanging in a window", caption: "Pressed thin leaves go translucent and show their veins. Thick leaves stay opaque and look like a dead leaf in a frame." },
+      { type: "heading", level: 2, text: "Which leaves work" },
+      { type: "paragraph", html: "<p>The single biggest difference between a suncatcher that looks magical and one that looks like rubbish is leaf choice. Thin leaves go translucent. Thick leaves do not. Colour matters too, but less than you would think, because light coming through a leaf is a different colour from the leaf itself.</p><p>Autumn leaves are the obvious choice but green leaves work beautifully too, turning a pale lime against the light. Fern fronds are the most reliable of all, because they are thin, patterned, and press completely flat in a day.</p>" },
+      { type: "table", head: ["Leaf", "Pressing time", "Result"], rows: [["Fern frond", "1 to 2 days", "Best of all, delicate pattern"], ["Maple", "3 to 4 days", "Strong shape, good colour"], ["Oak", "3 to 4 days", "Robust, holds up to handling"], ["Ivy", "2 to 3 days", "Good for overlapping"], ["Anything thick or fleshy", "Never", "Stays opaque, avoid"]] },
+      { type: "notice", tone: "success", text: "Press more leaves than you need and keep them in a folded newspaper. They last for months and it means a rainy afternoon can become a craft afternoon without going outside first." },
+      { type: "tips", title: "Helpful Tips", items: ["Thin leaves only. This is the whole difference between magic and disappointment.", "Press for three days minimum. A day is not enough and the leaves will curl in the frame.", "Let children arrange the design before sealing. It is the part they enjoy most.", "Make two frames and sandwich the plastic. It looks far better from outside the window."] },
+      { type: "cta", title: "More nature crafts for children", text: "Leaf crowns, printing and simple weaving all work with the same age group.", buttonText: "Read the nature craft guide", buttonLink: "/nature-craft-ideas-rainy-day" }
+    ],
+    faq: [
+      { q: "What age can children make these?", a: "From about three with help. A three year old can gather and arrange leaves. An adult handles the scissors and the sealing. By seven most children can make one entirely on their own." },
+      { q: "How long do the leaves need pressing?", a: "Three days minimum, a week is better. Ferns press in a day or two because they are so thin. If you seal a leaf before it is fully dry it will curl inside the frame and the suncatcher will look wrinkled." },
+      { q: "Which leaves work best?", a: "Thin ones. Fern fronds are the most reliable, followed by maple, oak and ivy. Anything thick, fleshy or waxy stays opaque and looks like a dead leaf rather than a window decoration." },
+      { q: "How long will a suncatcher last?", a: "Several years indoors, though the colour fades gradually in strong sun. Keep it out of damp rooms, because moisture can get between the plastic layers and cloud the view." },
+      { q: "Can I use paper instead of sticky plastic?", a: "Not really. Paper is opaque, which defeats the point. Sticky-back plastic, a laminating pouch or clear contact paper all work. A laminator gives the cleanest result if you have one." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 66. natural-dye-for-leaf-crafts
+  // ---------------------------------------------------------------
+  {
+    slug: "natural-dye-for-leaf-crafts",
+    title: "Natural Dye for Leaf Crafts: What Actually Works",
+    category: "eco-living",
+    excerpt: "Which plant dyes actually hold on palm and coconut leaf, which wash straight out, and how to set them. Based on a season of testing rather than guesswork.",
+    metaTitle: "Natural Dye for Leaf Crafts: What Works",
+    metaDescription: "Which natural dyes hold on palm and coconut leaf and which fade. A tested guide to mordants, dye baths and the plants worth the effort, without harsh chemicals.",
+    keywords: ["natural dye", "plant dye for crafts", "dyeing palm leaves", "natural dye mordant", "eco friendly dyeing"],
+    tags: ["advanced", "dyeing", "eco-living"],
+    publishedAt: "2026-09-09",
+    readTime: 9,
+    difficulty: "Advanced",
+    image: "natural-dye-for-leaf-crafts",
+    imageAlt: "Bundles of palm leaf strips simmering in a pot of natural dye",
+    intro: "<p>We spent a season dyeing leaf strips with everything from onion skins to avocado stones, and the honest result is that about a third of the plants people recommend are a waste of time on leaf. Leaf is not wool. It does not have the protein structure that grabs most natural dyes, so a lot of the folk recipes simply rinse out.</p><p>What follows is what actually held, tested on palm and coconut strips and left in a sunny window for three months to see what faded. It is a shorter list than most guides give you, and a more useful one.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>The core problem is that leaf is cellulose and most natural dyes are designed for protein fibres like wool and silk. Cellulose needs a mordant to hold dye at all, and even then the colour sits on the surface rather than inside the fibre. That is why leaf dyes fade faster than wool dyes, and why the mordant matters more than the plant.</p>" },
+      { type: "heading", level: 2, text: "Mordants that work on leaf" },
+      { type: "paragraph", html: "<p>A mordant is what makes the dye stick. Without one, almost everything rinses out of leaf within two washes. Alum is the safest and most effective for home use, and it is what we use for everything. Iron darkens colours and is useful for greys and blacks, but it also makes leaf brittle, so use it sparingly and only on strips you will not bend much.</p><p>Skip the traditional recipes that call for copper or tin. They give lovely colours on wool and they are genuinely toxic to dispose of down a household drain, which rather defeats the point of dyeing naturally.</p>" },
+      { type: "heading", level: 2, text: "Dyeing the strips" },
+      { type: "materials", title: "What You'll Need", items: ["Palm or coconut leaf strips, soaked and pliable", "Alum mordant, about 10 g per litre of water", "Plant material for colour", "An old pot you will not cook in again", "A wooden spoon kept for dyeing", "Rubber gloves"] },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Soak the strips", text: "Soak the strips overnight. Damp leaf takes dye far more evenly than dry, and dry leaf floats, which makes it impossible to submerge properly." },
+        { title: "Mordant first", text: "Simmer the strips in alum solution for an hour at about 80 degrees, then leave them in the pot to cool overnight. Do not boil. Boiling softens the leaf so much that it tears when you weave it." },
+        { title: "Make the dye bath", text: "Simmer your plant material in water for an hour, then strain it. More plant material gives a stronger colour up to a point, and past that point you are just wasting material. Roughly equal weights of plant and dry leaf is the practical limit." },
+        { title: "Dye the strips", text: "Add the mordanted strips to the strained dye bath and hold at about 80 degrees for an hour. Stir gently and infrequently. Stirring too much makes the colour patchy rather than even." },
+        { title: "Let it cool in the bath", text: "Turn off the heat and leave the strips in the dye overnight. Most of the colour depth develops during cooling, not during simmering. Taking them out hot gives a much paler result." },
+        { title: "Rinse and dry", text: "Rinse in cool water until the water runs clear, then dry flat in the shade. Drying in direct sun at this stage will fade a fresh dye noticeably within a day." },
+        { title: "Weave it damp", text: "Weave the strips while still slightly supple, then let the finished piece dry in shape. Dyed leaf is stiffer than undyed, so it needs to be worked while it still has some give." }
+      ] },
+      { type: "image", src: "natural-dye-for-leaf-crafts", alt: "Palm leaf strips simmering in a natural dye bath", caption: "Hold at about 80 degrees, never a hard boil. Boiling softens the leaf until it tears when you weave it." },
+      { type: "heading", level: 2, text: "What actually held" },
+      { type: "paragraph", html: "<p>Tested over three months in a sunny window, these are the results worth knowing. The browns and yellows held well. The reds and blues mostly did not, which is the opposite of what most guides imply.</p>" },
+      { type: "table", head: ["Plant", "Colour", "Held up?"], rows: [["Onion skin", "Warm orange-brown", "Yes, best of all"], ["Turmeric", "Bright yellow", "Yes, but fades in sun"], ["Walnut hull", "Deep brown", "Yes, very stable"], ["Avocado stone", "Soft pink", "Barely, mostly washed out"], ["Beetroot", "Pink", "No, gone in a week"], ["Red cabbage", "Blue-grey", "No, faded to grey"], ["Black tea", "Tan", "Yes, but weak"]] },
+      { type: "notice", tone: "info", text: "Keep a dyed test strip from every batch. Tape it to a card with the date and the recipe. After a season you will have your own record of what works in your water, which matters more than any general guide." },
+      { type: "tips", title: "Helpful Tips", items: ["Mordant with alum or the dye will rinse out. This is the single biggest difference.", "Never boil. Hold at about 80 degrees or the leaf softens and tears.", "Cool overnight in the bath. Most of the colour develops as it cools.", "Dry in shade, not sun. Fresh dye fades fast in direct sunlight.", "Skip copper and tin mordants. They are toxic to dispose of, which defeats the purpose."] },
+      { type: "cta", title: "What to do with dyed strips", text: "Two-tone weaving is where natural dye earns its place. Start with a simple mat.", buttonText: "Read the checker weave guide", buttonLink: "/how-to-make-a-ribbon-checker-weave" }
+    ],
+    faq: [
+      { q: "Do I need a mordant to dye leaf?", a: "Yes. Leaf is cellulose and most natural dyes are made for protein fibres like wool. Without a mordant, almost everything rinses out of leaf within two washes. Alum is the safest and most effective choice for home dyeing." },
+      { q: "Which natural dyes actually work on leaf?", a: "Browns and yellows, mostly. Onion skin, walnut hull, turmeric and black tea all held well in our tests. Beetroot and red cabbage faded within a week, and avocado stone gave almost nothing. Reds and blues are largely not worth the effort on leaf." },
+      { q: "Can I use a normal cooking pot?", a: "Use an old one you will not cook in again, and keep a separate wooden spoon for dyeing. Alum and plant tannins are not acutely toxic but you do not want them in your food, and the pot will stain permanently anyway." },
+      { q: "Why did my dye wash out?", a: "Either no mordant, or the strips were not left in the bath long enough. Mordant first, simmer the dye at about 80 degrees, then leave the strips in the cooling bath overnight. Colour depth develops during cooling." },
+      { q: "Is natural dyeing actually more eco friendly?", a: "It can be, but not automatically. Plant dyes are renewable, but the mordants and the energy used to simmer for hours both have an impact. It is most defensible when you use kitchen waste like onion skins and dye in a batch rather than one piece at a time." }
+    ]
+  },
+
+  // ---------------------------------------------------------------
+  // 67. zero-waste-craft-room
+  // ---------------------------------------------------------------
+  {
+    slug: "zero-waste-craft-room",
+    title: "Setting Up a Zero-Waste Craft Room",
+    category: "eco-living",
+    excerpt: "How to organise a craft space so almost nothing is thrown away. Sorting, storing and using offcuts, plus the four things worth buying once and keeping.",
+    metaTitle: "Setting Up a Zero-Waste Craft Room",
+    metaDescription: "Organise a craft space so almost nothing is wasted. How to sort and store offcuts, what to keep, and the four reusable things worth buying once.",
+    keywords: ["zero waste craft room", "craft room organisation", "craft storage ideas", "eco friendly craft room", "using craft scraps"],
+    tags: ["organisation", "eco-living", "workshop"],
+    publishedAt: "2026-09-07",
+    readTime: 8,
+    difficulty: "Beginner",
+    image: "zero-waste-craft-room",
+    imageAlt: "A tidy zero-waste craft workspace with woven baskets and jars holding sorted leaf strips",
+    intro: "<p>Craft rooms generate waste in a specific way. Not big obvious waste, but a steady trickle of offcuts, half-used skeins, and short ends that are too small for the project you were doing and too useful to throw away. Left unsorted they become a drawer of chaos that you never open.</p><p>The fix is not discipline. It is having somewhere for each size of offcut to live, so putting it away is easier than throwing it out. That is the whole system, and it takes an afternoon to set up.</p>",
+    blocks: [
+      { type: "paragraph", html: "<p>The principle is sort by size, not by material. Most craft storage sorts by type, which is why it fails. What you actually need when you start a project is a strip of a particular length, so sorting by length means you can put your hand straight on the right container.</p>" },
+      { type: "heading", level: 2, text: "The four-container system" },
+      { type: "paragraph", html: "<p>Four containers, sorted by length. Anything over 30 cm goes in the tall basket and is treated as full-length material. Between 15 and 30 cm goes in the medium basket and will make small projects, handles or rims. Under 15 cm goes in a jar and is used for fill, ties and test pieces. Anything under 5 cm goes in the compost.</p><p>That is the whole system. The reason it works is that every offcut has a home that takes two seconds to reach, so there is no moment where throwing it away is the easier option.</p>" },
+      { type: "materials", title: "What You'll Need", items: ["Three woven baskets, small, medium and tall", "Two glass jars for very short pieces and for ties", "A wall rail or shelf so containers are at hand height", "A compost bin within reach", "A label for each container"] },
+      { type: "steps", title: "Step-by-Step Instructions", items: [
+        { title: "Empty everything out", text: "Take every offcut, half-finished piece and stray strip out of drawers and boxes and put it in one pile. You cannot sort what you cannot see, and the pile will be bigger than you expect." },
+        { title: "Sort by length only", text: "Work through the pile putting each piece into one of four groups by length. Do not sort by colour, material or project. Length is the only thing that matters for finding material later." },
+        { title: "Assign containers", text: "Tall basket for over 30 cm, medium for 15 to 30 cm, jar for under 15 cm, compost for under 5 cm. Put the containers at hand height on a shelf or rail, not on the floor." },
+        { title: "Label them", text: "Label each container with the length range, not the contents. You will forget what is in them within a month, but you will always know what length you are looking for." },
+        { title: "Set a rule for the compost", text: "Anything under 5 cm goes straight to compost as you work, without going into a container first. This single rule stops the small jar filling with unusable dust." },
+        { title: "Review every season", text: "Once a season, tip the short jar out and use it for a project specifically designed around short pieces. If it has not been touched in a season, it is compost." },
+        { title: "Keep a project box", text: "One lidded box for the current work in progress, so half-finished pieces are not mixed back into the sorted material. This is the one container that changes contents." }
+      ] },
+      { type: "image", src: "zero-waste-craft-room", alt: "Sorted leaf strips in woven baskets and jars on open shelving", caption: "Sorted by length, not material. What you need when you start a project is a strip of a particular length." },
+      { type: "heading", level: 2, text: "The four things worth buying once" },
+      { type: "paragraph", html: "<p>Most craft storage is plastic and most of it is unnecessary. These four things are worth buying, and they are the only purchases in this whole system. Everything else can be made from what you already have.</p>" },
+      { type: "table", head: ["Item", "Why", "Alternative"], rows: [["Glass jars", "See the contents, seal properly", "Old jam jars"], ["Wall rail", "Keeps containers at hand height", "A shelf at waist height"], ["Blunt needles", "Reusable for years, no plastic packaging", "None, worth buying"], ["Compost bin", "Makes the last rule easy to follow", "Any lidded bucket"]] },
+      { type: "notice", tone: "success", text: "The measure of whether this works is not how tidy the room looks. It is whether you reach for the offcut containers before you reach for fresh material. If you do, the system is working." },
+      { type: "tips", title: "Helpful Tips", items: ["Sort by length, not material. Length is what you actually search for.", "Put containers at hand height. Anything on the floor will not get used.", "Compost anything under 5 cm immediately rather than storing it.", "Keep one lidded box for work in progress so it does not pollute the sorted material."] },
+      { type: "cta", title: "Projects that use up offcuts", text: "Coasters, trivets and bookmarks are all designed around short pieces.", buttonText: "Read the trivet guide", buttonLink: "/woven-trivet-tutorial" }
+    ],
+    faq: [
+      { q: "What is the point of sorting by length?", a: "Because length is the thing you search for when you start a project. You need a strip of a particular size, not a particular material. Sorting by type means digging through everything to find one long enough." },
+      { q: "How small is too small to keep?", a: "Under 5 cm goes straight to compost. Below that size a strip cannot be woven, tied or used as fill, and keeping it just fills your containers with dust that you have to sort out later." },
+      { q: "Do I need to buy special containers?", a: "No. Old jam jars and any baskets you already have work perfectly. The only thing worth buying is a wall rail or a shelf at waist height, because containers on the floor never get used." },
+      { q: "How often should I sort it out?", a: "The system runs itself if you follow the rule as you work. A full review once a season is enough, mainly to check whether the short jar has anything worth using or whether it should all go on the compost." },
+      { q: "Does this work for other crafts?", a: "Yes, with the sorting rule changed to whatever the limiting dimension is. For fabric it is square size rather than length. For paper it is sheet size. The principle is the same: sort by the thing you search for." }
+    ]
   }
 ];
