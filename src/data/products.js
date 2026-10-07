@@ -2974,4 +2974,842 @@ export default [
       },
     ],
   },
+
+  // ------------------------------------------------------------------
+  // 31. Woven Picnic Basket
+  // ------------------------------------------------------------------
+  {
+    slug: "woven-picnic-basket",
+    name: "Woven Picnic Basket",
+    category: "baskets",
+    sku: "LC-BSK-008",
+    price: 46.0,
+    salePrice: 39.0,
+    stock: 14,
+    stockStatus: "in_stock",
+    badge: "New",
+    rating: 4.9,
+    reviewCount: 11,
+    featured: true,
+    shortDescription:
+      "A deep, wide-mouthed basket built for carrying. Two thick rope handles spread the load, and the walls are woven a shade tighter than our storage baskets so nothing tips or shifts on the walk.",
+    metaTitle: "Woven Picnic Basket with Rope Handles | LeafCraftPRO",
+    metaDescription:
+      "Handwoven palm leaf picnic basket with thick rope handles and a tight over-under body. Deep enough for a two-person lunch, light enough to carry one-handed.",
+    keywords: ["picnic basket", "woven picnic basket", "palm leaf basket", "rope handle basket", "natural picnic hamper"],
+    tags: ["handmade", "outdoor"],
+    material: "Natural palm leaf with cotton rope handles",
+    weight: "620 g",
+    dimensions: "34 x 26 x 22 cm",
+    colour: "Warm straw with fresh green flecks",
+    care: "Wipe with a damp cloth after use and let it dry fully before storing. Do not leave it damp.",
+    features: [
+      "Woven by hand from fresh palm leaves",
+      "Two thick cotton rope handles, spliced and bound",
+      "Tighter weave than our storage baskets so contents stay put",
+      "Wide mouth takes a standard 1 litre flask upright",
+      "Plastic-free packaging and fully compostable",
+    ],
+    description: [
+      {
+        type: "paragraph",
+        html: "<p>A picnic basket has one job the other baskets do not: it has to survive being carried. That means the walls need to be stiffer, the base needs to stay flat under load, and the handles need to spread the weight rather than cut into your palm. This is the basket we make when someone asks for something to actually take outdoors.</p>",
+      },
+      { type: "heading", level: 3, text: "How it is made" },
+      {
+        type: "paragraph",
+        html: "<p>The body is woven at a tighter stitch spacing than our storage baskets, roughly 4 mm between rows against 6 mm, which is what gives it the rigidity. The base is doubled: a second woven panel is stitched underneath the first so the weight of a full basket sits on two layers instead of one. The rope handles are spliced through the rim and bound with palm fibre, so they cannot pull free.</p>",
+      },
+      {
+        type: "list",
+        items: [
+          "Carries a two-person lunch comfortably",
+          "Takes a 1 litre flask standing upright",
+          "Handles spread the load instead of digging in",
+          "Base stays flat when full",
+          "Warms in tone over the first season of use",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Detail", "Specification"],
+        rows: [
+          ["Weave", "Tight over-under, doubled base"],
+          ["Mouth", "34 x 26 cm oval"],
+          ["Depth", "22 cm"],
+          ["Handles", "Cotton rope, spliced and bound"],
+          ["Finish", "Untreated natural leaf"],
+        ],
+      },
+      {
+        type: "notice",
+        tone: "warning",
+        text: "Palm leaf is not waterproof. A shower will not ruin it, but do not leave it out in rain, and dry it fully before the next trip or the fibres will soften and the walls will lose their stiffness.",
+      },
+      { type: "quote", text: "A basket that has to be carried is a different problem from a basket that has to sit still. Stiffness is everything." },
+      {
+        type: "paragraph",
+        html: "<p>Empty it, wipe it, and let it dry the same day. Stored dry it will hold this shape for years, and the straw colour will deepen to something closer to honey by the end of the first summer.</p>",
+      },
+    ],
+    images: ["woven-picnic-basket"],
+    reviews: [
+      { name: "Harriet L.", rating: 5, date: "2026-08-30", text: "Took it to the coast three times this summer. It holds a full lunch, two bottles and a blanket, and the handles have not stretched at all." },
+      { name: "Dominic S.", rating: 5, date: "2026-07-18", text: "Much stiffer than I expected for a leaf basket. The doubled base is the difference. It does not sag even when it is loaded." },
+      { name: "Ines M.", rating: 4, date: "2026-06-05", text: "Beautiful and very well made. It is a little heavier than a wicker basket, which is the only reason it is not five stars." },
+    ],
+  },
+
+  // ------------------------------------------------------------------
+  // 32. Nesting Storage Baskets
+  // ------------------------------------------------------------------
+  {
+    slug: "nesting-storage-baskets",
+    name: "Nesting Storage Baskets, Set of 3",
+    category: "baskets",
+    sku: "LC-BSK-009",
+    price: 58.0,
+    salePrice: 49.0,
+    stock: 9,
+    stockStatus: "in_stock",
+    badge: "Set",
+    rating: 4.7,
+    reviewCount: 8,
+    featured: false,
+    shortDescription:
+      "Three graduated baskets that stack inside one another when empty. Same weave throughout, so they read as a set on a shelf but take up the space of the largest one when you put them away.",
+    metaTitle: "Nesting Storage Baskets, Set of 3 | LeafCraftPRO",
+    metaDescription:
+      "A set of three handwoven palm leaf storage baskets in graduated sizes. Stack flat when empty, woven from the same leaf batch so the colour matches across the set.",
+    keywords: ["nesting baskets", "storage basket set", "palm leaf baskets", "woven storage", "basket set of 3"],
+    tags: ["handmade", "storage", "set"],
+    material: "Natural palm leaf",
+    weight: "980 g for the set",
+    dimensions: "26, 21 and 16 cm across, all 14 cm deep",
+    colour: "Warm straw, consistent across the set",
+    care: "Dust with a soft dry brush. Keep out of prolonged direct sunlight.",
+    features: [
+      "Three baskets: 26 cm, 21 cm and 16 cm across",
+      "All woven from the same leaf batch so the colour matches",
+      "Nests down to the footprint of the largest basket",
+      "Uniform 14 cm depth across all three",
+      "Plastic-free packaging and fully compostable",
+    ],
+    description: [
+      {
+        type: "paragraph",
+        html: "<p>Basket sets usually disappoint in one of two ways: the colours do not match, or the smaller ones do not actually fit inside the larger ones. We avoid the first by weaving all three from the same batch of leaves on the same day, and the second by building the sizes from a single set of proportions rather than picking three numbers that look about right.</p>",
+      },
+      { type: "heading", level: 3, text: "Why the sizes are what they are" },
+      {
+        type: "paragraph",
+        html: "<p>Each basket is about 5 cm narrower than the one below it, and all three are 14 cm deep. That 5 cm step is the smallest gap that still lets a basket drop in and lift out without scraping the weave, and keeping the depth constant means the set reads as a family rather than three unrelated objects.</p>",
+      },
+      {
+        type: "list",
+        items: [
+          "Large: 26 cm across, for linens and towels",
+          "Medium: 21 cm across, for fruit and vegetables",
+          "Small: 16 cm across, for keys, remotes and odds and ends",
+          "All three nest inside the largest",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Basket", "Across", "Depth", "Typical use"],
+        rows: [
+          ["Large", "26 cm", "14 cm", "Linens, towels, magazines"],
+          ["Medium", "21 cm", "14 cm", "Fruit, bread, vegetables"],
+          ["Small", "16 cm", "14 cm", "Keys, remotes, small clutter"],
+        ],
+      },
+      {
+        type: "notice",
+        tone: "info",
+        text: "Nesting them while still damp from cleaning will leave marks on the basket below. Let all three dry separately, then stack.",
+      },
+      { type: "quote", text: "A set only works if the pieces were designed together. Three baskets that merely resemble each other are just three baskets." },
+      {
+        type: "paragraph",
+        html: "<p>Use them separately around the house or keep them stacked in a cupboard until you need one. Either way they hold their shape, and because they came from one batch they will age to the same colour.</p>",
+      },
+    ],
+    images: ["nesting-storage-baskets"],
+    reviews: [
+      { name: "Rosa T.", rating: 5, date: "2026-09-02", text: "The colour match across the three is perfect, which is exactly what I wanted and what I could not find anywhere else. They look like a set." },
+      { name: "Callum B.", rating: 5, date: "2026-08-11", text: "Nest properly with room to spare. The medium one lives on the counter with fruit in it and the others are in a cupboard until needed." },
+      { name: "Yuki N.", rating: 4, date: "2026-06-27", text: "Very pleased. I would have liked a fourth, even smaller size, but that is a wish rather than a complaint." },
+    ],
+  },
+
+  // ------------------------------------------------------------------
+  // 33. Woven Table Runner
+  // ------------------------------------------------------------------
+  {
+    slug: "woven-table-runner",
+    name: "Woven Table Runner",
+    category: "home-decor",
+    sku: "LC-HOM-007",
+    price: 34.0,
+    salePrice: null,
+    stock: 17,
+    stockStatus: "in_stock",
+    badge: "",
+    rating: 4.6,
+    reviewCount: 9,
+    featured: false,
+    shortDescription:
+      "A flat woven runner 120 cm long, worked in a tight over-under so it lies completely flat on the table. Wide enough for a centrepiece, narrow enough to leave room for plates.",
+    metaTitle: "Woven Palm Leaf Table Runner | LeafCraftPRO",
+    metaDescription:
+      "Handwoven palm leaf table runner, 120 cm long and 32 cm wide. Flat over-under weave that will not curl, with bound edges and no backing or glue.",
+    keywords: ["woven table runner", "palm leaf runner", "natural table decor", "handwoven table linen", "dining table runner"],
+    tags: ["handmade", "table", "dining"],
+    material: "Natural palm leaf",
+    weight: "310 g",
+    dimensions: "120 x 32 cm",
+    colour: "Pale straw with soft green banding",
+    care: "Wipe with a dry cloth. Roll rather than fold for storage.",
+    features: [
+      "120 cm long and 32 cm wide",
+      "Flat over-under weave that will not curl at the ends",
+      "Bound edges with no backing, glue or lining",
+      "Rolls for storage instead of creasing",
+      "Plastic-free packaging and fully compostable",
+    ],
+    description: [
+      {
+        type: "paragraph",
+        html: "<p>The hard part of a woven table runner is not the weaving, it is keeping the thing flat. Leaf strips want to curl as they dry, and a runner that cups at the edges will rock every glass you put on it. We dry ours flat under a weighted board for a full day, which is slow but is the only reliable fix.</p>",
+      },
+      { type: "heading", level: 3, text: "On the table" },
+      {
+        type: "paragraph",
+        html: "<p>At 32 cm wide it takes a bowl, a couple of candles or a small vase without crowding the place settings on a standard 90 cm table. The bound edges mean there is no loose strip to fray, so you can wipe it down and put it straight back out.</p>",
+      },
+      {
+        type: "list",
+        items: [
+          "Lies flat, so glasses and candles sit level",
+          "Leaves room for plates on a 90 cm table",
+          "No backing or lining, so both faces look finished",
+          "Rolls into a tube for storage",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Detail", "Specification"],
+        rows: [
+          ["Length", "120 cm"],
+          ["Width", "32 cm"],
+          ["Weave", "Flat over-under"],
+          ["Edges", "Bound, no fray"],
+          ["Finish", "Untreated natural leaf"],
+        ],
+      },
+      {
+        type: "notice",
+        tone: "info",
+        text: "This is a dry-use runner. Use a mat under hot dishes, and wipe up spills promptly rather than letting liquid sit on the weave.",
+      },
+      { type: "quote", text: "Flat is the whole trick. Anyone can weave a rectangle; keeping it flat on the table is the craft." },
+      {
+        type: "paragraph",
+        html: "<p>Roll it around a cardboard tube when the table is not in use and it will keep its shape indefinitely. Left flat and dry it simply darkens to straw over the first year.</p>",
+      },
+    ],
+    images: ["woven-table-runner"],
+    reviews: [
+      { name: "Beatrice W.", rating: 5, date: "2026-09-14", text: "Completely flat, which was my worry. It has been on the table every day for a month and has not curled at all." },
+      { name: "Tomas P.", rating: 4, date: "2026-07-29", text: "Lovely texture and a good width. It is a dry-use piece, so I do put a mat under the teapot, but that is expected with leaf." },
+      { name: "Grace O.", rating: 5, date: "2026-05-16", text: "Looks far more expensive than it is. The green banding shows up beautifully against a plain white cloth." },
+    ],
+  },
+
+  // ------------------------------------------------------------------
+  // 34. Palm Leaf Mirror Frame
+  // ------------------------------------------------------------------
+  {
+    slug: "palm-leaf-mirror-frame",
+    name: "Palm Leaf Mirror Frame",
+    category: "home-decor",
+    sku: "LC-HOM-008",
+    price: 42.0,
+    salePrice: 36.0,
+    stock: 11,
+    stockStatus: "in_stock",
+    badge: "New",
+    rating: 4.8,
+    reviewCount: 7,
+    featured: false,
+    shortDescription:
+      "A 30 cm round mirror set inside a woven leaf border, with a hidden wooden ring behind so the weave keeps its circle. Hung by a single screw, no fixings showing.",
+    metaTitle: "Palm Leaf Mirror Frame, 30 cm Round | LeafCraftPRO",
+    metaDescription:
+      "Round wall mirror in a handwoven palm leaf frame, 30 cm across. Built on a hidden wooden ring so the circle stays true, with no visible fixings.",
+    keywords: ["woven mirror frame", "palm leaf mirror", "round wall mirror", "natural wall decor", "handmade mirror"],
+    tags: ["handmade", "wall-decor", "mirror"],
+    material: "Natural palm leaf on a birch ply ring, glass mirror",
+    weight: "740 g",
+    dimensions: "30 cm across, 3 cm deep",
+    colour: "Warm straw",
+    care: "Dust the frame with a soft brush. Clean the glass with a damp cloth, taking care not to wet the weave.",
+    features: [
+      "30 cm round mirror in a woven leaf border",
+      "Woven around a hidden birch ply ring so the circle stays true",
+      "Single screw fixing, no visible hardware",
+      "Glass mirror, not acrylic",
+      "Plastic-free packaging",
+    ],
+    description: [
+      {
+        type: "paragraph",
+        html: "<p>Weaving a circular frame freehand produces an oval. Every time. Leaf has enough give that the weave drifts a few millimetres per row, and by the time you have gone all the way round you are out by a centimetre. So we weave this one around a birch ply ring, which holds the circle and gives the whole thing a rigid spine.</p>",
+      },
+      { type: "heading", level: 3, text: "Where it hangs" },
+      {
+        type: "paragraph",
+        html: "<p>At 30 cm it is a hallway or small-room mirror rather than a bathroom one, and it wants a wall with a bit of texture. On a plain white wall the leaf border reads as a warm ring; on plaster or limewash it looks more like something that grew there. Either is fine, it is just a different effect.</p>",
+      },
+      {
+        type: "list",
+        items: [
+          "True circle, held by a hidden ply ring",
+          "Hangs from one screw, supplied",
+          "Real glass rather than acrylic, so no distortion",
+          "Border is wide enough to read as a frame, not a trim",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Detail", "Specification"],
+        rows: [
+          ["Diameter", "30 cm overall"],
+          ["Mirror glass", "20 cm"],
+          ["Depth", "3 cm"],
+          ["Backing", "Hidden birch ply ring"],
+          ["Fixing", "Single screw, supplied"],
+        ],
+      },
+      {
+        type: "notice",
+        tone: "info",
+        text: "Leaf and steam are not friends. If you hang this in a bathroom, put it away from the shower and make sure the room ventilates.",
+      },
+      { type: "quote", text: "You cannot weave a true circle without something rigid underneath. The ring is the frame; the leaf is what you see." },
+      {
+        type: "paragraph",
+        html: "<p>Dust it now and then with a dry brush and it will hold its colour for years. Direct sun will fade the green out faster, so a north or east wall keeps it looking newer for longer.</p>",
+      },
+    ],
+    images: ["palm-leaf-mirror-frame"],
+    reviews: [
+      { name: "Nadia F.", rating: 5, date: "2026-09-19", text: "Perfectly round, which sounds like a low bar until you have seen handmade ones that are not. Hangs in the hallway and gets commented on constantly." },
+      { name: "Ewan M.", rating: 5, date: "2026-08-24", text: "Real glass and a solid frame. It feels like a proper object rather than a craft fair novelty." },
+      { name: "Lucia D.", rating: 4, date: "2026-07-07", text: "Very happy with it. Slightly smaller than I pictured for the hallway, so measure before you order." },
+    ],
+  },
+
+  // ------------------------------------------------------------------
+  // 35. Woven Leaf Butterfly
+  // ------------------------------------------------------------------
+  {
+    slug: "woven-leaf-butterfly",
+    name: "Woven Leaf Butterfly",
+    category: "ornaments",
+    sku: "LC-ORN-006",
+    price: 14.0,
+    salePrice: null,
+    stock: 32,
+    stockStatus: "in_stock",
+    badge: "",
+    rating: 4.7,
+    reviewCount: 13,
+    featured: false,
+    shortDescription:
+      "A small butterfly woven from two colours of leaf, with dark wing detail worked into the weave rather than painted on. About 12 cm across, ready to hang on a thread.",
+    metaTitle: "Woven Leaf Butterfly Ornament | LeafCraftPRO",
+    metaDescription:
+      "Handwoven palm leaf butterfly ornament, 12 cm across. Two-tone wings with the pattern worked into the weave, not painted. Light enough for a branch or a mobile.",
+    keywords: ["woven butterfly", "leaf ornament", "palm leaf decoration", "hanging ornament", "natural christmas decoration"],
+    tags: ["handmade", "ornament", "decoration"],
+    material: "Natural palm leaf, two colour tones",
+    weight: "18 g",
+    dimensions: "12 x 10 cm",
+    colour: "Pale green wings with dark woven markings",
+    care: "Dust with a soft brush. Keep dry and out of direct sun.",
+    features: [
+      "Two-tone wings, pattern woven in rather than painted",
+      "12 cm across and only 18 g",
+      "Hangs from a fine cotton thread, included",
+      "Flat enough to post in a card",
+      "Plastic-free packaging and fully compostable",
+    ],
+    description: [
+      {
+        type: "paragraph",
+        html: "<p>The markings on these wings are not painted or dyed on afterwards. They come from weaving a darker leaf strip into the pattern at set points, which means the colour is inside the structure. Scratch it, soak it, leave it in the sun for a year, and the markings will still be there, just softer.</p>",
+      },
+      { type: "heading", level: 3, text: "Where they work" },
+      {
+        type: "paragraph",
+        html: "<p>At 18 g they will hang from anything, which makes them useful in places a heavier ornament will not go: a thin branch, a curtain rail, a small mobile above a cot. Being flat also means one will post inside a greetings card, which is how most of ours leave the workshop.</p>",
+      },
+      {
+        type: "list",
+        items: [
+          "Light enough for thin branches and mobiles",
+          "Pattern woven in, so it cannot rub off",
+          "Flat, so it posts inside a card",
+          "Thread included, ready to hang",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Detail", "Specification"],
+        rows: [
+          ["Span", "12 cm"],
+          ["Height", "10 cm"],
+          ["Weight", "18 g"],
+          ["Pattern", "Woven in, two leaf tones"],
+          ["Hanging", "Fine cotton thread, included"],
+        ],
+      },
+      {
+        type: "notice",
+        tone: "info",
+        text: "Keep it out of direct sun. The pale green will fade to straw over a summer on a bright windowsill, which some people prefer and others do not.",
+      },
+      { type: "quote", text: "A pattern that lives inside the weave cannot wear off. That is worth the extra hour it takes." },
+      {
+        type: "paragraph",
+        html: "<p>Hang it, dust it occasionally, and it will last as long as you want it to. At the end of its life it goes on the compost with everything else.</p>",
+      },
+    ],
+    images: ["woven-leaf-butterfly"],
+    reviews: [
+      { name: "Marta S.", rating: 5, date: "2026-09-08", text: "The detail in the wings is remarkable up close. I bought three and hung them across a window and they look like they are flying." },
+      { name: "Owen H.", rating: 5, date: "2026-08-02", text: "Posted one inside a birthday card and it arrived in perfect condition. Weightless, which is exactly what I needed." },
+      { name: "Priya R.", rating: 4, date: "2026-06-21", text: "Lovely and very light. Mine has faded a little on a sunny windowsill, which I actually like, but worth knowing." },
+    ],
+  },
+
+  // ------------------------------------------------------------------
+  // 36. Coconut Leaf Star Garland
+  // ------------------------------------------------------------------
+  {
+    slug: "coconut-leaf-star-garland",
+    name: "Coconut Leaf Star Garland",
+    category: "ornaments",
+    sku: "LC-ORN-007",
+    price: 26.0,
+    salePrice: null,
+    stock: 21,
+    stockStatus: "in_stock",
+    badge: "",
+    rating: 4.8,
+    reviewCount: 10,
+    featured: false,
+    shortDescription:
+      "Nine woven stars threaded on jute twine across about 1.5 metres. Light enough to drape from a shelf edge or a mantel without a fixing, and it packs down flat for storage.",
+    metaTitle: "Coconut Leaf Star Garland | LeafCraftPRO",
+    metaDescription:
+      "A garland of nine handwoven coconut leaf stars on jute twine, about 1.5 m long. Light enough to drape from a shelf, packs flat, fully compostable.",
+    keywords: ["star garland", "coconut leaf garland", "woven star decoration", "natural garland", "hanging decoration"],
+    tags: ["handmade", "ornament", "garland"],
+    material: "Natural coconut leaf on jute twine",
+    weight: "95 g",
+    dimensions: "About 150 cm long, stars 7 cm across",
+    colour: "Pale straw with green edges",
+    care: "Dust with a soft brush. Store flat between card to keep the stars from bending.",
+    features: [
+      "Nine stars, each about 7 cm across",
+      "About 150 cm of garland with twine loops at both ends",
+      "Light enough to drape without a wall fixing",
+      "Packs flat for storage between seasons",
+      "Plastic-free packaging and fully compostable",
+    ],
+    description: [
+      {
+        type: "paragraph",
+        html: "<p>Garlands usually fail on weight. Anything with nine ornaments on it needs a hook, a nail or a length of tape, and then it pulls the tape off the wall by February. These stars are hollow-woven from coconut leaf, so nine of them weigh less than a single glass bauble, and the whole garland drapes from a shelf edge with nothing holding it up.</p>",
+      },
+      { type: "heading", level: 3, text: "How to hang it" },
+      {
+        type: "paragraph",
+        html: "<p>The twine is deliberately left long at both ends so you can loop it over a shelf, a curtain rail or a picture hook without adding anything. Spacing between the stars is set at about 15 cm, which is close enough to read as a garland and open enough that the stars do not overlap when it curves.</p>",
+      },
+      {
+        type: "list",
+        items: [
+          "Drapes over a shelf edge with no fixing",
+          "Nine stars spaced about 15 cm apart",
+          "Long twine ends for looping over a rail",
+          "Packs flat between two sheets of card",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Detail", "Specification"],
+        rows: [
+          ["Length", "About 150 cm"],
+          ["Stars", "9, each about 7 cm across"],
+          ["Spacing", "About 15 cm"],
+          ["Cord", "Natural jute twine"],
+          ["Weight", "95 g total"],
+        ],
+      },
+      {
+        type: "notice",
+        tone: "info",
+        text: "Jute twine is natural and will stretch slightly if it gets damp. If you hang this outside, bring it in when the weather turns.",
+      },
+      { type: "quote", text: "Light is the whole point. A garland you can hang on a pin is a garland you will actually use." },
+      {
+        type: "paragraph", 
+        html: "<p>Keep it flat between seasons and it will come out of storage looking the same each year, with the straw deepening very slightly as it ages.</p>",
+      },
+    ],
+    images: ["coconut-leaf-star-garland"],
+    reviews: [
+      { name: "Sophie A.", rating: 5, date: "2026-09-11", text: "Hung it along the front of a bookshelf with no tape and no hooks. It has stayed put for a month and looks lovely." },
+      { name: "Ravi K.", rating: 5, date: "2026-08-06", text: "Bought two for a mantel. They pack down to nothing and came out of storage completely flat." },
+      { name: "Elena V.", rating: 4, date: "2026-06-30", text: "Really pleased. One star arrived very slightly bent from the post but it straightened out once it was hung." },
+    ],
+  },
+
+  // ------------------------------------------------------------------
+  // 37. Woven Bookmark Pair
+  // ------------------------------------------------------------------
+  {
+    slug: "woven-bookmark-pair",
+    name: "Woven Bookmark Pair",
+    category: "gifts",
+    sku: "LC-GIF-006",
+    price: 12.0,
+    salePrice: null,
+    stock: 38,
+    stockStatus: "in_stock",
+    badge: "",
+    rating: 4.6,
+    reviewCount: 15,
+    featured: false,
+    shortDescription:
+      "Two slim woven bookmarks, 4 cm wide and 18 cm long, each finished with a short tassel. Thin enough that they do not crack the spine of a paperback.",
+    metaTitle: "Woven Palm Leaf Bookmark Pair | LeafCraftPRO",
+    metaDescription:
+      "Two handwoven palm leaf bookmarks, 18 cm long and just 1.5 mm thick. Slim enough for a paperback spine, each finished with a natural tassel.",
+    keywords: ["woven bookmark", "palm leaf bookmark", "handmade bookmark", "book lover gift", "natural bookmark"],
+    tags: ["handmade", "gift", "reading"],
+    material: "Natural palm leaf with cotton tassel",
+    weight: "12 g for the pair",
+    dimensions: "18 x 4 cm each, 1.5 mm thick",
+    colour: "Warm straw, one plain and one with a green band",
+    care: "Keep dry. Wipe with a dry cloth if needed and store flat.",
+    features: [
+      "Two bookmarks, 18 x 4 cm",
+      "Just 1.5 mm thick, so they do not strain a paperback spine",
+      "One plain, one with a woven green band",
+      "Cotton tassel on each",
+      "Plastic-free packaging and fully compostable",
+    ],
+    description: [
+      {
+        type: "paragraph",
+        html: "<p>Most woven bookmarks are too thick. Anything over about 2 mm holds the pages apart, and a paperback left shut on one for a few weeks will show a crease in the spine that never comes out. These are pressed flat to 1.5 mm after weaving, which is thin enough to sit between pages the way a paper bookmark does.</p>",
+      },
+      { type: "heading", level: 3, text: "Why a pair" },
+      {
+        type: "paragraph",
+        html: "<p>One plain and one banded, so you can mark two places in the same book, or keep one at home and one in a bag. It also makes the set work as a small gift on its own, which is how most of these sell.</p>",
+      },
+      {
+        type: "list",
+        items: [
+          "1.5 mm thick, so it will not crease a spine",
+          "One plain, one with a green band",
+          "Tassel makes it easy to find the page",
+          "Fits inside a greetings card",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Detail", "Specification"],
+        rows: [
+          ["Size", "18 x 4 cm each"],
+          ["Thickness", "1.5 mm"],
+          ["Set", "One plain, one banded"],
+          ["Finish", "Cotton tassel"],
+          ["Weight", "12 g the pair"],
+        ],
+      },
+      {
+        type: "notice",
+        tone: "info",
+        text: "Leaf bookmarks and bath water do not mix. Keep them out of the tub and they will last for years.",
+      },
+      { type: "quote", text: "A bookmark has one job: to not damage the book. Everything else is decoration." },
+      {
+        type: "paragraph",
+        html: "<p>Store them flat and they will stay flat. The green band on the second one will fade toward straw over a few years, which most people seem to like.</p>",
+      },
+    ],
+    images: ["woven-bookmark-pair"],
+    reviews: [
+      { name: "Julia N.", rating: 5, date: "2026-09-16", text: "Thin enough that I genuinely forget it is there, which is exactly what I wanted. The tassel makes it easy to find." },
+      { name: "Anders L.", rating: 4, date: "2026-08-19", text: "Lovely little pair. I keep one in a paperback and one in a notebook. No creasing so far after two months." },
+      { name: "Freya B.", rating: 5, date: "2026-07-02", text: "Bought three sets as stocking fillers. Everyone liked them and they are far nicer than a plastic bookmark." },
+    ],
+  },
+
+  // ------------------------------------------------------------------
+  // 38. Leaf Wrapped Journal
+  // ------------------------------------------------------------------
+  {
+    slug: "leaf-wrapped-journal",
+    name: "Leaf Wrapped Journal",
+    category: "gifts",
+    sku: "LC-GIF-007",
+    price: 28.0,
+    salePrice: 24.0,
+    stock: 16,
+    stockStatus: "in_stock",
+    badge: "New",
+    rating: 4.7,
+    reviewCount: 6,
+    featured: false,
+    shortDescription:
+      "A 160-page blank journal with its cover wrapped in woven leaf and tied with jute. The weave is done onto the board, so the cover opens flat without cracking.",
+    metaTitle: "Leaf Wrapped Journal, 160 Blank Pages | LeafCraftPRO",
+    metaDescription:
+      "A5 handmade journal with a cover wrapped in woven palm leaf. 160 blank pages of 100 gsm cream paper, tied with jute and made to open completely flat.",
+    keywords: ["woven journal", "leaf notebook", "handmade journal", "blank notebook", "natural stationery"],
+    tags: ["handmade", "gift", "stationery"],
+    material: "Natural palm leaf cover, 100 gsm cream paper",
+    weight: "340 g",
+    dimensions: "A5, 21 x 14.8 cm, 160 pages",
+    colour: "Warm straw cover with green flecks",
+    care: "Keep dry. Wipe the cover with a dry cloth only.",
+    features: [
+      "160 blank pages of 100 gsm cream paper",
+      "Cover woven directly onto the board, so it opens flat",
+      "Section-sewn binding, not glued",
+      "Tied closed with natural jute twine",
+      "Plastic-free packaging",
+    ],
+    description: [
+      {
+        type: "paragraph",
+        html: "<p>Wrapping a notebook cover in leaf sounds simple and is not, because a woven cover wants to stay flat while a book needs to open. Weave the leaf separately, glue it on, and the cover cracks along the spine within a week. So we weave directly onto the board instead, which lets the hinge stay flexible.</p>",
+      },
+      { type: "heading", level: 3, text: "The paper" },
+      {
+        type: "paragraph",
+        html: "<p>160 pages of 100 gsm cream paper, which is heavy enough that fountain pen and marker do not bleed through. The pages are section-sewn rather than glued, so the book opens completely flat and stays that way, and no pages drop out when it is full.</p>",
+      },
+      {
+        type: "list",
+        items: [
+          "Opens completely flat, thanks to section sewing",
+          "100 gsm paper takes fountain pen without bleed",
+          "Cover hinge stays flexible because the leaf is woven onto the board",
+          "160 pages, blank",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Detail", "Specification"],
+        rows: [
+          ["Size", "A5, 21 x 14.8 cm"],
+          ["Pages", "160, blank"],
+          ["Paper", "100 gsm cream"],
+          ["Binding", "Section sewn, opens flat"],
+          ["Cover", "Woven palm leaf on board"],
+        ],
+      },
+      {
+        type: "notice",
+        tone: "warning",
+        text: "The cover is natural leaf and will mark if it gets wet. Keep it out of a damp bag and dry it immediately if it does get caught in rain.",
+      },
+      { type: "quote", text: "Weaving the cover onto the board rather than gluing it on is the difference between a journal that lasts and one that cracks." },
+      {
+        type: "paragraph",
+        html: "<p>Fill it, and the cover will have darkened to a deeper straw by the time you reach the last page. That is the point of a natural cover.</p>",
+      },
+    ],
+    images: ["leaf-wrapped-journal"],
+    reviews: [
+      { name: "Miriam C.", rating: 5, date: "2026-09-21", text: "Opens flat from the very first page, which most handmade journals do not. The paper takes my fountain pen beautifully." },
+      { name: "Jonah T.", rating: 5, date: "2026-08-27", text: "The cover is genuinely woven, not a printed texture. It has picked up a lovely patina over two months of daily use." },
+      { name: "Cara D.", rating: 4, date: "2026-07-11", text: "Very good journal. It is a little heavier than a standard A5, worth knowing if you carry it everywhere." },
+    ],
+  },
+
+  // ------------------------------------------------------------------
+  // 39. Kids Coaster Weaving Kit
+  // ------------------------------------------------------------------
+  {
+    slug: "kids-coaster-weaving-kit",
+    name: "Kids Coaster Weaving Kit",
+    category: "kids-crafts",
+    sku: "LC-KID-005",
+    price: 22.0,
+    salePrice: null,
+    stock: 27,
+    stockStatus: "in_stock",
+    badge: "",
+    rating: 4.9,
+    reviewCount: 14,
+    featured: false,
+    shortDescription:
+      "Everything needed to weave four coasters: a small wooden loom, pre-cut leaf strips in four colours, a blunt needle and an illustrated card. Ages six and up, about 40 minutes each.",
+    metaTitle: "Kids Coaster Weaving Kit | LeafCraftPRO",
+    metaDescription:
+      "A children's weaving kit with a wooden loom and pre-cut palm leaf strips in four colours. Makes four coasters, ages six and up, no glue or sharp tools.",
+    keywords: ["kids weaving kit", "childrens craft kit", "coaster weaving", "weaving loom for kids", "palm leaf craft kit"],
+    tags: ["kids", "kit", "craft"],
+    material: "Birch ply loom, palm leaf strips, cotton cord",
+    weight: "410 g",
+    dimensions: "Loom 16 x 16 cm, finished coasters 10 x 10 cm",
+    colour: "Four leaf tones: straw, green, olive and dark",
+    care: "Store the strips flat and dry. Re-soak any that stiffen before weaving.",
+    features: [
+      "Makes four 10 x 10 cm coasters",
+      "Birch ply loom, reusable for years",
+      "Strips pre-cut to width, so no scissors needed",
+      "Blunt wooden needle, safe for ages six and up",
+      "Illustrated instruction card with no reading required",
+    ],
+    description: [
+      {
+        type: "paragraph",
+        html: "<p>The thing that stops children finishing a weaving project is preparation. Cutting strips to an even width is fiddly, takes an adult ten minutes, and is boring enough that interest runs out before the weaving starts. So the strips arrive pre-cut, the loom is warped and ready, and a child can sit down and weave within a minute of opening the box.</p>",
+      },
+      { type: "heading", level: 3, text: "What is in the box" },
+      {
+        type: "paragraph",
+        html: "<p>A 16 cm birch ply loom with the warp already threaded, enough pre-cut leaf strip for four coasters in straw, green, olive and dark, a blunt wooden needle, and a folded card showing the over-under step in pictures. The loom is reusable, and refill strips are available separately.</p>",
+      },
+      {
+        type: "list",
+        items: [
+          "One birch ply loom, 16 x 16 cm, pre-warped",
+          "Enough strip for four 10 x 10 cm coasters",
+          "Blunt wooden needle, no sharp points",
+          "Illustrated card, readable without words",
+          "Refill strips available separately",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Detail", "Specification"],
+        rows: [
+          ["Ages", "6 and up"],
+          ["Makes", "4 coasters, 10 x 10 cm"],
+          ["Time", "About 40 minutes per coaster"],
+          ["Loom", "16 cm birch ply, reusable"],
+          ["Tools", "Blunt needle only, no scissors"],
+        ],
+      },
+      {
+        type: "notice",
+        tone: "success",
+        text: "If the strips stiffen while the kit sits unused, soak them in warm water for five minutes. They soften straight back up and weave as new.",
+      },
+      { type: "quote", text: "Give a child a pre-cut strip and a warped loom and they will finish. Give them scissors and a lesson in measuring and they will wander off." },
+      {
+        type: "paragraph",
+        html: "<p>Finished coasters dry firmer than they feel on the loom, so a slightly loose first attempt still ends up usable. Four coasters is about three afternoons of attention, which is roughly the right length for a kit.</p>",
+      },
+    ],
+    images: ["kids-coaster-weaving-kit"],
+    reviews: [
+      { name: "Hannah P.", rating: 5, date: "2026-09-24", text: "My seven year old finished two coasters in one rainy afternoon. The pre-cut strips make all the difference. No meltdowns." },
+      { name: "Diego R.", rating: 5, date: "2026-08-15", text: "Bought this and the sun hat kit. Both were excellent. The loom is solid wood and has survived being used repeatedly." },
+      { name: "Amara J.", rating: 5, date: "2026-06-09", text: "The picture instructions meant my daughter could work it out herself without me reading over her shoulder. She was very proud of the result." },
+    ],
+  },
+
+  // ------------------------------------------------------------------
+  // 40. Woven Kitchen Trio
+  // ------------------------------------------------------------------
+  {
+    slug: "kitchen-trio",
+    name: "Woven Kitchen Trio",
+    category: "sets",
+    sku: "LC-SET-004",
+    price: 62.0,
+    salePrice: 54.0,
+    stock: 8,
+    stockStatus: "in_stock",
+    badge: "Set",
+    rating: 4.8,
+    reviewCount: 9,
+    featured: true,
+    shortDescription:
+      "A shallow serving bowl, a small handled basket and a flat trivet mat, all woven from the same batch of leaf. The three pieces cover serving, storing and protecting the table.",
+    metaTitle: "Woven Kitchen Trio: Bowl, Basket and Trivet | LeafCraftPRO",
+    metaDescription:
+      "Three handwoven palm leaf kitchen pieces: a 24 cm serving bowl, a handled basket and a flat trivet. Woven from one leaf batch so the colour matches.",
+    keywords: ["woven kitchen set", "palm leaf bowl", "woven trivet", "kitchen basket set", "natural kitchenware"],
+    tags: ["handmade", "kitchen", "set"],
+    material: "Natural palm leaf",
+    weight: "720 g for the set",
+    dimensions: "Bowl 24 cm, basket 18 cm, trivet 20 cm square",
+    colour: "Warm straw, consistent across the set",
+    care: "Wipe all three with a dry cloth. Never soak. Keep away from direct heat.",
+    features: [
+      "Shallow serving bowl, 24 cm across",
+      "Handled basket, 18 cm across, for bread or fruit",
+      "Flat trivet, 20 cm square, for hot dishes",
+      "All three from one leaf batch so the colour matches",
+      "Plastic-free packaging and fully compostable",
+    ],
+    description: [
+      {
+        type: "paragraph",
+        html: "<p>Three pieces that between them cover most of what a kitchen actually needs from a woven object: something to serve in, something to keep bread in, and something to put a hot dish down on. Bought separately they would be three slightly different shades of straw. Bought as a trio they were woven from the same leaves on the same day, so they match.</p>",
+      },
+      { type: "heading", level: 3, text: "What each piece is for" },
+      {
+        type: "paragraph",
+        html: "<p>The bowl is shallow, 24 cm across and 6 cm deep, which is the right shape for bread, fruit or a salad that needs to spread out rather than pile up. The basket is 18 cm with a single woven handle, sized for a loaf. The trivet is a flat 20 cm square, woven tight enough to sit a hot dish on and thick enough to keep the heat off the wood.</p>",
+      },
+      {
+        type: "list",
+        items: [
+          "Bowl: 24 cm across, 6 cm deep, for serving",
+          "Basket: 18 cm with woven handle, for bread",
+          "Trivet: 20 cm square, for hot dishes",
+          "All three from one leaf batch",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Piece", "Size", "Use"],
+        rows: [
+          ["Serving bowl", "24 cm across, 6 cm deep", "Bread, fruit, salad"],
+          ["Handled basket", "18 cm across", "A single loaf"],
+          ["Trivet", "20 cm square", "Hot dishes"],
+        ],
+      },
+      {
+        type: "notice",
+        tone: "warning",
+        text: "The trivet protects against heat, not against a pan straight off the hob at full temperature. Let a pan stand for a moment first, and never put the bowl or basket in an oven.",
+      },
+      { type: "quote", text: "A set is worth making as a set. Matching the colour means weaving them together, not picking three that look close." },
+      {
+        type: "paragraph",
+        html: "<p>Wipe them, never soak them, and keep them away from direct heat. Treated that way the trio will look right on the table for years, deepening to honey as it ages.</p>",
+      },
+    ],
+    images: ["kitchen-trio"],
+    reviews: [
+      { name: "Claudia M.", rating: 5, date: "2026-09-27", text: "The colour match across the three is perfect and they look wonderful on an oak table. The trivet gets used every single day." },
+      { name: "Sam W.", rating: 5, date: "2026-08-21", text: "Bought as a wedding gift and nearly kept it. The bowl is the right shallowness for bread, which most woven bowls are not." },
+      { name: "Ingrid H.", rating: 4, date: "2026-07-14", text: "Really nice set. I would have liked the basket slightly larger for a big loaf, but the bowl and trivet are faultless." },
+    ],
+  },
 ];

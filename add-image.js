@@ -35,18 +35,23 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const MANIFEST = path.join(ROOT, 'src', 'data', 'image-manifest.json');
 
-const WIDTHS = [400, 640, 960, 1280];
 const WEBP_QUALITY = 82;
 const LQIP_WIDTH = 20;
 const LQIP_QUALITY = 30;
 const OG_WIDTH = 1200;
 const OG_HEIGHT = 630;
 
+/**
+ * Target widths per group. These are NOT interchangeable: blog images are 3:2
+ * and products are square, and the <img> helpers build their srcset from the
+ * widths recorded in the manifest. Generating a group at the wrong widths
+ * produces a srcset that advertises files the helper never asks for.
+ */
 const GROUPS = {
-  blog: { dir: 'blog', og: true },
-  products: { dir: 'products', og: true },
-  authors: { dir: 'authors', og: false },
-  hero: { dir: 'hero', og: false },
+  blog: { dir: 'blog', og: true, widths: [400, 640, 960, 1280] },
+  products: { dir: 'products', og: true, widths: [320, 480, 720, 1000] },
+  authors: { dir: 'authors', og: false, widths: [400, 640, 960, 1280] },
+  hero: { dir: 'hero', og: false, widths: [640, 960, 1280] },
 };
 
 function usage(msg) {
@@ -91,7 +96,7 @@ try {
   process.exit(1);
 }
 
-const { dir, og: wantsOg } = GROUPS[group];
+const { dir, og: wantsOg, widths: WIDTHS } = GROUPS[group];
 const outDir = path.join(ROOT, 'public', 'images', dir);
 const ogDir = path.join(ROOT, 'public', 'images', 'og');
 fs.mkdirSync(outDir, { recursive: true });
