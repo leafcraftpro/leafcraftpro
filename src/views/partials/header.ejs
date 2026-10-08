@@ -20,11 +20,10 @@ const socials = Object.entries(site.social).filter(([, v]) => v);
     <div class="header-inner">
 
       <a class="brand" href="<%= relUrl('') %>" aria-label="<%= site.name %> home">
-        <span class="brand-mark"><%- icon('leafmark', '', 24) %></span>
-        <span class="brand-text">
-          <span class="brand-name"><%= site.name %></span>
-          <span class="brand-tag"><%= site.tagline %></span>
-        </span>
+        <img class="brand-logo" src="<%= relUrl('assets/img/logo-500.webp') %>"
+             srcset="<%= relUrl('assets/img/logo-500.webp') %> 500w, <%= relUrl('assets/img/logo.webp') %> 1000w"
+             sizes="170px" width="170" height="45" alt="<%= site.name %>"
+             fetchpriority="high" decoding="async">
       </a>
 
       <nav class="main-nav" aria-label="Main navigation">
@@ -63,8 +62,8 @@ const socials = Object.entries(site.social).filter(([, v]) => v);
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
   <div class="mobile-nav-head">
     <span class="brand">
-      <span class="brand-mark"><%- icon('leafmark', '', 22) %></span>
-      <span class="brand-text"><span class="brand-name"><%= site.name %></span></span>
+      <img class="brand-logo" src="<%= relUrl('assets/img/logo-500.webp') %>"
+           width="150" height="39" alt="<%= site.name %>" decoding="async">
     </span>
     <button type="button" class="icon-btn nav-close" aria-label="Close menu"><%- icon('close', '', 20) %></button>
   </div>

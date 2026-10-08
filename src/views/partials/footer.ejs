@@ -10,11 +10,10 @@ const year = new Date().getFullYear();
 
       <div class="footer-brand footer-col">
         <span class="brand">
-          <span class="brand-mark"><%- icon('leafmark', '', 22) %></span>
-          <span class="brand-text">
-            <span class="brand-name"><%= site.name %></span>
-            <span class="brand-tag"><%= site.tagline %></span>
-          </span>
+          <img class="brand-logo" src="<%= relUrl('assets/img/logo-light-500.webp') %>"
+               srcset="<%= relUrl('assets/img/logo-light-500.webp') %> 500w, <%= relUrl('assets/img/logo-light.webp') %> 1000w"
+               sizes="190px" width="190" height="50" alt="<%= site.name %>"
+               loading="lazy" decoding="async">
         </span>
         <p><%= site.longDescription %></p>
 

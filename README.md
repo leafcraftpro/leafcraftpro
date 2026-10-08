@@ -198,25 +198,34 @@ Nothing is hand-written per page. Every tag is derived from the content.
 
 ## Brand assets
 
-The mark is a leaf with a gently bowed rib and three staggered vein pairs. The
-veins stop short of the rib, so the join reads as an over-under weave — the two
-things the workshop actually does, in one shape. It holds up from 16 px to 176 px.
+The logo is a full wordmark — leaf mark plus "LeafCraft PRO" — supplied as a
+1000x263 WebP with a transparent background. Because it contains the name, the
+header and footer use the image alone: there is no separate mark or text lockup
+any more.
 
 | File | Use |
 |---|---|
-| `assets/img/logo.svg` | 512×512 tile — schema `logo`, social avatars, app icon |
-| `assets/img/favicon.svg` | 64×64, heavier strokes so it survives 16 px |
-| `assets/img/logo-mark.svg` | Monochrome, for light backgrounds |
-| `assets/img/logo-mark-light.svg` | Monochrome white, for dark backgrounds |
-| `assets/img/logo-wordmark.svg` | Horizontal lockup with the tagline |
+| `assets/img/logo.webp` | 1000x263, full colour — schema `logo`, retina header |
+| `assets/img/logo-500.webp` | 500px, the default header source |
+| `assets/img/logo-light.webp` | 1000x263, white — for the dark green footer |
+| `assets/img/logo-light-500.webp` | 500px white, the default footer source |
+| `assets/img/icon-16/32/48/180/192/512.png` | favicon, apple-touch-icon and PWA icons |
 
-The inline version used in the header and footer lives in `src/lib/icons.js` as
-`leafmark`. Its per-path `stroke-width` values are deliberate — the outline, rib
-and veins each carry a different weight so the mark does not turn to mud at
-header size. Do not collapse them to one value.
+All of these are generated from the two source files in `brand logo/`. To
+regenerate after replacing those sources:
 
-To swap the mark, update the path data in `icons.js` **and** the five SVG files
-together, or the header and the social cards will disagree.
+```
+node scripts/brand-assets.mjs
+```
+
+The white footer variant is produced by keeping the source alpha and replacing
+every colour channel with white, so the leaf mark and the lettering both invert
+cleanly. Do not simply apply a CSS filter — that would also invert the
+transparency edges and leave a halo on the dark background.
+
+The old SVG set (`logo.svg`, `favicon.svg`, `logo-mark.svg`,
+`logo-mark-light.svg`, `logo-wordmark.svg`) and the inline `leafmark` icon in
+`src/lib/icons.js` have been removed. Nothing references them.
 
 ---
 

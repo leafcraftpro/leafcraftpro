@@ -63,13 +63,20 @@ const act = locals.activeCat || '';
     <a href="<%= relUrl('shop') %>" class="btn btn-lime btn-block">Visit the shop <%- icon('arrow-right', '', 16) %></a>
   </div>
 
+  <% const widgetAuthor = (typeof author !== 'undefined' && author) ? author : site.author; %>
   <div class="widget">
     <h2 class="widget-title">About the author</h2>
     <div class="author-widget">
-      <div class="aw-avatar"><div class="author-initials">ME</div></div>
-      <h4><%= site.author.name %></h4>
-      <p><%= site.author.bio %></p>
-      <a href="<%= relUrl('author/' + site.author.slug) %>" class="btn btn-ghost btn-sm">All guides by <%= site.author.name.split(' ')[0] %></a>
+      <div class="aw-avatar">
+        <% if (widgetAuthor.image && manifest.authors && manifest.authors[widgetAuthor.image]) { %>
+          <%- authorImage(widgetAuthor, { width: 148, height: 148 }) %>
+        <% } else { %>
+          <div class="author-initials"><%= widgetAuthor.name.split(' ').map(function (n) { return n[0]; }).join('').slice(0, 2).toUpperCase() %></div>
+        <% } %>
+      </div>
+      <h4><%= widgetAuthor.name %></h4>
+      <p><%= widgetAuthor.bio %></p>
+      <a href="<%= relUrl('author/' + widgetAuthor.slug) %>" class="btn btn-ghost btn-sm">All guides by <%= widgetAuthor.name.split(' ')[0] %></a>
     </div>
   </div>
 
