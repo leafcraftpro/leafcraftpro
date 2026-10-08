@@ -1284,6 +1284,246 @@
         1000
       ],
       "src": 1000
+    },
+    "waste-paper-basket": {
+      "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAABQBQCdASoUABQAPxF+tlWsJ6SjKAgBgCIJQBdmWhgpO3QC3lJ1ZWbzOIuMfCjX27aFvkAA/mopJuBkhFuuHmWKU0p9fo66U527kmsCmdPhkcCs3m05fEh8hVrgAliicKXmVXqdqw4X65Y22y2CYkkpaErcaCT1+qP3SIa0oIX3vfywq+HnEaCOaeGMh0RVCcynKY9K5AAAAA==",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "fruit-bowl-with-handles": {
+      "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAADQBACdASoUABQAPxF8sVSsJ6QjKAqpgCIJaACw7AuLJhh+awusy711MtHrTAjIYAD6ivQml7d1eJVeFyhg/aJv2/G9phqZilm4NveQ3w8vzr4lMBwt22jM/U65GA4mrBBVQvdh+YDwB5cb8YfGpnQ4Y75i+NsVXVtcrJMjnPiWgsn13nsD6lx1o2BV3EAA",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "umbrella-stand": {
+      "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQBACdASoUABQAPxGAuFWsKCUjKAgBgCIJQBWGZfgjmQEKids60CUtS48oehjAAAD9408c1xLu16zklcytsfyIjRhH0xJb3n9k/Aw2M6YOuSH5XgHO8bvYb2iFuU/ajWizeoNJvc+y2V883nBzsDv6BpMB36mUMOBcgEbig8CXDHDp5Kh4AA==",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "toy-storage-basket": {
+      "lqip": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAQBACdASoUABQAPxF+tlWsJ6SjKAgBgCIJQAABevCgkRc38o3u97XDAAD+tfPFV2vXuRCpXUnaUvjQTHOhz1i/wJsV1wbg7N3+dWyey9gNIzW0rDyZ+p3ueLwV/2Zq0GmOlvX4ijWuX3CFpT/AAWXem5eSe/xiIjjYAAAA",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "woven-table-lamp-base": {
+      "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAQBQCdASoUABQAPxF6slQsJ6QjKAqpgCIJQBibO6MN0QfOddLwH6U/oEIliUNcpoAAAP7V599eUJcI3GfT94zLHwRSPC5NBQn9EEw302wrvZ6EbAgEDsNNZle+/Zc1QFnu+Leln+JQvmlYeSGXf4tXXPqZtq7iIHfDvlgiRIS6cBgOlnH0yWoI8h7KgbXDAUu+riNwAAA=",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "palm-leaf-wall-clock": {
+      "lqip": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAADwBACdASoUABQAPxF+tVWsJ6SjKAgBgCIJYwDA3BCr3pIvWz/Ko9U+OeHH+NOptngA/mZW1h/3qxPK13npBvszCyDhnpnh3ert2A/7sCnyzlzPUBTkoTNCnohDiB1rXvuCGyruSDAY0zSQ+4W/qo6KdvtdaN9PCJzx6OHBo4mqcN5WewZruqKjs8AAAA==",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "woven-door-mat": {
+      "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAQBQCdASoUABQAPxF+tlWsJ6SjKAgBgCIJQBYj6rgjmT1w0mGsLYO4II+LmN4ITewAAP2PUuhISOK+KP3iU273dXXv2DzDNt7fso9M5oCmtaxgqPKAK1t0WgsLZYuDvXk/noOvVRCbvaJ2qMxD5D8qo0HtzwRZ1mQcb16a5C2JyECmReAAAA==",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "woven-leaf-angel": {
+      "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABwBACdASoUABQAPxF+tlWsJ6SjKAgBgCIJYwCw7AWa3hME7H7I7DxHnLEVwAD+4Ul4y9prB5bBVEt5v6qwNFHWRhkQDHyBNiwbWioHZxEgRJMaO7TBbxyZ4ZQLq9tB46FZcM1p9vWAn/wZEupkw9Z45mYMPA1Av83difPQpBgFcAAA",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "coconut-leaf-bell": {
+      "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQBACdASoUABQAPxF+t1WsJ6UjKAgBgCIJQBdmbIAy/ZvAq/FDCWuvFnFhk7n4AADffj2CwxdKsg0KESQ/woayZpEdqmq0AKh6oeMW3pivBJAl2X5aW3fq/DX32CsDjP+L5pGsu0MaekYSH7NitrS2Pshg6IcBmAAAAA==",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "woven-leaf-wreath": {
+      "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwBACdASoUABQAPxF8s1QsJ6QjKAqpgCIJQBOmZfg1PuGNE/UruXS+wxu2riK4dUAA/t6Vj2r4GaQZSXnIsyVA+6jIGLpUFXZZrkLV5h614TcdurmJiiMqT+Ir+kRNG+xJIyOh34hZ0eVf00PwAA==",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "leaf-baubles-set": {
+      "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQBACdASoUABQAPxFys1KsJiSisBgIAYAiCWcAxycvwan/sDysieAGbHKe6zAA/tLX0loqed0cYiG46QknLaSJc5ilLlP2R//Yalj5rMESrYI+BWejzfCKoPpstfwvAAA=",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "woven-pen-pot": {
+      "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAAAwBQCdASoUABQAPxF+tlWsJ6SjKAgBgCIJQBUk5fgrjLfqSCvYUI6esWg1a225Ljc54AD+j4Qu3IB0DMYaDlcPwovh8UTC8kuC+CZJcy4jGQTWxw9eUiHj1hN5MTeV1LdmyZaHV8PdBhsMbKY7WZA6k+h8aEGR+XuPtUhryxADfUwOmhggaSkBz/nyVnz3eCy2MCMJdvhj7rzIc4J7T3lwAAA=",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "leaf-photo-frame": {
+      "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAQBQCdASoUABQAPxGAt1WsJ6UjKAgBgCIJQBOmaYgv5l9t3u55Bpi1CqXTdIYr2UQAAP61/jZZBH4nwi1RPbd16ie9RjyehZF1nnU0+mnv/wYmwwOnYSZZ/s+lgLl9k7l2u4gCgVbfp+DbPVBXNA9NCEBy49nYc4PDi/yeJg+HfZvuxmkp/znFQ40W04QDD8gAAA==",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "woven-keyring-duo": {
+      "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAwBQCdASoUABQAPxGAuFWsKCUjKAgBgCIJQBUk7IAosvSMyIe3ZZ14fraXq4AmyauxgAD96z5GdtB3PqBQok9BiWfPdE8xVVjwjO7Fim/SfFGhv/KRBF1NvCUf32een7Ae5GyECafOHqAfzKVvgixVPP3aMoLq5h1p5jm+ACc5EJjkAEue8Wff4109l//B++kQAA==",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "leaf-stamp-printing-set": {
+      "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAACwBACdASoUABQAPxGAt1WsKCUjKAgBgCIJQBbZAkUR8Fd2YUBhZzgA6K4GiaXAANvLBiolqGG5S913zd95FMRZ96xk9nknd8wIf3YcEGOkCx2ViC0ArDHQj/sq3A4xTWJplgPO9Z+39uUUdeblfDqPinTNj4idbXgjiXQkSM5jscfUhmY4LGyVigOZyJaawflijLIE3iSiBkL6lGIib6aZQL1Gh6AA",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "woven-bird-feeder-kit": {
+      "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAAAwBQCdASoUABQAPxF+tlWsJ6SjKAgBgCIJYgCxHuiBt+NRdLSNu02vA29zm4OQ7pT4AAD9KjgppTj6ZofyQCDEwDfdoC/GCd0wCmODCU4DjIeZt0Gi7YJofcOFBRsMYHmXhvzuQ8SzOXR5qGzyfKK8VH01zDUKfyL4nCP3XENsWYYeOebXEeMqdmaauHYjOnHUBF/1K0v8w1oWXIYKCcmb5o4BfXioAAA=",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "kids-leaf-crown-kit": {
+      "lqip": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAAAQBQCdASoUABQAPxGAt1WsJ6UjKAgBgCIJaACsMvaA2AuJgrF9AxjSVKy3jOGMlgfgAOHucyCKqj8UoaSUzCk1t2Q6klTniYMOCR+66eNQ3ithyy3drqkX3CzczXd7roX7x72WHxScSdeS915XyRgn2i+t/FRMqRKXCvunmqgJNPGQCJQ3ZX9aVM/F95Mx0E95B0OG1ZfSvmA9nUB9/vSJBpOMHQKw3UtwwgAA",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "woven-bathroom-set": {
+      "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABwBACdASoUABQAPxF2slGsJySiqA1RgCIJQBOmUAAqHZCBGKVJcPraZwzKgADLRzj+D4lqKWyZ67yLhodM1gfs8XbIhnxC/vEU6fOUy6M3+IHtLHI0tG8d1xJh4YOnifDpCrZPoABygZhe19GL7Xm88QOnh817ojR8xmZwKAUxl5AA",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "woven-desk-set": {
+      "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAADQBACdASoUABQAPxGAt1WsJ6UjKAgBgCIJQBWAtQAMkR2Cty5+4IwfbIKzKQgAAAD+32HJy/ioUITw1VvIA/oO9cCd1f5xzOi4X5X46iZ8g2gp2heLLn/3ieIuKJgZHYRAWzP14cJIryeVp3jrAFw9DoiUuPv6+B2F54ak21UvMQG7z7o6K8RusnGuFwBSSS4LEzuLHrcZt5Go+rgAAA==",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
+    },
+    "woven-garden-trio": {
+      "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAACQBACdASoUABQAPxF+t1WsJ6UjKAgBgCIJQBYj7IAazrfSoZPqmedhCIvtoIAAzZNx9HgKttMOkAOQyBklpck+h9JNf1v8HidG8kDtXtbaIOqHrYEH8Exc3XQnU4wQTDI+4HcohRAiWawYbYIeG64Ws4om0owef8CTzB2zdwFChlTwcO3WVklcb5SiPJLQtuB8eAd7SCDap8Ns/wIMbhJyigNdEAAA",
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        320,
+        480,
+        720,
+        1000
+      ],
+      "src": 1000
     }
   },
   "hero": {
