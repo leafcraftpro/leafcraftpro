@@ -158,11 +158,11 @@ export const authors = [
     name: 'Romen Roy',
     role: 'Founder & Head Maker',
     bio: 'Romen has been weaving with palm and coconut leaves for over fifteen years. He founded LeafCraftPRO to keep traditional leaf craft alive and to teach it in plain, honest language.',
-    location: 'Portland, Oregon',
+    location: 'Kurigram, Rangpur, Bangladesh',
     image: 'romen-roy',
     imageAlt: 'Romen Roy, founder of LeafCraftPRO, seated outdoors with a woven leaf craft',
     social: {
-      instagram: 'https://www.instagram.com/leafcraftpro',
+      facebook: 'https://www.facebook.com/leafcraftpro',
       pinterest: 'https://www.pinterest.com/leafcraftpro',
     },
   },
@@ -171,9 +171,9 @@ export const authors = [
     name: 'Theo Nakamura',
     role: 'Workshop Lead',
     bio: 'Theo runs the LeafCraftPRO workshop, where every tutorial is tested by hand before it is published. He writes about structure, tension and why a basket that looks fine on the bench can still fail in a week.',
-    location: 'Portland, Oregon',
+    location: 'Kurigram, Rangpur, Bangladesh',
     social: {
-      instagram: 'https://www.instagram.com/leafcraftpro',
+      facebook: 'https://www.facebook.com/leafcraftpro',
     },
   },
 ];

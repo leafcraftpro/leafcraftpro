@@ -5,6 +5,11 @@ const collections = locals.collectionNav || [];
 const year = new Date().getFullYear();
 %>
 <footer class="site-footer">
+  <%# Oversized, heavily faded logo behind the footer content. Decorative
+      only, so it is hidden from assistive tech and never announced. %>
+  <span class="footer-watermark" aria-hidden="true">
+    <img src="<%= relUrl('assets/img/logo-light.webp') %>" alt="" width="1000" height="263" loading="lazy" decoding="async">
+  </span>
   <div class="container">
     <div class="footer-grid">
 
@@ -60,22 +65,13 @@ const year = new Date().getFullYear();
           <li><%- icon('mail', '', 16) %><a href="mailto:<%= site.email %>"><%= site.email %></a></li>
           <li><%- icon('whatsapp', '', 16) %><a href="https://wa.me/<%= site.whatsappHref %>" target="_blank" rel="noopener noreferrer">WhatsApp <%= site.whatsapp %></a></li>
           <li><%- icon('phone', '', 16) %><a href="tel:<%= site.phoneHref %>"><%= site.phone %></a></li>
-          <li><%- icon('map-pin', '', 16) %><span><%= site.address.street %>, <%= site.address.city %>, <%= site.address.region %> <%= site.address.postalCode %></span></li>
+          <%# Built from the parts that exist, so an empty street line does not
+              render as a stray leading comma. %>
+          <% const addr = [site.address.street, site.address.city, site.address.region].filter(Boolean).join(', '); %>
+          <li><%- icon('map-pin', '', 16) %><span><%= addr %><%= site.address.postalCode ? ' ' + site.address.postalCode : '' %>, <%= site.address.country %></span></li>
           <li><%- icon('clock', '', 16) %><span>Mon–Fri, 9am–5pm</span></li>
         </ul>
       </div>
-    </div>
-
-    <div class="newsletter-band" style="margin-bottom:38px">
-      <div>
-        <h3>Crafting with nature brings happiness</h3>
-        <p>Join the newsletter for one new guide a week, plus the occasional honest note about what went wrong on the bench.</p>
-      </div>
-      <form data-newsletter data-mailto="<%= site.email %>" novalidate>
-        <label class="sr-only" for="footer-email">Email address</label>
-        <input type="email" id="footer-email" name="email" placeholder="Your email address" required autocomplete="email">
-        <button type="submit" class="btn btn-lime">Subscribe <%- icon('arrow-right', '', 16) %></button>
-      </form>
     </div>
 
     <div class="footer-bottom">

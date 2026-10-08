@@ -460,7 +460,7 @@ export const pages = [
       {
         type: 'paragraph',
         html:
-          '<p>These terms are governed by the laws of the State of Oregon, United States, and any dispute will be subject to the exclusive jurisdiction of the courts of that state.</p>',
+          '<p>These terms are governed by the laws of Bangladesh, and any dispute will be subject to the exclusive jurisdiction of the courts of Bangladesh.</p>',
       },
     ],
   },

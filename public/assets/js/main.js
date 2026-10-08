@@ -113,6 +113,28 @@
         updateProgress();
     }
 
+    /* ---------- Table of contents ---------- */
+    /* Collapsible, and it folds itself away once you pick a heading — the
+       point of the list is to get you somewhere, so leaving it expanded
+       afterwards just pushes the article down the page. */
+    var toc = $('[data-toc]');
+    var tocToggle = $('[data-toc-toggle]');
+    var tocList = $('#toc-list');
+    if (toc && tocToggle && tocList) {
+        var setToc = function (open) {
+            toc.classList.toggle('is-collapsed', !open);
+            tocToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+        tocToggle.addEventListener('click', function () {
+            setToc(toc.classList.contains('is-collapsed'));
+        });
+        // Fold up after following a heading, on the next tick so the jump
+        // itself is not disturbed.
+        tocList.addEventListener('click', function (e) {
+            if (e.target.closest('a[href^="#"]')) setTimeout(function () { setToc(false); }, 120);
+        });
+    }
+
     /* ---------- Table of contents active state ---------- */
     var tocLinks = $$('.toc a[href^="#"]');
     if (tocLinks.length && 'IntersectionObserver' in window) {

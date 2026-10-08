@@ -13,22 +13,38 @@ const author = post.author;
 const initials = author.name.split(' ').map(function (n) { return n[0]; }).join('').slice(0, 2).toUpperCase();
 %>
 
-<section class="page-hero" style="padding-bottom:104px">
-  <div class="page-hero-bg">
+<section class="page-hero page-hero-post" style="padding-bottom:104px">
+  <%# The same photograph sits behind the hero as a heavily darkened, blurred
+      wash and again as the crisp card on the right. The blurred copy is
+      decorative and hidden from assistive tech so the image is not announced
+      twice on the page. %>
+  <div class="page-hero-bg" aria-hidden="true">
     <%- blogImage(post.slug, '', { sizes: '100vw', width: 1280, height: 640, lazy: false,
         fetchpriority: 'high',
         widths: (manifest.blog[post.slug] || {}).widths || null }) %>
   </div>
   <div class="container">
-    <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
-    <% if (post.category) { %>
-      <a class="eyebrow eyebrow-plain" style="color:var(--lime-400)"
-         href="<%= relUrl('topic/' + post.category.slug) %>"><%= post.category.name %></a>
-    <% } %>
-    <h1 style="max-width:920px"><%= post.title %></h1>
-    <% if (post.excerpt) { %>
-      <p style="max-width:760px"><%= truncate(post.excerpt, 220) %></p>
-    <% } %>
+    <div class="post-hero-inner">
+      <div class="post-hero-copy">
+        <%- include('../partials/breadcrumbs.ejs', { trail: trail, onDark: true }) %>
+        <% if (post.category) { %>
+          <a class="eyebrow eyebrow-plain" style="color:var(--lime-400)"
+             href="<%= relUrl('topic/' + post.category.slug) %>"><%= post.category.name %></a>
+        <% } %>
+        <h1><%= post.title %></h1>
+        <% if (post.excerpt) { %>
+          <p><%= truncate(post.excerpt, 220) %></p>
+        <% } %>
+      </div>
+
+      <figure class="post-hero-media">
+        <%- blogImage(post.slug, post.imageAlt || post.title, {
+          sizes: '(max-width: 900px) 92vw, 520px',
+          width: 520, height: 347, lazy: false, fetchpriority: 'high',
+          widths: (manifest.blog[post.slug] || {}).widths || null
+        }) %>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -55,8 +71,6 @@ const initials = author.name.split(' ').map(function (n) { return n[0]; }).join(
             <span class="sr-label">Share</span>
             <a class="share-btn fb" target="_blank" rel="noopener"
                href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURIComponent(shareUrl) %>" aria-label="Share on Facebook"><%- icon('facebook', '', 16) %></a>
-            <a class="share-btn tw" target="_blank" rel="noopener"
-               href="https://twitter.com/intent/tweet?url=<%= encodeURIComponent(shareUrl) %>&text=<%= shareText %>" aria-label="Share on X"><%- icon('twitter', '', 16) %></a>
             <a class="share-btn pin" target="_blank" rel="noopener"
                href="https://pinterest.com/pin/create/button/?url=<%= encodeURIComponent(shareUrl) %>&description=<%= shareText %>" aria-label="Save to Pinterest"><%- icon('pinterest', '', 16) %></a>
             <a class="share-btn wa" target="_blank" rel="noopener"
@@ -69,9 +83,15 @@ const initials = author.name.split(' ').map(function (n) { return n[0]; }).join(
           </div>
 
           <% if (headings.length >= 3) { %>
-          <nav class="toc" aria-label="On this page">
-            <h2><%- icon('list', '', 16) %> On this page</h2>
-            <ol>
+          <nav class="toc" aria-label="On this page" data-toc>
+            <h2>
+              <button type="button" class="toc-toggle" data-toc-toggle
+                      aria-expanded="true" aria-controls="toc-list">
+                <span class="toc-toggle-label"><%- icon('list', '', 16) %> On this page</span>
+                <%- icon('chevron-down', '', 16) %>
+              </button>
+            </h2>
+            <ol id="toc-list">
               <% headings.forEach(function (h) { %>
                 <li><a href="#<%= h.id %>"><%= h.text %></a></li>
               <% }); %>

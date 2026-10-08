@@ -24,10 +24,8 @@ const values = [
 
 const socials = [
   { key: 'facebook',  label: 'Facebook',  note: 'Daily craft ideas' },
-  { key: 'instagram', label: 'Instagram', note: 'Behind the bench' },
-  { key: 'pinterest', label: 'Pinterest', note: 'Save the guides' },
   { key: 'youtube',   label: 'YouTube',   note: 'Watch us weave' },
-  { key: 'twitter',   label: 'X',         note: 'Workshop notes' },
+  { key: 'pinterest', label: 'Pinterest', note: 'Save the guides' },
 ].filter(function (s) { return site.social[s.key]; });
 %>
 
@@ -84,7 +82,7 @@ const socials = [
                 <a class="hc-card" href="<%= relUrl('product/' + p.slug) %>">
                   <span class="hc-media">
                     <%- productImage(p.slug, p.name, {
-                      width: 320, height: 320, sizes: '132px',
+                      width: 480, height: 480, sizes: '168px',
                       lqip: entry.lqip || '', widths: entry.widths || null
                     }) %>
                     <span class="hc-rank" aria-hidden="true"><%= i + 1 %></span>

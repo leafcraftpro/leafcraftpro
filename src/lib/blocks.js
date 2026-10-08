@@ -31,10 +31,13 @@ function renderAuthor(block) {
         author.name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase()
       )}</span>`;
 
+  // The key doubles as the icon name — facebook, youtube and pinterest all
+  // have one. Previously this hardcoded instagram for anything that was not
+  // pinterest, so a facebook link rendered an instagram glyph.
   const socials = Object.entries(author.social || {})
     .map(
       ([k, v]) =>
-        `<a href="${esc(v)}" rel="noopener" target="_blank" aria-label="${esc(author.name)} on ${esc(k)}">${icon(k === 'pinterest' ? 'pinterest' : 'instagram', '', 16)}</a>`
+        `<a href="${esc(v)}" rel="noopener" target="_blank" aria-label="${esc(author.name)} on ${esc(k)}">${icon(k, '', 16)}</a>`
     )
     .join('');
 

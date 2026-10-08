@@ -428,8 +428,8 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 @media (min-width: 1024px) {
     .hero-inner {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 360px;
-        gap: 56px;
+        grid-template-columns: minmax(0, 1fr) 460px;
+        gap: 52px;
         align-items: center;
     }
     .hero-content { max-width: none; }
@@ -447,33 +447,33 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     backdrop-filter: blur(14px) saturate(130%);
     -webkit-backdrop-filter: blur(14px) saturate(130%);
     box-shadow: 0 18px 44px rgba(0, 0, 0, .30);
-    padding: 18px 18px 14px;
+    padding: 22px 22px 18px;
     margin-top: 34px;
 }
 @media (min-width: 1024px) { .hero-carousel { margin-top: 0; } }
 
 .hc-top {
     display: flex; align-items: center; justify-content: space-between;
-    gap: 12px; margin-bottom: 14px;
+    gap: 12px; margin-bottom: 18px;
 }
 .hc-eyebrow {
-    font-size: .64rem; letter-spacing: .2em; text-transform: uppercase;
+    font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
     font-weight: 700; color: var(--lime-400);
 }
-.hc-nav { display: flex; gap: 6px; }
+.hc-nav { display: flex; gap: 8px; }
 .hc-btn {
-    width: 30px; height: 30px; border-radius: 50%;
+    width: 38px; height: 38px; border-radius: 50%;
     display: grid; place-items: center; cursor: pointer;
-    background: rgba(255, 255, 255, .12);
-    border: 1px solid rgba(255, 255, 255, .18);
+    background: rgba(255, 255, 255, .14);
+    border: 1px solid rgba(255, 255, 255, .20);
     color: #fff; transition: background .2s var(--ease);
 }
-.hc-btn:hover { background: rgba(255, 255, 255, .24); }
-.hc-btn svg { width: 17px; height: 17px; }
+.hc-btn:hover { background: rgba(255, 255, 255, .28); }
+.hc-btn svg { width: 19px; height: 19px; }
 
 /* Slides stack on top of each other and only the active one is shown, so the
    panel keeps a stable height and nothing reflows while it advances. */
-.hc-viewport { position: relative; min-height: 104px; }
+.hc-viewport { position: relative; min-height: 168px; }
 .hc-track { list-style: none; margin: 0; padding: 0; }
 .hc-slide {
     position: absolute; inset: 0;
@@ -484,40 +484,56 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 .hc-slide.is-active { position: relative; opacity: 1; visibility: visible; transform: none; }
 
 .hc-card {
-    display: grid; grid-template-columns: 104px 1fr; gap: 14px;
+    display: grid; grid-template-columns: 168px 1fr; gap: 20px;
     align-items: center; text-decoration: none; color: inherit;
 }
 .hc-media {
-    position: relative; display: block; width: 104px; height: 104px;
-    border-radius: 14px; overflow: hidden; background: rgba(255, 255, 255, .10);
+    position: relative; display: block; width: 168px; height: 168px;
+    border-radius: 18px; overflow: hidden; background: rgba(255, 255, 255, .10);
 }
 .hc-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hc-rank {
-    position: absolute; top: 6px; left: 6px;
-    min-width: 22px; height: 22px; padding: 0 6px;
+    position: absolute; top: 9px; left: 9px;
+    min-width: 28px; height: 28px; padding: 0 8px;
     border-radius: 999px; display: grid; place-items: center;
     background: var(--lime-500); color: var(--green-900);
-    font-size: .72rem; font-weight: 800;
+    font-size: .84rem; font-weight: 800;
 }
-.hc-info { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.hc-info { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .hc-name {
-    color: #fff; font-weight: 700; font-size: .95rem; line-height: 1.3;
+    color: #fff; font-weight: 700; font-size: 1.16rem; line-height: 1.3;
     font-family: var(--font-body);
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
     overflow: hidden;
 }
-.hc-rating { display: flex; align-items: center; gap: 6px; color: var(--lime-400); }
-.hc-rating small { color: rgba(255, 255, 255, .6); font-size: .74rem; }
-.hc-price { color: #fff; font-weight: 700; font-size: 1rem; }
-.hc-price del { color: rgba(255, 255, 255, .45); font-weight: 400; font-size: .82rem; margin-left: 4px; }
+.hc-rating { display: flex; align-items: center; gap: 7px; color: var(--lime-400); }
+.hc-rating small { color: rgba(255, 255, 255, .68); font-size: .84rem; }
+.hc-price { color: #fff; font-weight: 700; font-size: 1.24rem; }
+.hc-price del { color: rgba(255, 255, 255, .45); font-weight: 400; font-size: .92rem; margin-left: 6px; }
 
-.hc-dots { display: flex; gap: 5px; justify-content: center; margin-top: 14px; }
+.hc-dots { display: flex; gap: 6px; justify-content: center; margin-top: 18px; }
 .hc-dot {
-    width: 6px; height: 6px; border-radius: 50%; padding: 0; cursor: pointer;
+    width: 7px; height: 7px; border-radius: 50%; padding: 0; cursor: pointer;
     background: rgba(255, 255, 255, .28); border: 0;
     transition: width .25s var(--ease), background .25s var(--ease);
 }
-.hc-dot.is-active { width: 18px; border-radius: 999px; background: var(--lime-400); }
+.hc-dot.is-active { width: 22px; border-radius: 999px; background: var(--lime-400); }
+
+/* Below the two-column breakpoint the panel goes full width, so the card can
+   afford to be wider still and the image can lead. */
+@media (max-width: 1023px) {
+    .hc-card { grid-template-columns: 140px 1fr; gap: 18px; }
+    .hc-media { width: 140px; height: 140px; }
+    .hc-viewport { min-height: 140px; }
+}
+@media (max-width: 460px) {
+    .hc-card { grid-template-columns: 104px 1fr; gap: 14px; }
+    .hc-media { width: 104px; height: 104px; }
+    .hc-viewport { min-height: 108px; }
+    .hc-name { font-size: 1rem; }
+    .hc-price { font-size: 1.08rem; }
+    .hc-btn { width: 34px; height: 34px; }
+}
 
 /* Motion-sensitive visitors get no slide animation and no autoplay — the JS
    checks the same media query before starting the timer. */
@@ -553,6 +569,29 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 .page-hero .container { position: relative; z-index: 2; }
 .page-hero h1 { color: #fff; margin: 6px 0 10px; font-size: clamp(1.9rem, 4vw, 3rem); }
 .page-hero p { color: rgba(255,255,255,.84); max-width: 640px; margin: 0; }
+
+/* ---------- Single post hero: copy left, feature image right ---------- */
+/* The photograph appears twice — once as a blurred, heavily darkened wash
+   behind the whole hero, and again as the crisp card. The wash is what gives
+   the section its colour without competing with the card. */
+.page-hero-post .page-hero-bg img { opacity: .35; filter: blur(3px) saturate(120%); transform: scale(1.06); }
+.page-hero-post .page-hero-bg::after { background: linear-gradient(90deg, rgba(14,42,30,.94) 0%, rgba(14,42,30,.86) 46%, rgba(14,42,30,.62) 100%); }
+
+.post-hero-inner { display: grid; gap: 34px; align-items: center; }
+.post-hero-copy h1 { max-width: 22ch; }
+.post-hero-copy p { max-width: 60ch; }
+
+.post-hero-media {
+    margin: 0; border-radius: var(--radius-lg); overflow: hidden;
+    box-shadow: 0 22px 54px rgba(0, 0, 0, .38);
+    border: 1px solid rgba(255, 255, 255, .16);
+    background: rgba(255, 255, 255, .06);
+}
+.post-hero-media img { width: 100%; height: auto; display: block; aspect-ratio: 3 / 2; object-fit: cover; }
+
+@media (min-width: 900px) {
+    .post-hero-inner { grid-template-columns: minmax(0, 1fr) 520px; gap: 48px; }
+}
 
 /* ---------- 11. Breadcrumbs ---------- */
 .breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: .82rem; }
@@ -731,7 +770,21 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 .newsletter-form input:focus { outline: none; border-color: var(--green-500); }
 
 /* ---------- 19. Footer ---------- */
-.site-footer { background: var(--green-900); color: rgba(255,255,255,.72); padding: 62px 0 0; margin-top: 0; }
+.site-footer {
+    background: var(--green-900); color: rgba(255,255,255,.72);
+    padding: 62px 0 0; margin-top: 0;
+    position: relative; overflow: hidden;
+}
+/* Oversized faded logo sitting behind the footer content. Sits below the
+   content in the stacking order, ignores pointer events, and is clipped by
+   the footer's own overflow so it never causes a scrollbar. */
+.footer-watermark {
+    position: absolute; right: -6%; bottom: -14%;
+    width: min(760px, 82%); pointer-events: none; user-select: none;
+    opacity: .055; z-index: 0;
+}
+.footer-watermark img { width: 100%; height: auto; display: block; }
+.site-footer > .container { position: relative; z-index: 1; }
 .footer-grid {
     display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1.3fr;
     gap: 38px; padding-bottom: 46px;
@@ -833,6 +886,23 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 .widget-cta h4 { color: #fff; font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 8px; }
 .widget-cta p { color: rgba(255,255,255,.82); font-size: .85rem; margin-bottom: 18px; }
 .widget-cta .newsletter-form { flex-direction: column; gap: 9px; }
+/* White text on the sidebar CTA. The lime fill is kept but darkened underneath
+   the label, because white on lime-500 is about 2:1 and fails contrast badly. */
+.widget-cta .btn,
+.widget-cta .btn-lime,
+.widget-cta .btn-block {
+    background: rgba(9, 28, 20, .92);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .28);
+}
+.widget-cta .btn:hover,
+.widget-cta .btn-lime:hover,
+.widget-cta .btn-block:hover {
+    background: rgba(9, 28, 20, 1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, .5);
+}
+.widget-cta .btn svg { stroke: currentColor; }
 .widget-cta .newsletter-form input {
     border-color: transparent; background: rgba(255,255,255,.95); text-align: center;
 }
@@ -1402,6 +1472,12 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 @media (max-width: 980px) {
     .main-nav { display: none; }
     .nav-toggle { display: grid; }
+    /* The nav normally pushes everything right — it carries margin-left:auto.
+       Hiding it on mobile takes that with it, which left the logo and the
+       buttons both jammed against the left edge. Re-apply the push to the
+       actions so the brand sits left and the buttons sit right. */
+    .header-actions { margin-left: auto; }
+    .header-inner { justify-content: space-between; }
     .product-top { grid-template-columns: 1fr; gap: 32px; }
     .product-gallery { position: static; }
     .feature-split { grid-template-columns: 1fr; }
@@ -1748,14 +1824,32 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     background: var(--cream-2); border: 1px solid var(--line);
     border-radius: var(--radius); padding: 24px 28px; margin: 0 0 2.4em;
 }
-.toc h2 {
+.toc h2 { margin: 0; }
+.toc-toggle {
+    width: 100%; cursor: pointer; background: none; border: 0;
     font-family: var(--font-body); font-size: .78rem; font-weight: 700;
     letter-spacing: .14em; text-transform: uppercase; color: var(--green-800);
-    margin: 0 0 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
-    display: flex; align-items: center; gap: 9px;
+    padding: 0 0 12px; border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between; gap: 9px;
 }
-.toc h2 svg { width: 16px; height: 16px; color: var(--green-500); }
-.toc ol { list-style: none; counter-reset: toc; padding: 0; margin: 0; display: grid; gap: 9px; }
+.toc-toggle-label { display: flex; align-items: center; gap: 9px; }
+.toc-toggle svg { width: 16px; height: 16px; color: var(--green-500); flex: none; }
+.toc-toggle > svg { transition: transform .22s var(--ease); }
+.toc.is-collapsed .toc-toggle { padding-bottom: 0; border-bottom-color: transparent; }
+.toc.is-collapsed .toc-toggle > svg { transform: rotate(-90deg); }
+
+/* Collapsing uses a max-height transition so the jump to the heading is not
+   interrupted, and grid-template-rows is avoided for older Safari. */
+.toc ol {
+    list-style: none; counter-reset: toc; padding: 0; margin: 0; display: grid; gap: 9px;
+    overflow: hidden; max-height: 60em;
+    transition: max-height .28s var(--ease), opacity .2s var(--ease), margin .28s var(--ease);
+    margin-top: 14px;
+}
+.toc.is-collapsed ol { max-height: 0; opacity: 0; margin-top: 0; }
+@media (prefers-reduced-motion: reduce) {
+    .toc ol, .toc-toggle > svg { transition: none; }
+}
 .toc li { counter-increment: toc; margin: 0; }
 .toc a {
     display: flex; gap: 11px; align-items: baseline;

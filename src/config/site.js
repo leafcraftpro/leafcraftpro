@@ -43,14 +43,17 @@ export const site = {
   whatsapp: '+880 1767 810522',
   whatsappHref: '8801767810522',
   address: {
-    street: '12 Garden Lane',
-    city: 'Portland',
-    region: 'OR',
-    postalCode: '97201',
-    country: 'United States',
-    countryCode: 'US',
+    // No street line — the workshop address is town level. Kept as an empty
+    // string rather than removed so every consumer can still read the field,
+    // and the footer skips it when building the one-line address.
+    street: '',
+    city: 'Kurigram',
+    region: 'Rangpur',
+    postalCode: '5610',
+    country: 'Bangladesh',
+    countryCode: 'BD',
   },
-  geo: { latitude: 45.5152, longitude: -122.6784 },
+  geo: { latitude: 25.8077, longitude: 89.6295 },
   openingHours: 'Mo-Fr 09:00-17:00',
   priceRange: '$$',
 
@@ -59,10 +62,8 @@ export const site = {
   // and rendered in the header, footer and share rows.
   social: {
     facebook: 'https://www.facebook.com/leafcraftpro',
-    instagram: 'https://www.instagram.com/leafcraftpro',
-    pinterest: 'https://www.pinterest.com/leafcraftpro',
     youtube: 'https://www.youtube.com/@leafcraftpro',
-    twitter: 'https://x.com/leafcraftpro',
+    pinterest: 'https://www.pinterest.com/leafcraftpro',
   },
 
   // ---- Store ----------------------------------------------

@@ -159,7 +159,9 @@ const organisation = () => {
     ],
     address: {
       '@type': 'PostalAddress',
-      streetAddress: site.address.street,
+      // streetAddress is omitted entirely when there is no street line —
+      // an empty string in the markup is worse than the property being absent.
+      ...(site.address.street ? { streetAddress: site.address.street } : {}),
       addressLocality: site.address.city,
       addressRegion: site.address.region,
       postalCode: site.address.postalCode,
