@@ -265,7 +265,7 @@
             // silently dropping it.
             var subject = encodeURIComponent('Newsletter signup');
             var body = encodeURIComponent('Please add this address to the LeafCraftPRO newsletter: ' + input.value);
-            window.location.href = 'mailto:' + (form.dataset.mailto || 'hello@leafcraftpro.site') +
+            window.location.href = 'mailto:' + (form.dataset.mailto || 'leafcraftpro@gmail.com') +
                 '?subject=' + subject + '&body=' + body;
             showToast('Opening your email app to confirm', 'success');
             form.reset();
@@ -299,6 +299,85 @@
     } else {
         $$('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
     }
+
+    /* ---------- Hero product carousel ---------- */
+    /* One slide is visible at a time; the rest are hidden by CSS. With JS off
+       the first slide keeps its `is-active` class from the server render, so
+       the panel still shows a real, clickable product. */
+    $$('[data-carousel]').forEach(function (root) {
+        var slides = $$('[data-carousel-slide]', root);
+        var dots = $$('[data-carousel-dot]', root);
+        var prev = $('[data-carousel-prev]', root);
+        var next = $('[data-carousel-next]', root);
+        if (slides.length < 2) return;
+
+        var index = 0;
+        var timer = null;
+        var DELAY = 5200;
+
+        function show(i) {
+            index = (i + slides.length) % slides.length;
+            slides.forEach(function (s, n) { s.classList.toggle('is-active', n === index); });
+            dots.forEach(function (d, n) {
+                d.classList.toggle('is-active', n === index);
+                if (n === index) { d.setAttribute('aria-current', 'true'); }
+                else { d.removeAttribute('aria-current'); }
+            });
+        }
+
+        function start() {
+            // Autoplay is motion, so it is off for anyone who asked for less.
+            if (reduceMotion || timer) return;
+            timer = setInterval(function () { show(index + 1); }, DELAY);
+        }
+        function stop() {
+            if (timer) { clearInterval(timer); timer = null; }
+        }
+        function go(i) { show(i); stop(); start(); }
+
+        if (prev) prev.addEventListener('click', function () { go(index - 1); });
+        if (next) next.addEventListener('click', function () { go(index + 1); });
+        dots.forEach(function (d, n) {
+            d.addEventListener('click', function () { go(n); });
+        });
+
+        // Pause while the visitor is reading or tabbing through it.
+        root.addEventListener('mouseenter', stop);
+        root.addEventListener('mouseleave', start);
+        root.addEventListener('focusin', stop);
+        root.addEventListener('focusout', start);
+
+        // Left/right arrows when the carousel has focus.
+        root.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowLeft') { e.preventDefault(); go(index - 1); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1); }
+        });
+
+        // Touch: a short horizontal swipe moves one slide.
+        var startX = null;
+        root.addEventListener('touchstart', function (e) {
+            startX = e.changedTouches[0].clientX;
+            stop();
+        }, { passive: true });
+        root.addEventListener('touchend', function (e) {
+            if (startX === null) return;
+            var dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 40) { show(index + (dx < 0 ? 1 : -1)); }
+            startX = null;
+            start();
+        }, { passive: true });
+
+        // Do not run a timer for a carousel nobody can see.
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) start(); else stop();
+                });
+            }, { threshold: 0.2 }).observe(root);
+        } else {
+            start();
+        }
+    });
 
     /* ---------- External links get rel=noopener ---------- */
     $$('a[target="_blank"]').forEach(function (a) {

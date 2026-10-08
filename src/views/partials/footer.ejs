@@ -58,6 +58,7 @@ const year = new Date().getFullYear();
         <h4>Contact</h4>
         <ul class="footer-contact">
           <li><%- icon('mail', '', 16) %><a href="mailto:<%= site.email %>"><%= site.email %></a></li>
+          <li><%- icon('whatsapp', '', 16) %><a href="https://wa.me/<%= site.whatsappHref %>" target="_blank" rel="noopener noreferrer">WhatsApp <%= site.whatsapp %></a></li>
           <li><%- icon('phone', '', 16) %><a href="tel:<%= site.phoneHref %>"><%= site.phone %></a></li>
           <li><%- icon('map-pin', '', 16) %><span><%= site.address.street %>, <%= site.address.city %>, <%= site.address.region %> <%= site.address.postalCode %></span></li>
           <li><%- icon('clock', '', 16) %><span>Mon–Fri, 9am–5pm</span></li>

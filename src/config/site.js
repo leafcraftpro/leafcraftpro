@@ -33,10 +33,15 @@ export const site = {
   brandColor: '#1C5638',
 
   // ---- Contact --------------------------------------------
-  email: 'hello@leafcraftpro.site',
-  supportEmail: 'support@leafcraftpro.site',
-  phone: '+1 (555) 010-2030',
-  phoneHref: '+15550102030',
+  email: 'leafcraftpro@gmail.com',
+  supportEmail: 'leafcraftpro@gmail.com',
+  phone: '+880 1767 810522',
+  phoneHref: '+8801767810522',
+  // Same handset as `phone`. Kept as its own field because the WhatsApp link
+  // needs the digits with no spaces, and because a future change of one
+  // should not silently change the other.
+  whatsapp: '+880 1767 810522',
+  whatsappHref: '8801767810522',
   address: {
     street: '12 Garden Lane',
     city: 'Portland',

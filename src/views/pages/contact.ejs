@@ -4,9 +4,10 @@
  * @param page the contact page object
  */
 const cards = [
-  { icon: 'mail',    title: 'Email us',      value: site.email,        href: 'mailto:' + site.email, note: 'Replies within one working day' },
-  { icon: 'phone',   title: 'Call the bench', value: site.phone,       href: 'tel:' + site.phoneHref, note: 'Mon–Fri, 9am–5pm' },
-  { icon: 'map-pin', title: 'Workshop',      value: site.address.street + ', ' + site.address.city, href: '', note: 'Visits by appointment' },
+  { icon: 'mail',     title: 'Email us',      value: site.email,     href: 'mailto:' + site.email, note: 'Replies within one working day' },
+  { icon: 'whatsapp', title: 'WhatsApp',      value: site.whatsapp,  href: 'https://wa.me/' + site.whatsappHref, note: 'Fastest way to reach us — send a photo of your piece' },
+  { icon: 'phone',    title: 'Call the bench', value: site.phone,    href: 'tel:' + site.phoneHref, note: 'Mon–Fri, 9am–5pm' },
+  { icon: 'map-pin',  title: 'Workshop',      value: site.address.street + ', ' + site.address.city, href: '', note: 'Visits by appointment' },
 ];
 %>
 <section class="page-hero">

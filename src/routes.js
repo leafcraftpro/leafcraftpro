@@ -62,6 +62,24 @@ const productCounts = productCategories.map((c) => ({
 }));
 
 const featuredProducts = products.filter((p) => p.featured);
+
+/**
+ * The ten products shown in the hero carousel.
+ *
+ * Ranked by rating, then by how many reviews back that rating up — a 4.9
+ * from six people is a weaker signal than a 4.9 from forty. Products with
+ * no reviews sort last whatever their rating, since an unrated product has
+ * nothing to justify the score.
+ */
+const topProducts = [...products]
+  .sort((a, b) => {
+    const ar = a.reviewCount ? a.rating : 0;
+    const br = b.reviewCount ? b.rating : 0;
+    if (br !== ar) return br - ar;
+    return (b.reviewCount || 0) - (a.reviewCount || 0);
+  })
+  .slice(0, 10);
+
 const popularPosts = [...posts].sort((a, b) => b.wordCount - a.wordCount).slice(0, 6);
 
 /** Sort a post list. */
@@ -156,6 +174,7 @@ export function buildRoutes() {
       topics: blogCounts,
       collections: productCounts,
       products: featuredProducts,
+      topProducts,
       popular: popularPosts,
     },
     page: {

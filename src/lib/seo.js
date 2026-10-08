@@ -152,6 +152,7 @@ const organisation = () => {
         contactType: 'customer support',
         email: site.email,
         telephone: site.phoneHref,
+        url: `https://wa.me/${site.whatsappHref}`,
         availableLanguage: ['English'],
         areaServed: 'Worldwide',
       },
