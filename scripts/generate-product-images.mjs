@@ -281,6 +281,77 @@ const PRODUCTS = [
       'candle and a bottle, and a cylinder holding three bottles upright, ' +
       'soft sheen finish',
   },
+  // ---- Batch 3: 10 new products --------------------------------
+  {
+    slug: 'woven-leaf-table-centrepiece',
+    subject:
+      'a long shallow woven natural palm leaf table centrepiece, an elongated ' +
+      'boat shaped basket with a rolled rim, holding three small cream candles ' +
+      'and a few sprigs of dried eucalyptus, centred on an ivory table runner',
+  },
+  {
+    slug: 'palm-leaf-outdoor-lantern',
+    subject:
+      'a woven natural palm leaf outdoor lantern with a rounded body, a woven ' +
+      'handle arch and an open slatted top, containing a lit cream pillar ' +
+      'candle, standing on a weathered stone patio step in soft evening light',
+  },
+  {
+    slug: 'woven-leaf-trivet-set',
+    subject:
+      'a set of three flat woven natural palm leaf trivets in round and square ' +
+      'shapes stacked loosely, one with a small woven loop, tight flat weave, ' +
+      'clean minimal styling on cream linen',
+  },
+  {
+    slug: 'woven-hanging-birdhouse',
+    subject:
+      'a small woven natural palm leaf hanging birdhouse with a domed ' +
+      'overhanging roof, a round entrance hole and a braided hanging cord, ' +
+      'suspended against a soft cream plaster wall',
+  },
+  {
+    slug: 'coconut-leaf-hanging-fish-mobile',
+    subject:
+      'a hanging mobile of five folded coconut leaf fish in graduated sizes ' +
+      'suspended on fine natural twine from a woven hoop, soft pale green and ' +
+      'straw tones, against a cream wall',
+  },
+  {
+    slug: 'woven-leaf-gift-bow-set',
+    subject:
+      'a set of six woven natural palm leaf reusable gift bows in a loose pile, ' +
+      'each a flat folded bow with a small woven loop, two attached to a plain ' +
+      'ivory wrapped parcel, on cream linen',
+  },
+  {
+    slug: 'leaf-woven-nativity-set',
+    subject:
+      'a small folded coconut and palm leaf nativity scene with five simple ' +
+      'woven figures in a shallow woven stable, pale green and straw tones, ' +
+      'arranged on cream linen, minimal and tasteful',
+  },
+  {
+    slug: 'woven-leaf-teapot-warmer',
+    subject:
+      'a woven natural palm leaf teapot warmer, a rounded cosy shape with a ' +
+      'rolled rim and a fitted woven lid, sitting over a cream ceramic teapot ' +
+      'on a wooden table, warm straw tones',
+  },
+  {
+    slug: 'kids-leaf-name-tag-kit',
+    subject:
+      'a childrens leaf craft kit laid out flat: a bundle of pre-folded pale ' +
+      'palm leaf strips, a few small finished woven leaf name tags on twine, ' +
+      'and a printed card, on cream linen',
+  },
+  {
+    slug: 'woven-plant-pot-trio-set',
+    subject:
+      'a matched set of three woven natural palm leaf plant pot covers in ' +
+      'graduated sizes, each holding a small green houseplant, arranged in a ' +
+      'row on a pale wood surface, consistent weave and tone',
+  },
 ];
 
 // ---- Auth header -------------------------------------------------
